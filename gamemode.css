@@ -310,6 +310,8 @@ font-size:22px;
 }
 #transition{
 
+#transition{
+
     position:fixed;
     inset:0;
 
@@ -317,15 +319,17 @@ font-size:22px;
     justify-content:center;
     align-items:center;
 
-    background:rgba(0,0,0,.92);
+    background:rgba(0,0,0,.88);
 
     color:#ff2b2b;
 
-    font-size:42px;
+    font-size:20px;
 
-    letter-spacing:8px;
+    font-family:Consolas, monospace;
 
-    text-shadow:0 0 15px red;
+    letter-spacing:2px;
+
+    text-shadow:0 0 8px red;
 
     opacity:0;
 
@@ -333,7 +337,7 @@ font-size:22px;
 
     z-index:9999;
 
-    transition:.35s;
+    transition:.2s;
 
 }
 
