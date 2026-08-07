@@ -5,6 +5,7 @@
 /* Hlavní pozadí */
 
 .wallpaper{
+.wallpaper{
 
     position:fixed;
     inset:0;
@@ -17,11 +18,11 @@
     z-index:-4;
 
     filter:
-    brightness(.65)
-    contrast(1.05)
-    saturate(.95);
+        brightness(.9)
+        contrast(1.05)
+        saturate(.9);
 
-    animation:wallpaperZoom 25s ease-in-out infinite alternate;
+    animation:wallpaperZoom 30s ease-in-out infinite alternate;
 
 }
 
@@ -35,14 +36,9 @@
     position:absolute;
     inset:0;
 
-    background:
-    linear-gradient(
-        rgba(0,0,0,.15),
-        rgba(0,0,0,.45)
-    );
+    background:rgba(0,0,0,.15);
 
 }
-
 
 /* Scanlines */
 
