@@ -19,7 +19,10 @@ body{
 
 
 
-/* BOOT */
+/* ======================
+   BOOT SCREEN
+====================== */
+
 
 #boot-screen{
 
@@ -48,6 +51,7 @@ body{
 }
 
 
+
 #boot-text{
 
     width:90%;
@@ -67,11 +71,15 @@ body{
 
 
 
-/* MAIN */
+/* ======================
+   MAIN INTRO SCREEN
+====================== */
+
 
 #main-screen{
 
     width:100%;
+
     height:100vh;
 
     display:flex;
@@ -83,13 +91,17 @@ body{
 
     background:
 
-    radial-gradient(circle,
+    radial-gradient(
 
-    #250000 0%,
+        circle,
 
-    #090909 55%,
+        #250000 0%,
 
-    #000 100%);
+        #090909 55%,
+
+        #000 100%
+
+    );
 
 }
 
@@ -103,7 +115,10 @@ body{
 
 
 
-/* LOGO */
+/* ======================
+   LOGO
+====================== */
+
 
 .logo-image{
 
@@ -111,9 +126,14 @@ body{
 
     margin-bottom:25px;
 
+
     filter:
 
-    drop-shadow(0 0 20px rgba(255,0,0,.8));
+    drop-shadow(
+
+        0 0 20px rgba(255,0,0,.8)
+
+    );
 
 
     animation:
@@ -125,6 +145,7 @@ body{
 
 
 @keyframes logoPulse{
+
 
     0%,100%{
 
@@ -159,7 +180,11 @@ body{
 
 
 
-/* BUTTON */
+
+/* ======================
+   ENTER BUTTON
+====================== */
+
 
 #enterButton{
 
@@ -187,51 +212,232 @@ body{
 
 #enterButton:hover{
 
+
     background:#ff2b2b;
 
     color:white;
 
+
     box-shadow:
+
     0 0 30px #ff2b2b;
 
 }
 
 
 
-/* TERMINAL */
+/* ======================
+   RESIDENT EVIL STYLE MENU
+====================== */
 
-#operation-screen{
 
-    display:none;
+.menu-page{
+
+    background:#000;
+
+}
+
+
+
+/* pohyblivé glitch pozadí */
+
+
+.glitch-background{
+
+    position:fixed;
+
+    inset:0;
+
+
+    background:
+
+
+    radial-gradient(
+
+        circle at 50% 40%,
+
+        rgba(120,0,0,.25),
+
+        transparent 45%
+
+    ),
+
+
+    linear-gradient(
+
+        90deg,
+
+        transparent,
+
+        rgba(255,0,0,.05),
+
+        transparent
+
+    );
+
+
+    animation:
+
+    backgroundGlitch 5s infinite;
+
+}
+
+
+
+
+@keyframes backgroundGlitch{
+
+
+    0%,100%{
+
+        transform:translate(0);
+
+    }
+
+
+    20%{
+
+        transform:translate(-3px);
+
+    }
+
+
+    21%{
+
+        transform:translate(3px);
+
+    }
+
+
+    50%{
+
+        transform:translate(0);
+
+    }
+
+}
+
+
+
+
+.game-menu{
+
+    position:relative;
+
+    z-index:2;
+
+
+    height:100vh;
+
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+
+    padding-left:15%;
+
+}
+
+
+
+
+.menu-logo{
+
+    width:140px;
+
+    margin-bottom:20px;
+
+
+    filter:
+
+    drop-shadow(
+
+        0 0 20px rgba(255,0,0,.8)
+
+    );
+
+}
+
+
+
+.menu-title{
 
     color:#ff2b2b;
 
-    letter-spacing:3px;
+    font-size:70px;
 
-    font-size:20px;
+    letter-spacing:20px;
 
-    animation:fadeIn 1s ease;
+    margin-bottom:60px;
+
+}
+
+
+
+.game-options{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
 
 }
 
 
 
-@keyframes fadeIn{
 
-    from{
+.game-options a{
 
-        opacity:0;
+    color:#888;
 
-    }
+    text-decoration:none;
 
-    to{
+    font-size:28px;
 
-        opacity:1;
+    letter-spacing:6px;
 
-    }
+    width:max-content;
+
+    transition:.3s;
 
 }
 
+
+
+.game-options a:hover{
+
+    color:white;
+
+    transform:translateX(25px);
+
+
+    text-shadow:
+
+    0 0 15px #ff2b2b;
+
+}
+
+
+
+.game-options a:hover::before{
+
+    content:"> ";
+
+    color:#ff2b2b;
+
+}
+
+
+
+
+
+/* ======================
+   MOBILE
+====================== */
 
 
 @media(max-width:600px){
@@ -244,11 +450,13 @@ body{
     }
 
 
+
     .logo-image{
 
         width:130px;
 
     }
+
 
 
     .logo{
@@ -260,191 +468,30 @@ body{
     }
 
 
-}
-.glitch{
 
-    animation:glitch .15s infinite;
+    .game-menu{
 
-}
-
-
-@keyframes glitch{
-
-    0%{
-
-        transform:translate(0);
+        padding-left:10%;
 
     }
 
 
-    25%{
 
-        transform:translate(-5px,2px);
+    .menu-title{
 
-    }
+        font-size:45px;
 
-
-    50%{
-
-        transform:translate(5px,-2px);
+        letter-spacing:10px;
 
     }
 
 
-    100%{
 
-        transform:translate(0);
+    .game-options a{
+
+        font-size:20px;
 
     }
 
-}
-
-
-
-.terminal-menu{
-
-    margin-top:40px;
-
-    text-align:left;
-
-    display:inline-block;
-
-    color:#ff2b2b;
-
-    font-size:20px;
-
-    line-height:2.2;
-
-    border-left:2px solid #ff2b2b;
-
-    padding-left:25px;
-
-}
-
-.hide-intro{
-
-    opacity:0;
-
-    transform:scale(.9);
-
-    transition:.5s;
-
-}
-#intro-screen{
-
-    transition:.6s ease;
-
-}
-
-
-#intro-screen.hidden{
-
-    opacity:0;
-
-    transform:scale(.8);
-
-    pointer-events:none;
-
-}
-
-
-.command-screen{
-
-    position:absolute;
-
-}
-
-.operation-container{
-
-    color:#ff2b2b;
-
-    text-align:center;
-
-}
-
-
-.operation-container h1{
-
-    font-size:40px;
-
-    letter-spacing:6px;
-
-    margin-bottom:50px;
-
-}
-
-.game-menu{
-
-    height:100vh;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
-}
-
-
-.game-menu h1{
-
-    color:#ff2b2b;
-
-    font-size:80px;
-
-    letter-spacing:20px;
-
-}
-
-
-.game-menu h2{
-
-    color:#888;
-
-    letter-spacing:8px;
-
-    margin-bottom:60px;
-
-}
-
-
-
-.menu-list{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:25px;
-
-}
-
-
-
-.menu-list a{
-
-    color:#aaa;
-
-    text-decoration:none;
-
-    font-size:28px;
-
-    letter-spacing:5px;
-
-    transition:.3s;
-
-}
-
-
-
-.menu-list a:hover{
-
-    color:#ff2b2b;
-
-    transform:translateX(15px);
 
 }
