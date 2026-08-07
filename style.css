@@ -258,3 +258,58 @@ body{
 
 
 }
+.glitch{
+
+    animation:glitch .15s infinite;
+
+}
+
+
+@keyframes glitch{
+
+    0%{
+
+        transform:translate(0);
+
+    }
+
+
+    25%{
+
+        transform:translate(-5px,2px);
+
+    }
+
+
+    50%{
+
+        transform:translate(5px,-2px);
+
+    }
+
+
+    100%{
+
+        transform:translate(0);
+
+    }
+
+}
+
+
+
+.terminal-menu{
+
+    margin-top:30px;
+
+    text-align:left;
+
+    display:inline-block;
+
+    color:#ff2b2b;
+
+    font-size:20px;
+
+    line-height:2;
+
+}
