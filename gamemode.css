@@ -285,6 +285,20 @@ color:#ff2b2b;
 
 @media(max-width:600px){
 
+    .game-menu{
+
+        min-height:100vh;
+
+        height:auto;
+
+        padding:40px 20px 60px;
+
+        justify-content:flex-start;
+
+        overflow-y:auto;
+
+    }
+
 
 .operation-main{
 
@@ -315,7 +329,21 @@ font-size:22px;
 
 }
 
+.mode-description{
 
+    margin-top:40px;
+
+    font-size:13px;
+
+    line-height:1.55;
+
+    letter-spacing:1px;
+
+    max-width:90%;
+
+    padding-bottom:40px;
+
+}
 
 }
 
