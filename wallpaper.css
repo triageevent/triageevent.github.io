@@ -352,3 +352,8 @@
     }
 
 }
+
+.smoke{
+    background:red;
+    opacity:.5;
+}
