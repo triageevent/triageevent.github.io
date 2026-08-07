@@ -163,6 +163,8 @@ body{
 
 #enterButton{
 
+    display:inline-block;
+
     background:transparent;
 
     color:#ff2b2b;
@@ -174,6 +176,8 @@ body{
     font-size:18px;
 
     cursor:pointer;
+
+    text-decoration:none;
 
     transition:.3s;
 
@@ -188,7 +192,6 @@ body{
     color:white;
 
     box-shadow:
-
     0 0 30px #ff2b2b;
 
 }
@@ -348,5 +351,24 @@ body{
 .command-screen{
 
     position:absolute;
+
+}
+
+.operation-container{
+
+    color:#ff2b2b;
+
+    text-align:center;
+
+}
+
+
+.operation-container h1{
+
+    font-size:40px;
+
+    letter-spacing:6px;
+
+    margin-bottom:50px;
 
 }
