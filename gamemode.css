@@ -343,13 +343,15 @@ color:#ff2b2b;
 #transition{
 
     position:fixed;
+
     inset:0;
 
     display:flex;
+
     justify-content:center;
     align-items:center;
 
-    background:rgba(0,0,0,.88);
+    background:rgba(0,0,0,.90);
 
     color:#ff2b2b;
 
