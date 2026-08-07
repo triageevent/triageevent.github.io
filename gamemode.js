@@ -95,8 +95,8 @@ a svědomí dovolí. Kromě dronů...`;
 
         image = "sunrise.png";
 
-        text =
-        "FIRST LIGHT // SURVIVAL PHASE"
+           text =
+`FIRST LIGHT // SURVIVAL PHASE
 
 
 Noc skončila.
@@ -136,7 +136,7 @@ dva mediky:
 Plague Doctor a Condor One.
 
 Bojují po boku týmu
-a zároveň se pokouší oživovat zasažené hráče.
+a zároveň se pokoušejí oživovat zasažené hráče.
 
 Lze je vyřadit bez potvrzení.
 
@@ -183,14 +183,11 @@ Hodnota loot dropu určuje jeho cenu.
 
 POVOLENO:
 
-Vše.;
+Vše.`;
 
         loading = "LOADING SUNRISE PROTOCOL...";
 
     }
-
-
-
     if(mode === "dawn"){
 
         image = "dawn.png";
