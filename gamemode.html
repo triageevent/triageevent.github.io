@@ -33,9 +33,45 @@
 <main class="game-menu">
 
 
-<h1 class="operation-main">
-GAME MODE
-</h1>
+<div class="mode-title">
+
+    <h1>
+        GAME MODE
+    </h1>
+
+
+    <div class="mode-buttons">
+
+        <button onclick="changeMode('night')">
+            NIGHTFALL
+        </button>
+
+        <button onclick="changeMode('sunrise')">
+            SUNRISE
+        </button>
+
+        <button onclick="changeMode('dawn')">
+            DAWN
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<div class="mode-info">
+
+    <h2 id="mode-name">
+        NIGHTFALL
+    </h2>
+
+
+    <p id="mode-text">
+        Select operation phase
+    </p>
+
+</div>
 
 
 </main>
@@ -43,6 +79,8 @@ GAME MODE
 
 <script src="particles.js"></script>
 
+<script src="gamemode.js"></script>
+  
 </body>
 
 </html>
