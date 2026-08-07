@@ -16,7 +16,14 @@ let i = 0;
 
 function typeLine() {
     if (i < lines.length) {
-        bootText.textContent += lines[i] + "\n";
+        bootText.innerHTML =
+    bootText.textContent +
+    lines[i] +
+    "\n<span class='cursor'>█</span>";
+        bootText.innerHTML = bootText.innerHTML.replace(
+    "<span class='cursor'>█</span>",
+    ""
+);
         i++;
 
         setTimeout(typeLine, 500);
