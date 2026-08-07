@@ -277,62 +277,6 @@
 }
 
 
-/* ======================
-   ASH PARTICLES
-====================== */
-
-.ash{
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:4;
-
-    pointer-events:none;
-
-    opacity:.35;
-
-
-    background-image:
-
-    radial-gradient(
-        circle,
-        rgba(255,255,255,.8) 1px,
-        transparent 2px
-    );
-
-
-    background-size:
-
-    90px 90px;
-
-
-    animation:
-
-    ashFall 20s linear infinite;
-
-}
-
-
-
-@keyframes ashFall{
-
-
-    0%{
-
-        background-position:
-        0 -200px;
-
-    }
-
-
-    100%{
-
-        background-position:
-        120px 900px;
-
-    }
 
    /* ======================
    PARTICLE CANVAS
@@ -354,4 +298,4 @@
 
 }
 
-}
+
