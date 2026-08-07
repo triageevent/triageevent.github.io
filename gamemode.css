@@ -323,13 +323,13 @@ font-size:22px;
 
     color:#ff2b2b;
 
-    font-size:20px;
-
     font-family:Consolas, monospace;
+
+    font-size:20px;
 
     letter-spacing:2px;
 
-    text-shadow:0 0 8px red;
+    text-shadow:0 0 10px #ff2b2b;
 
     opacity:0;
 
