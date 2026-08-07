@@ -1,28 +1,48 @@
-<div class="mode-menu">
+<!DOCTYPE html>
+<html lang="cs">
 
-<button onclick="changeMode('night')">
-NIGHTFALL
-</button>
+<head>
 
-<button onclick="changeMode('sunrise')">
-SUNRISE
-</button>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<button onclick="changeMode('dawn')">
-DAWN
-</button>
+<title>TRIAGE - GAME MODE</title>
 
-</div>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="wallpaper.css">
+
+</head>
 
 
-<div class="mode-content">
+<body class="menu-page">
 
-<h1 id="mode-title">
-NIGHTFALL
+
+<div class="wallpaper"></div>
+
+<div class="glitch-background"></div>
+
+<div class="smoke"></div>
+
+<div class="scanlines"></div>
+
+<div class="glitch-layer"></div>
+
+<canvas id="particles"></canvas>
+
+
+<main class="game-menu">
+
+
+<h1 class="operation-main">
+GAME MODE
 </h1>
 
-<p id="mode-text">
-text...
-</p>
 
-</div>
+</main>
+
+
+<script src="particles.js"></script>
+
+</body>
+
+</html>
