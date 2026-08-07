@@ -9,3 +9,54 @@ background-image:url("sunrise.png");
 .dawn .wallpaper{
 background-image:url("dawn.png");
 }
+.mode-options{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+    align-items:flex-start;
+
+}
+
+
+
+.mode-options a{
+
+    color:#777;
+
+    text-decoration:none;
+
+    font-size:32px;
+
+    letter-spacing:6px;
+
+    transition:.3s;
+
+}
+
+
+
+.mode-options a:hover{
+
+    color:white;
+
+    transform:translateX(15px);
+
+    text-shadow:
+
+    0 0 15px #ff2b2b;
+
+}
+
+
+
+.mode-options a:hover::before{
+
+    content:"> ";
+
+    color:#ff2b2b;
+
+}
