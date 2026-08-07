@@ -15,7 +15,7 @@
     background-position:center;
     background-repeat:no-repeat;
 
-    z-index:-4;
+    z-index:0;
 
     filter:
         brightness(.9)
@@ -49,7 +49,7 @@
 
     pointer-events:none;
 
-    z-index:-2;
+    z-index:2;
 
     opacity:.18;
 
@@ -59,7 +59,7 @@
             to bottom,
 
             rgba(255,255,255,.03) 0px,
-            rgba(255,255,255,.03) 1px,
+            rgba(255,255,255,.03) 1x,
 
             transparent 2px,
             transparent 4px
@@ -78,7 +78,7 @@
 
     pointer-events:none;
 
-    z-index:-3;
+    z-index:1;
 
     background:
         radial-gradient(
