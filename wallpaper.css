@@ -1,0 +1,193 @@
+/* ===================================
+   TRIAGE WALLPAPER SYSTEM
+=================================== */
+
+/* Hlavní pozadí */
+
+.wallpaper{
+
+    position:fixed;
+    inset:0;
+
+    background-image:url("triage.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    z-index:-4;
+
+    filter:
+        brightness(.35)
+        contrast(1.15)
+        saturate(.8);
+
+    animation:wallpaperZoom 25s ease-in-out infinite alternate;
+
+}
+
+
+/* Filmový filtr */
+
+.wallpaper::after{
+
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.45),
+            rgba(0,0,0,.75)
+        );
+
+}
+
+
+/* Scanlines */
+
+.scanlines{
+
+    position:fixed;
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:-2;
+
+    opacity:.18;
+
+    background:
+        repeating-linear-gradient(
+
+            to bottom,
+
+            rgba(255,255,255,.03) 0px,
+            rgba(255,255,255,.03) 1px,
+
+            transparent 2px,
+            transparent 4px
+
+        );
+
+}
+
+
+/* Jemný červený opar */
+
+.glitch-background{
+
+    position:fixed;
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:-3;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(120,0,0,.25),
+            transparent 65%
+        );
+
+    animation:redPulse 6s ease-in-out infinite;
+
+}
+
+
+/* Náhodný glitch */
+
+.glitch-layer{
+
+    position:fixed;
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:50;
+
+    opacity:0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,0,0,.12),
+            transparent
+        );
+
+    animation:screenGlitch 9s infinite;
+
+}
+
+
+/* Animace */
+
+@keyframes wallpaperZoom{
+
+    from{
+
+        transform:scale(1);
+
+    }
+
+    to{
+
+        transform:scale(1.06);
+
+    }
+
+}
+
+
+
+@keyframes redPulse{
+
+    0%,100%{
+
+        opacity:.6;
+
+    }
+
+    50%{
+
+        opacity:1;
+
+    }
+
+}
+
+
+
+@keyframes screenGlitch{
+
+    0%,94%,100%{
+
+        opacity:0;
+        transform:translateX(0);
+
+    }
+
+    95%{
+
+        opacity:.7;
+        transform:translateX(-8px);
+
+    }
+
+    96%{
+
+        opacity:.2;
+        transform:translateX(8px);
+
+    }
+
+    97%{
+
+        opacity:.5;
+        transform:translateX(-4px);
+
+    }
+
+}
