@@ -372,3 +372,79 @@ body{
     margin-bottom:50px;
 
 }
+
+.game-menu{
+
+    height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+}
+
+
+.game-menu h1{
+
+    color:#ff2b2b;
+
+    font-size:80px;
+
+    letter-spacing:20px;
+
+}
+
+
+.game-menu h2{
+
+    color:#888;
+
+    letter-spacing:8px;
+
+    margin-bottom:60px;
+
+}
+
+
+
+.menu-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+}
+
+
+
+.menu-list a{
+
+    color:#aaa;
+
+    text-decoration:none;
+
+    font-size:28px;
+
+    letter-spacing:5px;
+
+    transition:.3s;
+
+}
+
+
+
+.menu-list a:hover{
+
+    color:#ff2b2b;
+
+    transform:translateX(15px);
+
+}
