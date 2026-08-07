@@ -336,9 +336,10 @@ font-size:22px;
 
     z-index:9999;
 
-    transition:opacity .5s ease;
+    transition:.2s;
 
 }
+
 
 #transition.active{
 
