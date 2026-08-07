@@ -2,125 +2,189 @@
    TRIAGE WALLPAPER SYSTEM
 =================================== */
 
-/* Hlavní pozadí */
 
-.wallpaper{
+/* HLAVNÍ OBRÁZEK */
+
 .wallpaper{
 
     position:fixed;
+
     inset:0;
 
     background-image:url("triage.png");
+
     background-size:cover;
+
     background-position:center;
+
     background-repeat:no-repeat;
+
 
     z-index:0;
 
+
     filter:
-        brightness(.9)
+        brightness(.8)
         contrast(1.05)
         saturate(.9);
+
 
     animation:wallpaperZoom 30s ease-in-out infinite alternate;
 
 }
 
 
-/* Filmový filtr */
+
+
+/* FILMOVÁ VINĚTA */
 
 .wallpaper::after{
 
     content:"";
 
     position:absolute;
+
     inset:0;
 
-    background:rgba(0,0,0,.15);
-
-}
-
-/* Scanlines */
-
-.scanlines{
-
-    position:fixed;
-    inset:0;
-
-    pointer-events:none;
-
-    z-index:2;
-
-    opacity:.18;
 
     background:
-        repeating-linear-gradient(
 
-            to bottom,
+    radial-gradient(
 
-            rgba(255,255,255,.03) 0px,
-            rgba(255,255,255,.03) 1x,
+        circle,
 
-            transparent 2px,
-            transparent 4px
+        transparent 35%,
 
-        );
+        rgba(0,0,0,.45) 100%
+
+    );
 
 }
 
 
-/* Jemný červený opar */
+
+
+
+/* ČERVENÝ BIOHAZARD ODTÍN */
 
 .glitch-background{
 
     position:fixed;
+
     inset:0;
 
-    pointer-events:none;
 
     z-index:1;
 
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(120,0,0,.25),
-            transparent 65%
-        );
 
-    animation:redPulse 6s ease-in-out infinite;
+    pointer-events:none;
+
+
+    background:
+
+    radial-gradient(
+
+        circle at center,
+
+        rgba(120,0,0,.18),
+
+        transparent 70%
+
+    );
+
+
+    animation:redPulse 8s infinite ease-in-out;
 
 }
 
 
-/* Náhodný glitch */
+
+
+/* CRT SCANLINES */
+
+.scanlines{
+
+    position:fixed;
+
+    inset:0;
+
+
+    z-index:2;
+
+
+    pointer-events:none;
+
+
+    opacity:.12;
+
+
+    background:
+
+    repeating-linear-gradient(
+
+        to bottom,
+
+        rgba(255,255,255,.04) 0px,
+
+        rgba(255,255,255,.04) 1px,
+
+        transparent 2px,
+
+        transparent 5px
+
+    );
+
+}
+
+
+
+
+
+/* GLITCH EFEKT */
 
 .glitch-layer{
 
     position:fixed;
+
     inset:0;
+
+
+    z-index:3;
+
 
     pointer-events:none;
 
-    z-index:50;
 
     opacity:0;
 
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,0,0,.12),
-            transparent
-        );
 
-    animation:screenGlitch 9s infinite;
+    background:
+
+    linear-gradient(
+
+        90deg,
+
+        transparent,
+
+        rgba(255,0,0,.15),
+
+        transparent
+
+    );
+
+
+    animation:screenGlitch 15s infinite;
 
 }
 
 
-/* Animace */
+
+
+
+/* POMALÝ POHYB POZADÍ */
 
 @keyframes wallpaperZoom{
+
 
     from{
 
@@ -128,9 +192,10 @@
 
     }
 
+
     to{
 
-        transform:scale(1.06);
+        transform:scale(1.04);
 
     }
 
@@ -138,13 +203,19 @@
 
 
 
+
+
+/* JEMNÝ ČERVENÝ PULZ */
+
 @keyframes redPulse{
+
 
     0%,100%{
 
-        opacity:.6;
+        opacity:.5;
 
     }
+
 
     50%{
 
@@ -156,33 +227,45 @@
 
 
 
+
+
+/* NÁHODNÝ GLITCH */
+
 @keyframes screenGlitch{
+
 
     0%,94%,100%{
 
         opacity:0;
+
         transform:translateX(0);
 
     }
 
+
     95%{
 
         opacity:.7;
-        transform:translateX(-8px);
+
+        transform:translateX(-6px);
 
     }
+
 
     96%{
 
         opacity:.2;
+
         transform:translateX(8px);
 
     }
 
+
     97%{
 
         opacity:.5;
-        transform:translateX(-4px);
+
+        transform:translateX(-3px);
 
     }
 
