@@ -1,52 +1,52 @@
 const wallpaper = document.getElementById("wallpaper");
 const description = document.getElementById("description");
-
+const transition = document.getElementById("transition");
 
 function changeMode(mode){
 
+    transition.classList.add("active");
+
+    let image = "";
+    let text = "";
+    let loading = "";
 
     if(mode === "nightfall"){
 
-
-        wallpaper.style.backgroundImage =
-        "url('nightfall.png')";
-
-
-        description.innerHTML =
-        "NIGHT OPERATION // DARKNESS ENGAGED";
-
+        image = "nightfall.png";
+        text = "NIGHT OPERATION // DARKNESS ENGAGED";
+        loading = "LOADING NIGHTFALL PROTOCOL...";
 
     }
-
-
 
     if(mode === "sunrise"){
 
-
-        wallpaper.style.backgroundImage =
-        "url('sunrise.png')";
-
-
-        description.innerHTML =
-        "FIRST LIGHT // SURVIVAL PHASE";
-
+        image = "sunrise.png";
+        text = "FIRST LIGHT // SURVIVAL PHASE";
+        loading = "LOADING SUNRISE PROTOCOL...";
 
     }
-
-
 
     if(mode === "dawn"){
 
-
-        wallpaper.style.backgroundImage =
-        "url('dawn.png')";
-
-
-        description.innerHTML =
-        "FINAL HOURS // LAST STAND";
-
+        image = "dawn.png";
+        text = "FINAL HOURS // LAST STAND";
+        loading = "LOADING DAWN PROTOCOL...";
 
     }
 
+    transition.textContent = loading;
+
+    setTimeout(() => {
+
+        wallpaper.style.backgroundImage = `url('${image}')`;
+        description.textContent = text;
+
+    }, 450);
+
+    setTimeout(() => {
+
+        transition.classList.remove("active");
+
+    }, 900);
 
 }
