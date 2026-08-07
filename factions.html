@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TRIAGE - FACTIONS</title>
+
+<link rel="stylesheet" href="factions.css">
+
+</head>
+
+
+<body>
+
+
+<div class="wallpaper" id="wallpaper"></div>
+
+<div class="dark-filter"></div>
+
+<div class="scanlines"></div>
+
+
+<main class="faction-menu">
+
+
+    <div class="faction-title">
+
+        <div class="faction-main">
+            FACTIONS
+        </div>
+
+
+        <div class="faction-subtitle">
+            choose your side
+        </div>
+
+    </div>
+
+
+
+    <nav class="faction-options">
+
+
+        <a href="#" onclick="changeFaction('stars')">
+            STARS
+        </a>
+
+
+        <a href="#" onclick="changeFaction('uss')">
+            USS
+        </a>
+
+
+        <a href="#" onclick="changeFaction('ubcs')">
+            UBCS
+        </a>
+
+
+        <a href="#" onclick="changeFaction('specops')">
+            SPEC OPS
+        </a>
+
+
+    </nav>
+
+
+
+    <div class="faction-description" id="description">
+
+        Choose your faction
+
+    </div>
+
+
+</main>
+
+
+<div id="transition"></div>
+
+
+<script src="factions.js"></script>
+
+
+</body>
+
+</html>
