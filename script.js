@@ -1,3 +1,4 @@
+const bootScreen = document.getElementById("boot-screen");
 const bootText = document.getElementById("boot-text");
 
 const lines = [
@@ -12,28 +13,49 @@ const lines = [
     "SYSTEM ONLINE"
 ];
 
-let i = 0;
+let line = 0;
+let character = 0;
 
-function typeLine() {
-    if (i < lines.length) {
-        bootText.innerHTML =
-    bootText.textContent +
-    lines[i] +
-    "\n<span class='cursor'>█</span>";
-        bootText.innerHTML = bootText.innerHTML.replace(
-    "<span class='cursor'>█</span>",
-    ""
-);
-        i++;
+function typeWriter() {
 
-        setTimeout(typeLine, 500);
-    } else {
+    if (line >= lines.length) {
+
         setTimeout(() => {
-            document.getElementById("boot-screen").style.display = "none";
+            bootScreen.style.opacity = "0";
+
+            setTimeout(() => {
+                bootScreen.style.display = "none";
+            }, 800);
+
         }, 1000);
+
+        return;
     }
+
+    if (character < lines[line].length) {
+
+        bootText.textContent += lines[line][character];
+        character++;
+
+        setTimeout(typeWriter, 35);
+
+    } else {
+
+        bootText.textContent += "\n";
+
+        line++;
+        character = 0;
+
+        setTimeout(typeWriter, 250);
+
+    }
+
 }
 
 window.onload = () => {
-    typeLine();
+
+    bootText.textContent = "";
+
+    typeWriter();
+
 };
