@@ -9,13 +9,12 @@ box-sizing:border-box;
 
 body{
 
-background:#000;
+    background:#000;
+    color:white;
+    font-family:Consolas, monospace;
 
-color:white;
-
-font-family:Consolas, monospace;
-
-overflow:hidden;
+    overflow-x:hidden;
+    overflow-y:auto;
 
 }
 
@@ -288,62 +287,56 @@ color:#ff2b2b;
     .game-menu{
 
         min-height:100vh;
-
         height:auto;
 
-        padding:40px 20px 60px;
+        padding:40px 20px 80px;
 
         justify-content:flex-start;
 
-        overflow-y:auto;
+        overflow:visible;
 
     }
 
+    .operation-main{
 
-.operation-main{
+        font-size:45px;
+        letter-spacing:5px;
 
-font-size:45px;
+    }
 
-letter-spacing:5px;
+    .operation-subtitle{
 
-}
+        font-size:18px;
 
+    }
 
-.operation-subtitle{
+    .mode-options{
 
-font-size:18px;
+        margin-top:50px;
 
-}
+    }
 
+    .mode-options a{
 
-.mode-options{
+        font-size:22px;
 
-margin-top:50px;
+    }
 
-}
+    .mode-description{
 
+        margin-top:40px;
 
-.mode-options a{
+        font-size:13px;
 
-font-size:22px;
+        line-height:1.55;
 
-}
+        letter-spacing:1px;
 
-.mode-description{
+        max-width:90%;
 
-    margin-top:40px;
+        padding-bottom:40px;
 
-    font-size:13px;
-
-    line-height:1.55;
-
-    letter-spacing:1px;
-
-    max-width:90%;
-
-    padding-bottom:40px;
-
-}
+    }
 
 }
 
