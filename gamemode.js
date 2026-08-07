@@ -45,7 +45,6 @@ function changeMode(mode){
 
         text =
 `NIGHT OPERATION // DARKNESS ENGAGED
-NIGHT OPERATION // DARKNESS ENGAGED
 
 
 Když padne tma...
