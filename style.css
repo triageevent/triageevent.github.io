@@ -400,15 +400,42 @@ body{
 
     color:#ff2b2b;
 
-    font-size:90px;
+    font-size:120px;
 
     font-weight:bold;
 
-    letter-spacing:18px;
+    letter-spacing:25px;
 
     text-shadow:
 
-    0 0 20px rgba(255,0,0,.7);
+    0 0 20px rgba(255,0,0,.8),
+
+    0 0 50px rgba(255,0,0,.4);
+
+
+    animation:
+
+    triageFloat 4s infinite ease-in-out;
+
+}
+
+
+
+@keyframes triageFloat{
+
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+
+    50%{
+
+        transform:translateY(-12px);
+
+    }
 
 }
 
@@ -416,16 +443,31 @@ body{
 
 .operation-subtitle{
 
-    margin-top:10px;
 
-    color:#aaa;
+    margin-top:15px;
 
-    font-family:"Brush Script MT", cursive;
 
-    font-size:32px;
+    color:#ddd;
 
-    letter-spacing:2px;
 
-    max-width:500px;
+    font-family:
+
+    "Brush Script MT",
+
+    "Segoe Script",
+
+    cursive;
+
+
+    font-size:38px;
+
+
+    letter-spacing:3px;
+
+
+    text-shadow:
+
+    0 0 10px #000;
+
 
 }
