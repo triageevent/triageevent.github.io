@@ -24,9 +24,9 @@
 
 
     filter:
-        brightness(.8)
-        contrast(1.05)
-        saturate(.9);
+    brightness(.85)
+    contrast(1.1)
+    saturate(.95);
 
 
     animation:wallpaperZoom 30s ease-in-out infinite alternate;
