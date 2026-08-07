@@ -8,11 +8,8 @@
 body{
 
     background:#000;
-
     color:white;
-
     font-family:Consolas, monospace;
-
     overflow:hidden;
 
 }
@@ -20,24 +17,20 @@ body{
 
 
 /* ======================
-   BOOT
+BOOT SCREEN
 ====================== */
 
 
 #boot-screen{
 
     position:fixed;
-
     inset:0;
 
     background:#000;
-
     color:#ff2b2b;
 
     display:flex;
-
     justify-content:center;
-
     align-items:center;
 
     z-index:9999;
@@ -51,15 +44,12 @@ body{
 #boot-text{
 
     width:90%;
-
     max-width:900px;
 
     font-size:16px;
-
     line-height:1.6;
 
     white-space:pre-wrap;
-
     word-break:break-word;
 
 }
@@ -67,39 +57,29 @@ body{
 
 
 /* ======================
-   INTRO
+INTRO
 ====================== */
 
 
 #main-screen{
 
     width:100%;
-
     height:100vh;
 
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
 
     background:
 
     radial-gradient(
-
         circle,
-
         #250000 0%,
-
         #090909 55%,
-
         #000 100%
-
     );
 
 }
-
 
 
 .screen{
@@ -110,30 +90,24 @@ body{
 
 
 
+/* LOGO */
+
 .logo-image{
 
     width:180px;
 
     margin-bottom:25px;
 
-
     filter:
+    drop-shadow(0 0 20px rgba(255,0,0,.8));
 
-    drop-shadow(
-
-        0 0 20px rgba(255,0,0,.8)
-
-    );
-
-
-    animation:logoPulse 3s infinite;
+    animation:logoPulse 3s infinite ease-in-out;
 
 }
 
 
 
 @keyframes logoPulse{
-
 
     50%{
 
@@ -151,6 +125,8 @@ body{
 
     font-size:80px;
 
+    font-weight:bold;
+
     letter-spacing:15px;
 
     margin-bottom:50px;
@@ -159,9 +135,7 @@ body{
 
 
 
-/* ======================
-   ENTER BUTTON
-====================== */
+/* BUTTON */
 
 
 #enterButton{
@@ -176,7 +150,7 @@ body{
 
     text-decoration:none;
 
-    background:none;
+    background:transparent;
 
     transition:.3s;
 
@@ -197,7 +171,7 @@ body{
 
 
 /* ======================
-   GAME MENU
+OPERATION MENU
 ====================== */
 
 
@@ -207,9 +181,6 @@ body{
 
 }
 
-
-
-/* glitch vrstva */
 
 
 .glitch-background{
@@ -222,13 +193,9 @@ body{
     background:
 
     radial-gradient(
-
-        circle at 50% 50%,
-
-        rgba(120,0,0,.25),
-
-        transparent 50%
-
+        circle at center,
+        rgba(120,0,0,.3),
+        transparent 55%
     );
 
 
@@ -240,7 +207,6 @@ body{
 
 @keyframes bgGlitch{
 
-
     0%,100%{
 
         opacity:1;
@@ -250,12 +216,13 @@ body{
 
     50%{
 
-        opacity:.8;
+        opacity:.75;
 
     }
 
-
 }
+
+
 
 
 
@@ -275,175 +242,22 @@ body{
     justify-content:center;
 
 
-    margin-left:18%;
+    margin-left:15%;
+
+    padding-right:20px;
 
 }
 
 
 
 
-.game-options{
 
-    display:flex;
-
-    flex-direction:column;
-
-    gap:22px;
-
-}
-
-
-
-
-.game-options a{
-
-    color:#777;
-
-    text-decoration:none;
-
-    font-size:32px;
-
-    letter-spacing:5px;
-
-    width:max-content;
-
-    transition:.25s;
-
-}
-
-
-
-
-.game-options a:nth-child(2){
-
-    margin-left:35px;
-
-}
-
-
-.game-options a:nth-child(3){
-
-    margin-left:10px;
-
-}
-
-
-.game-options a:nth-child(4){
-
-    margin-left:45px;
-
-}
-
-
-.game-options a:nth-child(5){
-
-    margin-left:20px;
-
-}
-
-
-
-.game-options a:hover{
-
-    color:#fff;
-
-    transform:translateX(15px);
-
-    text-shadow:
-
-    0 0 15px #ff2b2b;
-
-}
-
-
-
-.game-options a:hover::before{
-
-    content:"> ";
-
-    color:#ff2b2b;
-
-}
-
-
-
-/* mobil */
-
-
-@media(max-width:600px){
-
-
-.game-menu{
-
-    margin-left:0;
-
-    padding:0 25px;
-
-    align-items:flex-start;
-
-}
-
+/* TITLE */
 
 
 .operation-title{
 
-    width:100%;
-
-    margin-bottom:45px;
-
-}
-
-
-
-.operation-main{
-
-    font-size:48px;
-
-    letter-spacing:6px;
-
-    white-space:nowrap;
-
-}
-
-
-
-.operation-subtitle{
-
-    font-size:18px;
-
-    line-height:1.3;
-
-    max-width:260px;
-
-}
-
-
-
-.game-options{
-
-    gap:18px;
-
-}
-
-
-
-.game-options a{
-
-    font-size:20px;
-
-    letter-spacing:2px;
-
-}
-
-
-
-}
-
-
-}
-.operation-title{
-
-    margin-bottom:70px;
+    margin-bottom:60px;
 
 }
 
@@ -453,11 +267,17 @@ body{
 
     color:#ff2b2b;
 
-    font-size:120px;
+
+    font-size:110px;
 
     font-weight:bold;
 
-    letter-spacing:25px;
+
+    letter-spacing:15px;
+
+
+    white-space:nowrap;
+
 
     text-shadow:
 
@@ -494,33 +314,209 @@ body{
 
 
 
+
+
 .operation-subtitle{
-
-
-    margin-top:15px;
 
 
     color:#ddd;
 
 
+    margin-top:10px;
+
+
     font-family:
 
     "Brush Script MT",
-
     "Segoe Script",
-
     cursive;
 
 
-    font-size:38px;
+    font-size:34px;
 
 
-    letter-spacing:3px;
+    letter-spacing:2px;
 
+
+    max-width:600px;
+
+
+}
+
+
+
+
+
+
+/* MENU */
+
+
+.game-options{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:22px;
+
+}
+
+
+
+.game-options a{
+
+
+    color:#777;
+
+    text-decoration:none;
+
+
+    font-size:30px;
+
+
+    letter-spacing:5px;
+
+
+    width:max-content;
+
+
+    transition:.25s;
+
+
+}
+
+
+
+.game-options a:nth-child(2){
+
+    margin-left:35px;
+
+}
+
+
+.game-options a:nth-child(3){
+
+    margin-left:10px;
+
+}
+
+
+.game-options a:nth-child(4){
+
+    margin-left:45px;
+
+}
+
+
+.game-options a:nth-child(5){
+
+    margin-left:20px;
+
+}
+
+
+
+.game-options a:hover{
+
+    color:white;
+
+    transform:translateX(15px);
 
     text-shadow:
 
-    0 0 10px #000;
+    0 0 15px #ff2b2b;
+
+}
+
+
+
+.game-options a:hover::before{
+
+    content:"> ";
+
+    color:#ff2b2b;
+
+}
+
+
+
+
+
+/* ======================
+MOBILE
+====================== */
+
+
+@media(max-width:600px){
+
+
+.game-menu{
+
+    margin-left:0;
+
+    padding:0 25px;
+
+    align-items:flex-start;
+
+}
+
+
+
+.operation-title{
+
+    margin-bottom:45px;
+
+}
+
+
+
+.operation-main{
+
+    font-size:42px;
+
+    letter-spacing:5px;
+
+    white-space:normal;
+
+}
+
+
+
+.operation-subtitle{
+
+    font-size:18px;
+
+    max-width:260px;
+
+    line-height:1.4;
+
+}
+
+
+
+.game-options{
+
+    gap:18px;
+
+}
+
+
+
+.game-options a{
+
+    font-size:21px;
+
+    letter-spacing:2px;
+
+}
+
+
+
+.game-options a:nth-child(n){
+
+    margin-left:0;
+
+}
 
 
 }
