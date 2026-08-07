@@ -82,7 +82,7 @@ Padlí hráči se vracejí zpět do hry.
 A CO JE POVOLENO?
 
 Vše, co ti tvá frakce
-a svědomí dovolí.`;
+a svědomí dovolí. Kromě dronů...`;
 
 
         loading = "LOADING NIGHTFALL PROTOCOL...";
@@ -96,7 +96,94 @@ a svědomí dovolí.`;
         image = "sunrise.png";
 
         text =
-        "FIRST LIGHT // SURVIVAL PHASE";
+        "FIRST LIGHT // SURVIVAL PHASE"
+
+
+Noc skončila.
+
+Čtyři týmy zůstávají v zóně.
+K nim se přidávají ti, kteří dorazili až s prvními paprsky.
+
+Slunce přináší světlo.
+Ne bezpečí.
+
+
+VELITELÉ:
+
+Každý tým dostane svého velitele.
+
+Velitel bojuje po boku svého týmu
+a jako jediný může obsadit budovu.
+
+Obsazení probíhá pomocí dýmovnice.
+
+
+TŘI KLÍČOVÉ BODY:
+
+POLICEJNÍ STANICE
+
+Obsazením získává tým na 20 minut
+podporu Nemesise a A. Weskera.
+
+Nelze je vyřadit.
+Zásah do zvonečku je pouze na 20 sekund odstaví.
+
+
+NEMOCNICE
+
+Obsazením získává tým na 60 minut
+dva mediky:
+Plague Doctor a Condor One.
+
+Bojují po boku týmu
+a zároveň se pokouší oživovat zasažené hráče.
+
+Lze je vyřadit bez potvrzení.
+
+
+KOMUNIKAČNÍ VĚŽ
+
+Bez časového omezení.
+
+Dokud ji neobsadí někdo jiný,
+zůstává pod kontrolou týmu.
+
+Právě zde se nachází vysílačka,
+na kterou budou přicházet informace
+o lokaci dalšího loot dropu.
+
+
+RESPAWN:
+
+Každých 30 minut.
+
+
+NÁRAMKY:
+
+Při nasazení do boje má hráč náramek.
+Náramek znamená, že je živý.
+
+Po zásahu zůstává na místě.
+
+Spoluhráč i protihráč mu může náramek odebrat.
+
+Teprve jeho odebráním je hráč poslán na respawn.
+
+
+LOOT DROP:
+
+V zóně se budou objevovat zásobovací balíčky
+obsahující věci od partnerů a sponzorů akce.
+
+Obsah lze získat plněním úkolů
+nebo výměnou za pásky.
+
+Hodnota loot dropu určuje jeho cenu.
+
+
+POVOLENO:
+
+Vše.;
 
         loading = "LOADING SUNRISE PROTOCOL...";
 
