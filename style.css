@@ -178,7 +178,7 @@ OPERATION MENU
 
     position:relative;
 
-    z-index:6;
+    z-index:999;
 
     width:100%;
 
