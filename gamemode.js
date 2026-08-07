@@ -1,57 +1,52 @@
+const wallpaper = document.getElementById("wallpaper");
+const description = document.getElementById("description");
+
+
 function changeMode(mode){
 
 
-const body=document.body;
-
-const title=document.getElementById("mode-name");
-
-const text=document.getElementById("mode-text");
+    if(mode === "nightfall"){
 
 
-
-if(mode==="night"){
-
-
-body.className="menu-page night";
+        wallpaper.style.backgroundImage =
+        "url('nightfall.png')";
 
 
-title.innerHTML="NIGHTFALL";
+        description.innerHTML =
+        "NIGHT OPERATION // DARKNESS ENGAGED";
 
-text.innerHTML="Night operation phase";
 
-
-}
+    }
 
 
 
-if(mode==="sunrise"){
+    if(mode === "sunrise"){
 
 
-body.className="menu-page sunrise";
+        wallpaper.style.backgroundImage =
+        "url('sunrise.png')";
 
 
-title.innerHTML="SUNRISE";
-
-text.innerHTML="Day operation phase";
-
-
-}
+        description.innerHTML =
+        "FIRST LIGHT // SURVIVAL PHASE";
 
 
-
-if(mode==="dawn"){
-
-
-body.className="menu-page dawn";
+    }
 
 
-title.innerHTML="DAWN";
 
-text.innerHTML="Final operation phase";
+    if(mode === "dawn"){
 
 
-}
+        wallpaper.style.backgroundImage =
+        "url('dawn.png')";
 
+
+        description.innerHTML =
+        "FINAL HOURS // LAST STAND";
+
+
+    }
 
 
 }
