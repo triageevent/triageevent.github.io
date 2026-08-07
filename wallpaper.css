@@ -268,12 +268,15 @@
 
     97%{
 
-        opacity:.5;
+    opacity:.5;
 
-        transform:translateX(-3px);
+    transform:translateX(-3px);
 
-    }
-   
+}
+
+}
+
+
 /* ======================
    ASH PARTICLES
 ====================== */
@@ -288,26 +291,26 @@
 
     pointer-events:none;
 
-
-    opacity:.55;
+    opacity:.35;
 
 
     background-image:
 
     radial-gradient(
         circle,
-        rgba(255,255,255,.9) 0px,
-        rgba(255,255,255,.9) 1px,
+        rgba(255,255,255,.8) 1px,
         transparent 2px
     );
 
 
     background-size:
 
-    70px 70px;
+    90px 90px;
 
 
-    animation:ashFall 18s linear infinite;
+    animation:
+
+    ashFall 20s linear infinite;
 
 }
 
