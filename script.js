@@ -63,3 +63,29 @@ window.onload = () => {
     typeWriter();
 
 };
+#operation-screen {
+
+    display:none;
+
+    margin-top:40px;
+
+    color:#ff2b2b;
+
+    letter-spacing:3px;
+
+    animation:fadeIn 1s ease;
+
+}
+
+
+@keyframes fadeIn {
+
+    from {
+        opacity:0;
+    }
+
+    to {
+        opacity:1;
+    }
+
+}
