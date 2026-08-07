@@ -63,29 +63,14 @@ window.onload = () => {
     typeWriter();
 
 };
-#operation-screen {
-
-    display:none;
-
-    margin-top:40px;
-
-    color:#ff2b2b;
-
-    letter-spacing:3px;
-
-    animation:fadeIn 1s ease;
-
-}
+#const enterButton = document.getElementById("enterButton");
+const operationScreen = document.getElementById("operation-screen");
 
 
-@keyframes fadeIn {
+enterButton.addEventListener("click", () => {
 
-    from {
-        opacity:0;
-    }
+    enterButton.style.display = "none";
 
-    to {
-        opacity:1;
-    }
+    operationScreen.style.display = "block";
 
-}
+});
