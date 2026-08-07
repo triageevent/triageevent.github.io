@@ -204,12 +204,97 @@ Vše.`;
 
     if(mode === "dawn"){
 
-        image = "dawn.png";
+    image = "dawn.png";
 
-        text =
-`FINAL HOURS // LAST STAND`;
+    text =
+`FINAL HOURS // LAST STAND
 
-        loading = "LOADING DAWN PROTOCOL...";
+
+Siréna zazní.
+
+A s ní končí válka frakcí.
+
+
+KONEC FRakcí:
+
+Frakce přestávají existovat.
+Velitelé přestávají být veliteli.
+
+Od této chvíle neexistují spojenci ani nepřátelé.
+Jen lidé, kteří chtějí přežít.
+
+Hráči mohou vytvářet vlastní aliance,
+spolupracovat nebo zradit.
+
+
+ZÓNA:
+
+Po zaznění sirény se herní zóna
+začne postupně zmenšovat.
+
+Čím méně prostoru zbývá,
+tím méně možností zůstává.
+
+
+LABORATORY ZONE:
+
+Zasažený hráč odchází do Laboratory Zone.
+
+Odtud vedou zpět do hry dvě cesty.
+
+
+PRVNÍ CESTA:
+
+Vybojovat si návrat v souboji 2 VS 2
+na pistole.
+
+Pistole budou k dispozici
+i hráčům, kteří nemají vlastní.
+
+
+DRUHÁ CESTA:
+
+Zaplatit 2 pásky získané
+v předchozích herních módech.
+
+A vrátit se zpět do zóny.
+
+
+RESPAWN:
+
+Počet návratů do hry není omezen.
+
+Ani počet pokusů v souboji 2 VS 2.
+
+
+POSLEDNÍ HODINY:
+
+Mezi návraty do hry bude možné využít
+další aktivity připravené partnery
+a hosty akce.
+
+
+KONEC:
+
+Jakmile se zóna zmenší na minimum,
+návrat do hry už není možný.
+
+Od tohoto okamžiku se počítají
+poslední přeživší.
+
+
+OCENĚNÍ:
+
+1. POSLEDNÍ PŘEŽIVŠÍ
+2. POSLEDNÍ PŘEŽIVŠÍ
+3. POSLEDNÍ PŘEŽIVŠÍ
+
+
+POVOLENO:
+
+Vše.`;
+
+    loading = "LOADING DAWN PROTOCOL...";
 
     }
 
