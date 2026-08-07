@@ -2,6 +2,30 @@ const wallpaper = document.getElementById("wallpaper");
 const description = document.getElementById("description");
 const transition = document.getElementById("transition");
 
+function typeText(text, callback){
+
+    transition.textContent = "";
+
+    let i = 0;
+
+    const typing = setInterval(() => {
+
+        transition.textContent += text.charAt(i);
+
+        i++;
+
+        if(i >= text.length){
+
+            clearInterval(typing);
+
+            setTimeout(callback,300);
+
+        }
+
+    },35);
+
+}
+
 function changeMode(mode){
 
     transition.classList.add("active");
@@ -10,43 +34,42 @@ function changeMode(mode){
     let text = "";
     let loading = "";
 
-    if(mode === "nightfall"){
+    if(mode==="nightfall"){
 
-        image = "nightfall.png";
-        text = "NIGHT OPERATION // DARKNESS ENGAGED";
-        loading = "LOADING NIGHTFALL PROTOCOL...";
-
-    }
-
-    if(mode === "sunrise"){
-
-        image = "sunrise.png";
-        text = "FIRST LIGHT // SURVIVAL PHASE";
-        loading = "LOADING SUNRISE PROTOCOL...";
+        image="nightfall.png";
+        text="NIGHT OPERATION // DARKNESS ENGAGED";
+        loading="LOADING NIGHTFALL PROTOCOL...";
 
     }
 
-    if(mode === "dawn"){
+    if(mode==="sunrise"){
 
-        image = "dawn.png";
-        text = "FINAL HOURS // LAST STAND";
-        loading = "LOADING DAWN PROTOCOL...";
+        image="sunrise.png";
+        text="FIRST LIGHT // SURVIVAL PHASE";
+        loading="LOADING SUNRISE PROTOCOL...";
 
     }
 
-    transition.textContent = loading;
+    if(mode==="dawn"){
 
-    setTimeout(() => {
+        image="dawn.png";
+        text="FINAL HOURS // LAST STAND";
+        loading="LOADING DAWN PROTOCOL...";
 
-        wallpaper.style.backgroundImage = `url('${image}')`;
-        description.textContent = text;
+    }
 
-    }, 450);
+    typeText(loading,()=>{
 
-    setTimeout(() => {
+        wallpaper.style.backgroundImage=`url('${image}')`;
 
-        transition.classList.remove("active");
+        description.textContent=text;
 
-    }, 900);
+        setTimeout(()=>{
+
+            transition.classList.remove("active");
+
+        },350);
+
+    });
 
 }
