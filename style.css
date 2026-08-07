@@ -366,7 +366,7 @@ MENU
 
     gap:22px;
 
-    align-items:flex-start;
+    align-items:center;
 
 }
 
@@ -387,7 +387,7 @@ MENU
     letter-spacing:5px;
 
 
-    width:max-content;
+    width:auto;
 
 
     transition:.25s;
