@@ -215,7 +215,7 @@ Siréna zazní.
 A s ní končí válka frakcí.
 
 
-KONEC FRakcí:
+KONEC FRAKCÍ:
 
 Frakce přestávají existovat.
 Velitelé přestávají být veliteli.
