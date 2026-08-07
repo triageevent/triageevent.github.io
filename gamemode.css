@@ -1,1 +1,13 @@
+body.night .wallpaper{
+background-image:url("nightfall.png");
+}
 
+
+body.sunrise .wallpaper{
+background-image:url("sunrise.png");
+}
+
+
+body.dawn .wallpaper{
+background-image:url("dawn.png");
+}
