@@ -36,11 +36,29 @@ function changeMode(mode){
 
     if(mode==="nightfall"){
 
-        image="nightfall.png";
-        text="NIGHT OPERATION // DARKNESS ENGAGED";
-        loading="LOADING NIGHTFALL PROTOCOL...";
+    image="nightfall.png";
 
-    }
+    text=
+`NIGHT OPERATION // DARKNESS ENGAGED
+
+
+Když padne tma...
+4 týmy vstupují do zóny, kde každé rozhodnutí může znamenat rozdíl mezi přežitím a koncem operace.
+
+
+HLAVNÍ ÚKOL:
+Obsadit budovy na konci noci.
+
+
+ODMĚNA:
+Za každou obsazenou budovu získává tým 10 náramků.
+Tyto náramky lze využít v následujících herních módech.
+
+
+POVOLENO:
+Vše, co ti tvá frakce a svědomí dovolí.`;
+
+}
 
     if(mode==="sunrise"){
 
