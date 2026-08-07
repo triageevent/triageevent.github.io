@@ -256,14 +256,24 @@ color:#ff2b2b;
 
 .mode-description{
 
+    margin-top:50px;
 
-margin-top:60px;
+    color:#ccc;
 
-color:#aaa;
+    font-size:18px;
 
-font-size:20px;
+    line-height:1.7;
 
-letter-spacing:3px;
+    letter-spacing:2px;
+
+    white-space:pre-line;
+
+    max-width:800px;
+
+    text-align:center;
+
+    text-shadow:
+    0 0 10px rgba(255,0,0,.3);
 
 }
 
