@@ -29,8 +29,7 @@
     saturate(.95);
 
 
-    animation:wallpaperZoom 30s ease-in-out infinite alternate;
-
+    animation:wallpaperMove 35s ease-in-out infinite alternate;
 }
 
 
@@ -183,19 +182,25 @@
 
 /* POMALÝ POHYB POZADÍ */
 
-@keyframes wallpaperZoom{
+@keyframes wallpaperMove{
 
+    0%{
 
-    from{
-
-        transform:scale(1);
+        transform:scale(1) translate(0,0);
 
     }
 
 
-    to{
+    50%{
 
-        transform:scale(1.04);
+        transform:scale(1.03) translate(-1%, -0.5%);
+
+    }
+
+
+    100%{
+
+        transform:scale(1.05) translate(1%, 0.5%);
 
     }
 
