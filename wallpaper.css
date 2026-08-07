@@ -273,10 +273,10 @@
         transform:translateX(-3px);
 
     }
-   /* ======================
+   
+/* ======================
    ASH PARTICLES
 ====================== */
-
 
 .ash{
 
@@ -288,50 +288,47 @@
 
     pointer-events:none;
 
-    opacity:.35;
+
+    opacity:.55;
 
 
     background-image:
 
     radial-gradient(
         circle,
-        rgba(255,255,255,.8) 1px,
+        rgba(255,255,255,.9) 0px,
+        rgba(255,255,255,.9) 1px,
         transparent 2px
     );
 
 
     background-size:
-    120px 120px;
+
+    70px 70px;
 
 
-    animation:ashMove 25s linear infinite;
+    animation:ashFall 18s linear infinite;
 
 }
 
 
 
-@keyframes ashMove{
+@keyframes ashFall{
 
 
-    from{
+    0%{
 
         background-position:
-        0 0;
-
-        transform:translateY(0);
+        0 -200px;
 
     }
 
 
-    to{
+    100%{
 
         background-position:
-        -80px 500px;
-
-        transform:translateY(-30px);
+        120px 900px;
 
     }
-
-}
 
 }
