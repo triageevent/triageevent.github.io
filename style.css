@@ -228,20 +228,15 @@ OPERATION MENU
 
     z-index:2;
 
-
     height:100vh;
-
 
     display:flex;
 
     flex-direction:column;
 
-
     justify-content:center;
 
-
-    margin-left:15%;
-
+    align-items:center;
 
 }
 
@@ -268,7 +263,7 @@ TITLE
     color:#ff2b2b;
 
 
-    font-size:clamp(45px,14vw,110px);
+    font-size:120px;
 
 
     font-weight:bold;
@@ -473,11 +468,11 @@ MOBILE
 
 .game-menu{
 
-    margin-left:0;
+    padding:0 20px;
 
-    padding:0 25px;
+    align-items:center;
 
-    align-items:flex-start;
+    text-align:center;
 
 }
 
@@ -518,18 +513,13 @@ MOBILE
 
 .operation-subtitle{
 
-
     width:100%;
 
-
-    font-size:14px;
-
-
-    line-height:1.2;
-
+    font-size:12px;
 
     white-space:nowrap;
 
+    letter-spacing:0;
 
 }
 
