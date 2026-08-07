@@ -300,7 +300,7 @@ body{
 
 .terminal-menu{
 
-    margin-top:30px;
+    margin-top:40px;
 
     text-align:left;
 
@@ -310,6 +310,20 @@ body{
 
     font-size:20px;
 
-    line-height:2;
+    line-height:2.2;
+
+    border-left:2px solid #ff2b2b;
+
+    padding-left:25px;
+
+}
+
+.hide-intro{
+
+    opacity:0;
+
+    transform:scale(.9);
+
+    transition:.5s;
 
 }
