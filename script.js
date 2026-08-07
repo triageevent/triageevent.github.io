@@ -112,10 +112,22 @@ const operationScreen=document.getElementById("operation-screen");
 enterButton.addEventListener("click",()=>{
 
 
-    enterButton.style.display="none";
+    document.body.classList.add("glitch");
 
 
-    operationScreen.style.display="block";
+    setTimeout(()=>{
+
+
+        document.body.classList.remove("glitch");
+
+
+        enterButton.style.display="none";
+
+
+        operationScreen.style.display="block";
+
+
+    },500);
 
 
 });
