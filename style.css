@@ -267,24 +267,19 @@ OPERATION MENU
 
     color:#ff2b2b;
 
-
-    font-size:110px;
+    font-size:clamp(45px, 14vw, 110px);
 
     font-weight:bold;
 
-
-    letter-spacing:15px;
-
+    letter-spacing:clamp(5px, 2vw, 15px);
 
     white-space:nowrap;
-
 
     text-shadow:
 
     0 0 20px rgba(255,0,0,.8),
 
     0 0 50px rgba(255,0,0,.4);
-
 
     animation:
 
@@ -318,28 +313,22 @@ OPERATION MENU
 
 .operation-subtitle{
 
-
     color:#ddd;
-
 
     margin-top:10px;
 
-
     font-family:
-
     "Brush Script MT",
     "Segoe Script",
     cursive;
 
+    font-size:clamp(16px, 5vw, 34px);
 
-    font-size:34px;
+    line-height:1.2;
 
+    letter-spacing:1px;
 
-    letter-spacing:2px;
-
-
-    max-width:600px;
-
+    max-width:500px;
 
 }
 
@@ -518,5 +507,24 @@ MOBILE
 
 }
 
+    .operation-title{
+
+    width:100%;
+
+}
+
+
+.operation-main{
+
+    width:100%;
+
+}
+
+
+.operation-subtitle{
+
+    width:100%;
+
+}
 
 }
