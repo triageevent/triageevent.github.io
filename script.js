@@ -4,57 +4,61 @@ const bootText = document.getElementById("boot-text");
 const lines = [
     "TRIAGE TERMINAL v1.0",
     "",
-    "Initializing system.............OK",
-    "Loading map.....................OK",
-    "Loading factions...............OK",
-    "Connecting to network..........OK",
-    "Verifying protocols............OK",
+    "Initializing system...",
+    "Loading tactical modules...",
+    "Connecting secure network...",
+    "Synchronizing mission data...",
+    "Loading extraction protocol...",
+    "Checking player database...",
     "",
     "SYSTEM ONLINE"
 ];
 
-let line = 0;
-let character = 0;
+let lineIndex = 0;
+let charIndex = 0;
 
-function typeWriter() {
 
-    if (line >= lines.length) {
+function typeWriter(){
+
+    if(lineIndex >= lines.length){
 
         setTimeout(() => {
+
             bootScreen.style.opacity = "0";
 
             setTimeout(() => {
                 bootScreen.style.display = "none";
-            }, 800);
+            },800);
 
-        }, 1000);
+        },1000);
 
         return;
     }
 
-    if (character < lines[line].length) {
 
-        bootText.textContent += lines[line][character];
-        character++;
+    if(charIndex < lines[lineIndex].length){
 
-        setTimeout(typeWriter, 35);
+        bootText.textContent += lines[lineIndex][charIndex];
 
-    } else {
+        charIndex++;
+
+        setTimeout(typeWriter,35);
+
+    }else{
 
         bootText.textContent += "\n";
 
-        line++;
-        character = 0;
+        lineIndex++;
+        charIndex=0;
 
-        setTimeout(typeWriter, 250);
+        setTimeout(typeWriter,300);
 
     }
 
 }
 
-window.onload = () => {
 
-    bootText.textContent = "";
+window.onload = () => {
 
     typeWriter();
 
