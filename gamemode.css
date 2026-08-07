@@ -336,7 +336,7 @@ font-size:22px;
 
     z-index:9999;
 
-    transition:.2s;
+    transition:opacity .5s ease;
 
 }
 
