@@ -103,31 +103,24 @@ window.onload=()=>{
 
 
 
-const enterButton=document.getElementById("enterButton");
+const enterButton = document.getElementById("enterButton");
 
-const operationScreen=document.getElementById("operation-screen");
+const operationScreen = document.getElementById("operation-screen");
 
+const introScreen = document.getElementById("intro-screen");
 
 
 enterButton.addEventListener("click",()=>{
 
 
-    document.body.classList.add("glitch");
+    introScreen.classList.add("hidden");
 
 
     setTimeout(()=>{
 
-
-        document.body.classList.remove("glitch");
-
-
-        enterButton.style.display="none";
-
-
         operationScreen.style.display="block";
 
-
-    },500);
+    },600);
 
 
 });
