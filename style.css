@@ -70,6 +70,7 @@ INTRO
     justify-content:center;
     align-items:center;
 
+
     background:
 
     radial-gradient(
@@ -82,6 +83,7 @@ INTRO
 }
 
 
+
 .screen{
 
     text-align:center;
@@ -92,14 +94,17 @@ INTRO
 
 /* LOGO */
 
+
 .logo-image{
 
     width:180px;
 
     margin-bottom:25px;
 
+
     filter:
     drop-shadow(0 0 20px rgba(255,0,0,.8));
+
 
     animation:logoPulse 3s infinite ease-in-out;
 
@@ -109,27 +114,12 @@ INTRO
 
 @keyframes logoPulse{
 
+
     50%{
 
         transform:scale(1.04);
 
     }
-
-}
-
-
-
-.logo{
-
-    color:#ff2b2b;
-
-    font-size:80px;
-
-    font-weight:bold;
-
-    letter-spacing:15px;
-
-    margin-bottom:50px;
 
 }
 
@@ -170,6 +160,8 @@ INTRO
 
 
 
+
+
 /* ======================
 OPERATION MENU
 ====================== */
@@ -183,6 +175,9 @@ OPERATION MENU
 
 
 
+/* wallpaper vrstva později */
+
+
 .glitch-background{
 
     position:fixed;
@@ -194,7 +189,7 @@ OPERATION MENU
 
     radial-gradient(
         circle at center,
-        rgba(120,0,0,.3),
+        rgba(120,0,0,.35),
         transparent 55%
     );
 
@@ -206,6 +201,7 @@ OPERATION MENU
 
 
 @keyframes bgGlitch{
+
 
     0%,100%{
 
@@ -232,6 +228,7 @@ OPERATION MENU
 
     z-index:2;
 
+
     height:100vh;
 
 
@@ -239,12 +236,12 @@ OPERATION MENU
 
     flex-direction:column;
 
+
     justify-content:center;
 
 
     margin-left:15%;
 
-    padding-right:20px;
 
 }
 
@@ -252,7 +249,9 @@ OPERATION MENU
 
 
 
-/* TITLE */
+/* ======================
+TITLE
+====================== */
 
 
 .operation-title{
@@ -265,27 +264,38 @@ OPERATION MENU
 
 .operation-main{
 
+
     color:#ff2b2b;
 
-    font-size:clamp(45px, 14vw, 110px);
+
+    font-size:clamp(45px,14vw,110px);
+
 
     font-weight:bold;
 
-    letter-spacing:clamp(5px, 2vw, 15px);
+
+    letter-spacing:clamp(5px,2vw,15px);
+
 
     white-space:nowrap;
 
+
     text-shadow:
+
 
     0 0 20px rgba(255,0,0,.8),
 
     0 0 50px rgba(255,0,0,.4);
 
+
+
     animation:
 
     triageFloat 4s infinite ease-in-out;
 
+
 }
+
 
 
 
@@ -313,22 +323,32 @@ OPERATION MENU
 
 .operation-subtitle{
 
+
     color:#ddd;
+
 
     margin-top:10px;
 
+
     font-family:
+
     "Brush Script MT",
     "Segoe Script",
     cursive;
 
-    font-size:clamp(14px, 3vw, 34px);
+
+
+    font-size:clamp(14px,3vw,34px);
+
 
     line-height:1;
 
+
     letter-spacing:1px;
 
+
     white-space:nowrap;
+
 
 }
 
@@ -336,17 +356,20 @@ OPERATION MENU
 
 
 
-
-/* MENU */
+/* ======================
+MENU
+====================== */
 
 
 .game-options{
+
 
     display:flex;
 
     flex-direction:column;
 
     gap:22px;
+
 
 }
 
@@ -356,6 +379,7 @@ OPERATION MENU
 
 
     color:#777;
+
 
     text-decoration:none;
 
@@ -405,15 +429,20 @@ OPERATION MENU
 
 
 
+
 .game-options a:hover{
+
 
     color:white;
 
+
     transform:translateX(15px);
+
 
     text-shadow:
 
     0 0 15px #ff2b2b;
+
 
 }
 
@@ -421,9 +450,11 @@ OPERATION MENU
 
 .game-options a:hover::before{
 
+
     content:"> ";
 
     color:#ff2b2b;
+
 
 }
 
@@ -438,15 +469,6 @@ MOBILE
 
 @media(max-width:600px){
 
-    .operation-subtitle{
-
-        font-size:14px;
-
-        white-space:nowrap;
-
-    }
-
-}
 
 
 .game-menu{
@@ -461,7 +483,10 @@ MOBILE
 
 
 
+
 .operation-title{
+
+    width:100%;
 
     margin-bottom:45px;
 
@@ -469,31 +494,51 @@ MOBILE
 
 
 
+
 .operation-main{
+
+
+    width:100%;
+
 
     font-size:42px;
 
+
     letter-spacing:5px;
 
-    white-space:normal;
+
+    white-space:nowrap;
+
 
 }
+
+
 
 
 
 .operation-subtitle{
 
-    font-size:18px;
 
-    max-width:260px;
+    width:100%;
 
-    line-height:1.4;
+
+    font-size:14px;
+
+
+    line-height:1.2;
+
+
+    white-space:nowrap;
+
 
 }
 
 
 
+
+
 .game-options{
+
 
     gap:18px;
 
@@ -501,13 +546,19 @@ MOBILE
 
 
 
+
 .game-options a{
+
 
     font-size:21px;
 
+
     letter-spacing:2px;
 
+
 }
+
+
 
 .game-options a:nth-child(1){
 
@@ -543,24 +594,6 @@ MOBILE
 
 }
 
-    .operation-title{
 
-    width:100%;
-
-}
-
-
-.operation-main{
-
-    width:100%;
-
-}
-
-
-.operation-subtitle{
-
-    width:100%;
-
-}
 
 }
