@@ -70,3 +70,8 @@ button {
         opacity: 0;
     }
 }
+#boot-screen {
+
+    transition: opacity .8s ease;
+
+}
