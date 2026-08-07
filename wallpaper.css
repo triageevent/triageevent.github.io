@@ -108,7 +108,7 @@
     inset:0;
 
 
-    z-index:3;
+    z-index:4;
 
 
     pointer-events:none;
@@ -148,7 +148,7 @@
     inset:0;
 
 
-    z-index:5;
+    z-index:6;
 
 
     pointer-events:none;
@@ -294,7 +294,7 @@
 
     pointer-events:none;
 
-    z-index:2;
+    z-index:5;
 
 }
 
@@ -310,9 +310,9 @@
     bottom:-15%;
 
     width:140%;
-    height:50%;
+    height:60%;
 
-    z-index:4;
+    z-index:3;
 
     pointer-events:none;
 
