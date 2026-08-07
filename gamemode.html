@@ -8,83 +8,72 @@
 
 <title>TRIAGE - GAME MODE</title>
 
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="wallpaper.css">
+<link rel="stylesheet" href="gamemode.css">
 
 </head>
 
 
-<body class="menu-page">
+<body>
 
 
-<div class="wallpaper"></div>
+<div class="wallpaper" id="wallpaper"></div>
 
-<div class="glitch-background"></div>
-
-<div class="smoke"></div>
+<div class="dark-filter"></div>
 
 <div class="scanlines"></div>
-
-<div class="glitch-layer"></div>
-
-<canvas id="particles"></canvas>
 
 
 <main class="game-menu">
 
 
-<div class="mode-title">
+    <div class="operation-title">
 
-    <h1>
-        GAME MODE
-    </h1>
+        <div class="operation-main">
+            GAME MODE
+        </div>
 
 
-    <div class="mode-buttons">
-
-       <nav class="mode-options">
-
-    <a href="#" onclick="changeMode('night')">
-        NIGHTFALL
-    </a>
-
-    <a href="#" onclick="changeMode('sunrise')">
-        SUNRISE
-    </a>
-
-    <a href="#" onclick="changeMode('dawn')">
-        DAWN
-    </a>
-
-</nav>
+        <div class="operation-subtitle">
+            select operation phase
+        </div>
 
     </div>
 
-</div>
+
+
+    <nav class="mode-options">
+
+        <a href="#" onclick="changeMode('nightfall')">
+            NIGHTFALL
+        </a>
+
+
+        <a href="#" onclick="changeMode('sunrise')">
+            SUNRISE
+        </a>
+
+
+        <a href="#" onclick="changeMode('dawn')">
+            DAWN
+        </a>
+
+    </nav>
 
 
 
-<div class="mode-info">
+    <div class="mode-description" id="description">
 
-    <h2 id="mode-name">
-        NIGHTFALL
-    </h2>
+        Choose your battlefield
 
+    </div>
 
-    <p id="mode-text">
-        Select operation phase
-    </p>
-
-</div>
 
 
 </main>
 
 
-<script src="particles.js"></script>
-
 <script src="gamemode.js"></script>
-  
+
 </body>
 
 </html>
