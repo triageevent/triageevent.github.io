@@ -380,9 +380,52 @@ body{
 }
 
 
+.operation-main{
+
+    font-size:55px;
+
+    letter-spacing:10px;
+
+}
+
+
+
+.operation-subtitle{
+
+    font-size:20px;
+
+    line-height:1.4;
+
+    max-width:280px;
+
+}
+
+
+
+.operation-title{
+
+    margin-bottom:45px;
+
+}
+
+
+
+.game-options{
+
+    gap:18px;
+
+}
+
+
+
 .game-options a{
 
     font-size:22px;
+
+    letter-spacing:3px;
+
+}
+
 
 }
 
