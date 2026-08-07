@@ -19,11 +19,11 @@ function typeText(text, callback){
 
             clearInterval(typing);
 
-            setTimeout(callback,500);
+            setTimeout(callback, 500);
 
         }
 
-    },35);
+    }, 35);
 
 }
 
@@ -38,6 +38,10 @@ function changeMode(mode){
     let text = "";
     let loading = "";
 
+
+    /* =========================
+       NIGHTFALL
+    ========================= */
 
     if(mode === "nightfall"){
 
@@ -84,18 +88,20 @@ A CO JE POVOLENO?
 Vše, co ti tvá frakce
 a svědomí dovolí. Kromě dronů...`;
 
-
         loading = "LOADING NIGHTFALL PROTOCOL...";
 
     }
 
 
+    /* =========================
+       SUNRISE
+    ========================= */
 
     if(mode === "sunrise"){
 
         image = "sunrise.png";
 
-           text =
+        text =
 `FIRST LIGHT // SURVIVAL PHASE
 
 
@@ -119,6 +125,7 @@ Obsazení probíhá pomocí dýmovnice.
 
 
 TŘI KLÍČOVÉ BODY:
+
 
 POLICEJNÍ STANICE
 
@@ -178,7 +185,8 @@ obsahující věci od partnerů a sponzorů akce.
 Obsah lze získat plněním úkolů
 nebo výměnou za pásky.
 
-Hodnota loot dropu určuje jeho cenu.
+Počet potřebných pásků
+se odvíjí od hodnoty loot dropu.
 
 
 POVOLENO:
@@ -188,33 +196,41 @@ Vše.`;
         loading = "LOADING SUNRISE PROTOCOL...";
 
     }
+
+
+    /* =========================
+       DAWN
+    ========================= */
+
     if(mode === "dawn"){
 
         image = "dawn.png";
 
         text =
-        "FINAL HOURS // LAST STAND";
+`FINAL HOURS // LAST STAND`;
 
         loading = "LOADING DAWN PROTOCOL...";
 
     }
 
 
+    /* =========================
+       LOADING + CHANGE
+    ========================= */
 
-    typeText(loading,()=>{
+    typeText(loading, () => {
 
         wallpaper.style.backgroundImage =
             `url('${image}')`;
 
-
         description.textContent = text;
 
 
-        setTimeout(()=>{
+        setTimeout(() => {
 
             transition.classList.remove("active");
 
-        },500);
+        }, 500);
 
     });
 
