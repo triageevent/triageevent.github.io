@@ -2,6 +2,7 @@ const wallpaper = document.getElementById("wallpaper");
 const description = document.getElementById("description");
 const transition = document.getElementById("transition");
 
+
 function typeText(text, callback){
 
     transition.textContent = "";
@@ -18,7 +19,7 @@ function typeText(text, callback){
 
             clearInterval(typing);
 
-            setTimeout(callback,300);
+            setTimeout(callback,500);
 
         }
 
@@ -26,19 +27,23 @@ function typeText(text, callback){
 
 }
 
+
+
 function changeMode(mode){
 
     transition.classList.add("active");
+
 
     let image = "";
     let text = "";
     let loading = "";
 
-    if(mode==="nightfall"){
 
-    image="nightfall.png";
+    if(mode === "nightfall"){
 
-    text=
+        image = "nightfall.png";
+
+        text =
 `NIGHT OPERATION // DARKNESS ENGAGED
 
 
@@ -58,35 +63,53 @@ Tyto náramky lze využít v následujících herních módech.
 POVOLENO:
 Vše, co ti tvá frakce a svědomí dovolí.`;
 
-}
 
-    if(mode==="sunrise"){
-
-        image="sunrise.png";
-        text="FIRST LIGHT // SURVIVAL PHASE";
-        loading="LOADING SUNRISE PROTOCOL...";
+        loading = "LOADING NIGHTFALL PROTOCOL...";
 
     }
 
-    if(mode==="dawn"){
 
-        image="dawn.png";
-        text="FINAL HOURS // LAST STAND";
-        loading="LOADING DAWN PROTOCOL...";
+
+    if(mode === "sunrise"){
+
+        image = "sunrise.png";
+
+        text =
+        "FIRST LIGHT // SURVIVAL PHASE";
+
+        loading = "LOADING SUNRISE PROTOCOL...";
 
     }
+
+
+
+    if(mode === "dawn"){
+
+        image = "dawn.png";
+
+        text =
+        "FINAL HOURS // LAST STAND";
+
+        loading = "LOADING DAWN PROTOCOL...";
+
+    }
+
+
 
     typeText(loading,()=>{
 
-        wallpaper.style.backgroundImage=`url('${image}')`;
+        wallpaper.style.backgroundImage =
+            `url('${image}')`;
 
-        description.textContent=text;
+
+        description.textContent = text;
+
 
         setTimeout(()=>{
 
             transition.classList.remove("active");
 
-        },350);
+        },500);
 
     });
 
