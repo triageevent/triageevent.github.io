@@ -131,3 +131,31 @@ body{
     box-shadow:0 0 25px rgba(255,0,0,.4);
 
 }
+.logo-image {
+
+    width:180px;
+
+    margin:0 auto 30px;
+
+    display:block;
+
+    filter:
+    drop-shadow(0 0 15px rgba(255,0,0,.7));
+
+    animation:
+    logoPulse 3s infinite ease-in-out;
+
+}
+
+
+@keyframes logoPulse {
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.03);
+    }
+
+}
