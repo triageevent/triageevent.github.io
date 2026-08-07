@@ -184,6 +184,8 @@ OPERATION MENU
 
     inset:0;
 
+    z-index:1;
+
 
     background:
 
@@ -615,25 +617,7 @@ MOBILE
     contrast(1.2);
 
 }
-   .glitch-background,
-.scanlines,
-.glitch-layer{
 
-    display:none;
-
-}
-
-    position:fixed;
-
-    inset:0;
-
-}
-
-
-
-/* ======================
-   DARK CINEMA OVERLAY
-====================== */
 
 
 .wallpaper::after{
@@ -659,8 +643,9 @@ MOBILE
 
 
 
+
 /* ======================
-   SCANLINES
+SCANLINES
 ====================== */
 
 
@@ -691,13 +676,12 @@ MOBILE
 
     );
 
-
 }
 
 
 
 /* ======================
-   GLITCH
+GLITCH
 ====================== */
 
 
@@ -735,7 +719,6 @@ MOBILE
 
 
 
-
 @keyframes screenGlitch{
 
 
@@ -748,7 +731,6 @@ MOBILE
     }
 
 
-
     93%{
 
         opacity:.8;
@@ -756,7 +738,6 @@ MOBILE
         transform:translateX(-8px);
 
     }
-
 
 
     94%{
@@ -768,7 +749,6 @@ MOBILE
     }
 
 
-
     95%{
 
         opacity:.6;
@@ -776,8 +756,5 @@ MOBILE
         transform:translateX(-4px);
 
     }
-
-
-}
 
 }
