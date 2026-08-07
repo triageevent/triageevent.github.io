@@ -104,23 +104,22 @@ window.onload=()=>{
 
 
 const enterButton = document.getElementById("enterButton");
-
 const operationScreen = document.getElementById("operation-screen");
-
 const introScreen = document.getElementById("intro-screen");
 
 
 enterButton.addEventListener("click",()=>{
-
 
     introScreen.classList.add("hidden");
 
 
     setTimeout(()=>{
 
+        introScreen.style.display="none";
+
         operationScreen.style.display="block";
 
-    },600);
+    },700);
 
 
 });
