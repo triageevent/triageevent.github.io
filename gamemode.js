@@ -45,23 +45,45 @@ function changeMode(mode){
 
         text =
 `NIGHT OPERATION // DARKNESS ENGAGED
+NIGHT OPERATION // DARKNESS ENGAGED
 
 
 Když padne tma...
-4 týmy vstupují do zóny, kde každé rozhodnutí může znamenat rozdíl mezi přežitím a koncem operace.
+
+Čtyři týmy vstupují do zóny.
+Čtyři základny.
+Jedna noc.
 
 
 HLAVNÍ ÚKOL:
-Na konci noci mít obsazeno, co nejvíce budov.
+
+Obsadit co nejvíce budov a udržet je až do konce operace.
 
 
 ODMĚNA:
+
 Za každou obsazenou budovu získává tým 10 náramků.
-Tyto náramky lze využít v následujících herních módech.
+
+Tyto náramky budou mít svou cenu
+v následujících herních módech.
 
 
-POVOLENO:
-Vše, co ti tvá frakce a svědomí dovolí.`;
+ZÁKLADNY:
+
+Základna je během operace bezpečným územím.
+Uvnitř základny se nestřílí.
+
+
+RESPAWN:
+
+Každou hodinu se operace znovu nadechne.
+Padlí hráči se vracejí zpět do hry.
+
+
+A CO JE POVOLENO?
+
+Vše, co ti tvá frakce
+a svědomí dovolí.`;
 
 
         loading = "LOADING NIGHTFALL PROTOCOL...";
