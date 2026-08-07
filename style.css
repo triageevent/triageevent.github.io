@@ -257,7 +257,7 @@ OPERATION MENU
 
 .operation-title{
 
-    margin-bottom:60px;
+    margin-bottom:90px;
 
 }
 
@@ -499,11 +499,30 @@ MOBILE
 
 }
 
+    .game-options a:nth-child(2){
+
+    margin-left:25px;
+
+}
 
 
-.game-options a:nth-child(n){
+.game-options a:nth-child(3){
 
-    margin-left:0;
+    margin-left:8px;
+
+}
+
+
+.game-options a:nth-child(4){
+
+    margin-left:35px;
+
+}
+
+
+.game-options a:nth-child(5){
+
+    margin-left:18px;
 
 }
 
