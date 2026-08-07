@@ -1,23 +1,204 @@
-.night .wallpaper{
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+
+}
+
+
+body{
+
+background:#000;
+
+color:white;
+
+font-family:Consolas, monospace;
+
+overflow:hidden;
+
+}
+
+
+
+/* BACKGROUND */
+
+.wallpaper{
+
+position:fixed;
+
+inset:0;
+
+z-index:0;
+
 background-image:url("nightfall.png");
+
+background-size:cover;
+
+background-position:center;
+
+transition:1.5s ease;
+
 }
 
-.sunrise .wallpaper{
-background-image:url("sunrise.png");
+
+
+.dark-filter{
+
+position:fixed;
+
+inset:0;
+
+z-index:1;
+
+
+background:
+
+linear-gradient(
+
+rgba(0,0,0,.35),
+
+rgba(0,0,0,.75)
+
+);
+
 }
 
-.dawn .wallpaper{
-background-image:url("dawn.png");
+
+
+/* CRT */
+
+.scanlines{
+
+position:fixed;
+
+inset:0;
+
+z-index:3;
+
+pointer-events:none;
+
+
+background:
+
+repeating-linear-gradient(
+
+to bottom,
+
+rgba(255,255,255,.04) 0px,
+
+rgba(255,255,255,.04) 1px,
+
+transparent 3px,
+
+transparent 5px
+
+);
+
 }
+
+
+
+
+
+/* MENU */
+
+
+.game-menu{
+
+position:relative;
+
+z-index:10;
+
+
+height:100vh;
+
+width:100%;
+
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+}
+
+
+
+/* TITLE */
+
+
+.operation-main{
+
+
+color:#ff2b2b;
+
+
+font-size:100px;
+
+
+font-weight:bold;
+
+
+letter-spacing:15px;
+
+
+text-shadow:
+
+
+0 0 20px red,
+
+0 0 50px rgba(255,0,0,.5);
+
+}
+
+
+
+.operation-subtitle{
+
+
+margin-top:15px;
+
+
+font-family:
+
+"Brush Script MT",
+"Segoe Script",
+cursive;
+
+
+font-size:35px;
+
+
+color:#ddd;
+
+
+}
+
+
+
+/* OPTIONS */
+
+
 .mode-options{
 
-    display:flex;
 
-    flex-direction:column;
+margin-top:80px;
 
-    gap:25px;
 
-    align-items:flex-start;
+display:flex;
+
+flex-direction:column;
+
+gap:25px;
+
+
+align-items:flex-start;
 
 }
 
@@ -25,15 +206,20 @@ background-image:url("dawn.png");
 
 .mode-options a{
 
-    color:#777;
 
-    text-decoration:none;
+color:#777;
 
-    font-size:32px;
 
-    letter-spacing:6px;
+text-decoration:none;
 
-    transition:.3s;
+
+font-size:35px;
+
+
+letter-spacing:6px;
+
+
+transition:.3s;
 
 }
 
@@ -41,13 +227,17 @@ background-image:url("dawn.png");
 
 .mode-options a:hover{
 
-    color:white;
 
-    transform:translateX(15px);
+color:white;
 
-    text-shadow:
 
-    0 0 15px #ff2b2b;
+transform:translateX(15px);
+
+
+text-shadow:
+
+0 0 15px red;
+
 
 }
 
@@ -55,8 +245,66 @@ background-image:url("dawn.png");
 
 .mode-options a:hover::before{
 
-    content:"> ";
 
-    color:#ff2b2b;
+content:"> ";
+
+color:#ff2b2b;
+
+}
+
+
+
+.mode-description{
+
+
+margin-top:60px;
+
+color:#aaa;
+
+font-size:20px;
+
+letter-spacing:3px;
+
+}
+
+
+
+
+/* MOBILE */
+
+
+@media(max-width:600px){
+
+
+.operation-main{
+
+font-size:45px;
+
+letter-spacing:5px;
+
+}
+
+
+.operation-subtitle{
+
+font-size:18px;
+
+}
+
+
+.mode-options{
+
+margin-top:50px;
+
+}
+
+
+.mode-options a{
+
+font-size:22px;
+
+}
+
+
 
 }
