@@ -306,30 +306,31 @@
 
     position:fixed;
 
-    left:-10%;
-    bottom:-20%;
+    left:-20%;
+    bottom:-15%;
 
-    width:120%;
-    height:45%;
+    width:140%;
+    height:50%;
 
-    z-index:7;
+    z-index:4;
 
     pointer-events:none;
+
 
     background:
 
     radial-gradient(
         ellipse at center,
-        rgba(180,180,180,.18),
-        rgba(120,120,120,.08) 40%,
+        rgba(255,255,255,.35),
+        rgba(180,180,180,.15) 35%,
         transparent 70%
     );
 
 
-    filter:blur(25px);
+    filter:blur(30px);
 
 
-    animation:smokeMove 18s ease-in-out infinite alternate;
+    animation:smokeMove 12s ease-in-out infinite alternate;
 
 }
 
@@ -337,39 +338,16 @@
 
 @keyframes smokeMove{
 
+    from{
 
-    0%{
-
-        transform:
-        translateX(-3%)
-        translateY(0)
-        scale(1);
-
-        opacity:.5;
+        transform:translateX(-5%) translateY(20px);
 
     }
 
 
-    50%{
+    to{
 
-        transform:
-        translateX(3%)
-        translateY(-20px)
-        scale(1.05);
-
-        opacity:.7;
-
-    }
-
-
-    100%{
-
-        transform:
-        translateX(-1%)
-        translateY(-40px)
-        scale(1.1);
-
-        opacity:.5;
+        transform:translateX(5%) translateY(-20px);
 
     }
 
