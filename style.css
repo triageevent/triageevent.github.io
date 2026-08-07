@@ -322,13 +322,13 @@ OPERATION MENU
     "Segoe Script",
     cursive;
 
-    font-size:clamp(16px, 5vw, 34px);
+    font-size:clamp(14px, 3vw, 34px);
 
-    line-height:1.2;
+    line-height:1;
 
     letter-spacing:1px;
 
-    max-width:500px;
+    white-space:nowrap;
 
 }
 
@@ -437,6 +437,16 @@ MOBILE
 
 
 @media(max-width:600px){
+
+    .operation-subtitle{
+
+        font-size:14px;
+
+        white-space:nowrap;
+
+    }
+
+}
 
 
 .game-menu{
