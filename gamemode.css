@@ -308,3 +308,41 @@ font-size:22px;
 
 
 }
+#transition{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(0,0,0,.92);
+
+    color:#ff2b2b;
+
+    font-size:42px;
+
+    letter-spacing:8px;
+
+    text-shadow:
+    0 0 15px red;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    z-index:9999;
+
+    transition:.35s;
+
+}
+
+#transition.active{
+
+    opacity:1;
+
+}
