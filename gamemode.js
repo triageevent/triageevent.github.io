@@ -52,7 +52,7 @@ Když padne tma...
 
 
 HLAVNÍ ÚKOL:
-Obsadit budovy na konci noci.
+Na konci noci mít obsazeno, co nejvíce budov.
 
 
 ODMĚNA:
