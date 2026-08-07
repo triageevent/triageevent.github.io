@@ -388,3 +388,44 @@ body{
 
 
 }
+.operation-title{
+
+    margin-bottom:70px;
+
+}
+
+
+
+.operation-main{
+
+    color:#ff2b2b;
+
+    font-size:90px;
+
+    font-weight:bold;
+
+    letter-spacing:18px;
+
+    text-shadow:
+
+    0 0 20px rgba(255,0,0,.7);
+
+}
+
+
+
+.operation-subtitle{
+
+    margin-top:10px;
+
+    color:#aaa;
+
+    font-family:"Brush Script MT", cursive;
+
+    font-size:32px;
+
+    letter-spacing:2px;
+
+    max-width:500px;
+
+}
