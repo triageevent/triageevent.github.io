@@ -273,5 +273,65 @@
         transform:translateX(-3px);
 
     }
+   /* ======================
+   ASH PARTICLES
+====================== */
+
+
+.ash{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:4;
+
+    pointer-events:none;
+
+    opacity:.35;
+
+
+    background-image:
+
+    radial-gradient(
+        circle,
+        rgba(255,255,255,.8) 1px,
+        transparent 2px
+    );
+
+
+    background-size:
+    120px 120px;
+
+
+    animation:ashMove 25s linear infinite;
+
+}
+
+
+
+@keyframes ashMove{
+
+
+    from{
+
+        background-position:
+        0 0;
+
+        transform:translateY(0);
+
+    }
+
+
+    to{
+
+        background-position:
+        -80px 500px;
+
+        transform:translateY(-30px);
+
+    }
+
+}
 
 }
