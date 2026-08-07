@@ -59,3 +59,14 @@ button {
     width: 80%;
     text-align: left;
 }
+
+.cursor {
+    display: inline-block;
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
