@@ -1,5 +1,8 @@
 const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
+if (!ctx) {
+    console.error("Canvas 2D context se nepodařilo vytvořit.");
+    }
 
 function resize(){
 
