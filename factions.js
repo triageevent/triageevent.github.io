@@ -66,10 +66,10 @@ if(effect === "water"){
                 particleCanvas.height,
 
             speed:
-                Math.random() * 1.2 + 0.4,
+                Math.random() * 4 + 3,
 
             length:
-                Math.random() * 35 + 15,
+                Math.random() * 12 + 6,
 
             size:
                 Math.random() * 1.5 + .5,
