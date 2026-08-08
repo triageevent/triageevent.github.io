@@ -326,24 +326,21 @@ MENU
 
 .game-options a{
 
-
     color:#777;
-
 
     text-decoration:none;
 
-
     font-size:30px;
-
 
     letter-spacing:5px;
 
-
     width:auto;
-
 
     transition:.25s;
 
+    text-shadow:
+        0 2px 4px rgba(0,0,0,.9),
+        0 0 8px rgba(0,0,0,.7);
 
 }
 
