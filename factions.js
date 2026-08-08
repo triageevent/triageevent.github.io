@@ -486,7 +486,6 @@ document.addEventListener("DOMContentLoaded", () => {
     setAtmosphere("rain");
 
 });
-let selectedFaction = "";
 
 let selectedFaction = "";
 
