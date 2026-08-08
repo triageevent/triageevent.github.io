@@ -510,7 +510,8 @@ document.addEventListener("DOMContentLoaded", () => {
 const armoryData = {
 
     stars:[
-        { icon:"icons/pistol.png",  note:"CQB = budovy\nOS = venkovní prostor", joule:"1,3J", zone:"CQB/OS", mode:"semi" },
+        {icon:null, note:"CQB = budovy\nOS = venkovní prostor", zone:null, mode:null},
+        { icon:"icons/pistol.png",  note:null, joule:"1,3J", zone:"CQB/OS", mode:"semi" },
         { icon:"icons/rifle.png",   note:"20RPS max", joule:"1,8J", zone:"OS", mode:"semi / full auto" },
         { icon:"icons/grenade.png", note:"Pyrosoft\nTaggin\npružinové\nplynové", joule:null, zone:"OS", mode:null },
         { icon:"icons/lmg.png",     note:"20RPS max", joule:"1,5J", zone:"OS", mode:"full auto" },
