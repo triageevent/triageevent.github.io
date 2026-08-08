@@ -516,6 +516,33 @@ const armoryData = {
         { icon:"icons/lmg.png",     note:"20RPS max", joule:"1,5J", zone:"OS", mode:"full auto" },
         { icon:"icons/shotgun.png", note:null, joule:"1,3J", zone:"CQB/OS", mode:null },
         { icon:"icons/shield.png",  note:"Pouze se záložní pistolí", joule:null, zone:"CQB/OS", mode:"semi" }
+    ],
+
+    uss:[
+        { icon:"icons/pistol.png",  note:null, joule:"1,3J", zone:"CQB/OS", mode:"semi" },
+        { icon:"icons/rifle.png",   note:"20RPS max", joule:"1,8J", zone:"OS", mode:"semi / full auto" },
+        { icon:"icons/grenade.png", note:"Pyrosoft\nTaggin", joule:null, zone:"OS", mode:null },
+        { icon:"icons/lmg.png",     note:"20RPS max", joule:"1,5J", zone:"OS", mode:"full auto" },
+        { icon:"icons/smg.png",     note:"25RPS max\nReálná předloha", joule:"1,3J", zone:"CQB/OS", mode:"semi / full auto" },
+        { icon:"icons/grenade.png", note:"pružinové\nplynové", joule:null, zone:"CQB/OS", mode:null }
+    ],
+
+    ubcs:[
+        { icon:"icons/pistol.png",   note:null, joule:"1,3J", zone:"CQB/OS", mode:"semi" },
+        { icon:"icons/rifle.png",    note:"20RPS max", joule:"1,8J", zone:"OS", mode:"semi / full auto" },
+        { icon:"icons/grenade.png",  note:"Pyrosoft\nTaggin\npružinové\nplynové", joule:null, zone:"OS", mode:null },
+        { icon:"icons/lmg.png",      note:"20RPS max", joule:"1,5J", zone:"OS", mode:"full auto" },
+        { icon:"icons/launcher.png", note:"Granátomet", joule:null, zone:"CQB/OS", mode:"Greengas" },
+        { icon:"icons/dmr.png",      note:"pouze nad 20m\nReálná předloha\nPouze se záložní pistolí", joule:"2,5J", zone:"OS", mode:"semi" }
+    ],
+
+    specops:[
+        { icon:"icons/pistol.png",  note:null, joule:"1,3J", zone:"CQB/OS", mode:"semi" },
+        { icon:"icons/rifle.png",   note:"20RPS max", joule:"1,8J", zone:"OS", mode:"semi / full auto" },
+        { icon:"icons/grenade.png", note:"Pyrosoft\nTaggin\npružinové\nplynové", joule:null, zone:"OS", mode:null },
+        { icon:"icons/lmg.png",     note:"20RPS max", joule:"1,5J", zone:"OS", mode:"full auto" },
+        { icon:"icons/nvg.png", note:"Zákaz shazovat předměty", joule:null, zone:"CQB/OS", mode:"NVG / THERMOVIZE" },
+        { icon:"icons/sniper.png",  note:"pouze nad 30m\nPouze se záložní pistolí", joule:"3,5J", zone:"OS", mode:"semi" }
     ]
 
 };
