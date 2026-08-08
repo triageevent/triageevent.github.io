@@ -849,3 +849,68 @@ body{
         font-size:16px;
     }
 }
+/* =========================
+   INTRO TEXT
+========================= */
+
+.intro-wrap{
+    width:min(680px,92vw);
+    margin:0 auto;
+    text-align:left;
+}
+
+.intro-title{
+    font-size:42px;
+    font-weight:bold;
+    letter-spacing:8px;
+    color:var(--faction-armory-bg, #ff2b2b);
+    text-shadow:
+        0 0 20px var(--faction-armory-bg, rgba(255,0,0,.6)),
+        0 2px 6px rgba(0,0,0,.8);
+    margin-bottom:6px;
+}
+
+.intro-subtitle{
+    font-size:15px;
+    letter-spacing:4px;
+    color:#aaa;
+    margin-bottom:30px;
+    border-bottom:1px solid rgba(255,255,255,.15);
+    padding-bottom:18px;
+}
+
+.intro-body{
+    font-size:16px;
+    line-height:1.9;
+    letter-spacing:.5px;
+    color:#d8d4c8;
+    white-space:pre-line;
+}
+
+.intro-body p{
+    margin-bottom:22px;
+    opacity:0;
+    animation:introFadeIn .8s ease forwards;
+}
+
+@keyframes introFadeIn{
+    from{
+        opacity:0;
+        transform:translateY(8px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@media(max-width:600px){
+    .intro-title{
+        font-size:28px;
+        letter-spacing:4px;
+    }
+    .intro-body{
+        font-size:14px;
+        line-height:1.75;
+    }
+}
