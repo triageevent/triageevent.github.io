@@ -133,78 +133,78 @@ function drawParticles(){
 
         if(currentEffect === "wind"){
 
-            particleCtx.beginPath();
-
-            particleCtx.strokeStyle =
-                `rgba(180,180,180,${p.alpha * .45})`;
-
-            particleCtx.lineWidth =
-                p.size;
-
-            particleCtx.moveTo(
-                p.x,
-                p.y
-            );
-
-            particleCtx.lineTo(
-                p.x + p.length * 3,
-                p.y - 2
-            );
-
-            particleCtx.stroke();
-
-
-            p.x += p.speed * 2;
-
-            p.y += p.drift * .2;
-
-
-        }
-
-
-
-        if(currentEffect === "water"){
-
-    /*
-       WATER DROPLETS
-       pomalé kapky stékající
-       po "objektivu"
-    */
-
     particleCtx.beginPath();
 
     particleCtx.strokeStyle =
-        `rgba(210,225,235,${p.alpha * .45})`;
+        `rgba(190,190,190,${p.alpha * .25})`;
 
     particleCtx.lineWidth =
-        p.size * .8;
+        .5;
 
     particleCtx.moveTo(
         p.x,
         p.y
     );
 
-    particleCtx.lineTo(
-        p.x + p.drift,
-        p.y + p.length
+    particleCtx.quadraticCurveTo(
+
+        p.x + 25,
+        p.y - 4,
+
+        p.x + 55,
+        p.y - 1
+
     );
 
     particleCtx.stroke();
 
 
-    /*
-       malá kapka na konci
-    */
+    /* RYCHLÝ POHYB */
+
+    p.x +=
+        Math.random() * 5 + 4;
+
+
+    /* LEHKÉ VLNĚNÍ */
+
+    p.y +=
+        Math.sin(p.x * .01) * .25;
+
+
+    /* RESET */
+
+    if(
+        p.x >
+        particleCanvas.width + 70
+    ){
+
+        p.x = -70;
+
+        p.y =
+            Math.random() *
+            particleCanvas.height;
+
+    }
+
+}
+
+
+
+        if(currentEffect === "water"){
+
+    /* KAPKA */
 
     particleCtx.beginPath();
 
     particleCtx.fillStyle =
-        `rgba(225,235,240,${p.alpha * .55})`;
+        `rgba(210,225,235,${p.alpha * .45})`;
 
-    particleCtx.arc(
-        p.x + p.drift,
-        p.y + p.length,
+    particleCtx.ellipse(
+        p.x,
+        p.y,
         p.size + 1,
+        p.size * 1.8,
+        0,
         0,
         Math.PI * 2
     );
@@ -212,28 +212,31 @@ function drawParticles(){
     particleCtx.fill();
 
 
-    /*
-       pomalé stékání
-    */
+    /* MALÝ ODLESK */
 
-    p.y += p.speed;
+    particleCtx.beginPath();
 
-    p.x += p.drift * .15;
+    particleCtx.fillStyle =
+        `rgba(255,255,255,${p.alpha * .25})`;
+
+    particleCtx.arc(
+        p.x - .5,
+        p.y - .8,
+        .6,
+        0,
+        Math.PI * 2
+    );
+
+    particleCtx.fill();
 
 
-    /*
-       občasná změna směru
-    */
+    /* POHYB KAPK Y */
 
-    p.drift +=
-        (Math.random() - .5) * .03;
+    p.y +=
+        Math.random() * .7 + .25;
 
-
-    p.drift =
-        Math.max(
-            -0.8,
-            Math.min(0.8, p.drift)
-        );
+    p.x +=
+        Math.sin(p.y * .015) * .15;
 
 }
 
