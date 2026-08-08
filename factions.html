@@ -48,38 +48,48 @@
 
 
 
-    <nav class="faction-options">
+    <div class="faction-options" id="factionOptions">
+
+    <button onclick="selectFaction('stars')">
+        STARS
+    </button>
+
+    <button onclick="selectFaction('specops')">
+        SPEC OPS
+    </button>
+
+    <button onclick="selectFaction('ubcs')">
+        UBCS
+    </button>
+
+    <button onclick="selectFaction('uss')">
+        USS
+    </button>
+
+</div>
 
 
-        <a href="#" onclick="changeFaction('stars')">
-            STARS
-        </a>
+<div class="choose-text" id="chooseText">
+    CHOOSE YOUR FACTION
+</div>
 
 
-        <a href="#" onclick="changeFaction('uss')">
-            USS
-        </a>
+<div class="faction-tabs" id="factionTabs">
+
+    <button onclick="showFactionSection('intro')">
+        INTRO
+    </button>
+
+    <button onclick="showFactionSection('armory')">
+        ARMORY
+    </button>
+
+</div>
 
 
-        <a href="#" onclick="changeFaction('ubcs')">
-            UBCS
-        </a>
+<div class="faction-content" id="factionContent">
 
-
-        <a href="#" onclick="changeFaction('specops')">
-            SPEC OPS
-        </a>
-
-
-    </nav>
-
-
-
-    <div class="faction-description" id="description">
-
-        Choose your faction
-
-    </div>
+</div>
 
 
 </main>
