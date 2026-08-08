@@ -510,7 +510,6 @@ document.addEventListener("DOMContentLoaded", () => {
 const armoryData = {
 
     stars:[
-        {icon:null, note:"CQB = budovy\nOS = venkovní prostor", zone:null, mode:null},
         { icon:"icons/pistol.png",  note:null, joule:"1,3J", zone:"CQB/OS", mode:"semi" },
         { icon:"icons/rifle.png",   note:"20RPS max", joule:"1,8J", zone:"OS", mode:"semi / full auto" },
         { icon:"icons/grenade.png", note:"Pyrosoft\nTaggin\npružinové\nplynové", joule:null, zone:"OS", mode:null },
@@ -518,8 +517,6 @@ const armoryData = {
         { icon:"icons/shotgun.png", note:null, joule:"1,3J", zone:"CQB/OS", mode:null },
         { icon:"icons/shield.png",  note:"Pouze se záložní pistolí", joule:null, zone:"CQB/OS", mode:"semi" }
     ]
-
-    // specops, ubcs, uss doplníme později stejným způsobem
 
 };
 
@@ -535,7 +532,12 @@ function renderArmory(faction){
         return;
     }
 
-    table.innerHTML = `<div class="armory-table">` +
+   table.innerHTML = `
+    <div class="armory-legend">
+        CQB = budovy<br>
+        OS = venkovní prostor
+    </div>
+    <div class="armory-table">` +
 
         data.map(row => `
             <div class="armory-row">
