@@ -488,9 +488,19 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 let selectedFaction = "";
 
+let selectedFaction = "";
+
 function selectFaction(faction){
 
     selectedFaction = faction;
+
+
+    /* PŘEPNUTÍ ATMOSFÉRY + WALLPAPERU */
+
+    changeFaction(faction);
+
+
+    /* UI */
 
     const chooseText =
         document.getElementById("chooseText");
