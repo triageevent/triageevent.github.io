@@ -36,10 +36,23 @@ function createParticles(effect){
 
     particles = [];
 
-    const amount =
+    let amount;
+
+if(effect === "water"){
+
+    amount =
+        window.innerWidth < 700
+        ? 18
+        : 35;
+
+}else{
+
+    amount =
         window.innerWidth < 700
         ? 90
         : 180;
+
+}
 
 
     for(let i = 0; i < amount; i++){
@@ -53,10 +66,10 @@ function createParticles(effect){
                 particleCanvas.height,
 
             speed:
-                Math.random() * 4 + 3,
+                Math.random() * 1.2 + 0.4,
 
             length:
-                Math.random() * 12 + 6,
+                Math.random() * 35 + 15,
 
             size:
                 Math.random() * 1.5 + .5,
@@ -152,27 +165,77 @@ function drawParticles(){
 
         if(currentEffect === "water"){
 
-            particleCtx.beginPath();
+    /*
+       WATER DROPLETS
+       pomalé kapky stékající
+       po "objektivu"
+    */
 
-            particleCtx.fillStyle =
-                `rgba(210,220,225,${p.alpha})`;
+    particleCtx.beginPath();
 
-            particleCtx.arc(
-                p.x,
-                p.y,
-                p.size + .5,
-                0,
-                Math.PI * 2
-            );
+    particleCtx.strokeStyle =
+        `rgba(210,225,235,${p.alpha * .45})`;
 
-            particleCtx.fill();
+    particleCtx.lineWidth =
+        p.size * .8;
+
+    particleCtx.moveTo(
+        p.x,
+        p.y
+    );
+
+    particleCtx.lineTo(
+        p.x + p.drift,
+        p.y + p.length
+    );
+
+    particleCtx.stroke();
 
 
-            p.y += p.speed * .5;
+    /*
+       malá kapka na konci
+    */
 
-            p.x += p.drift * .2;
+    particleCtx.beginPath();
 
-        }
+    particleCtx.fillStyle =
+        `rgba(225,235,240,${p.alpha * .55})`;
+
+    particleCtx.arc(
+        p.x + p.drift,
+        p.y + p.length,
+        p.size + 1,
+        0,
+        Math.PI * 2
+    );
+
+    particleCtx.fill();
+
+
+    /*
+       pomalé stékání
+    */
+
+    p.y += p.speed;
+
+    p.x += p.drift * .15;
+
+
+    /*
+       občasná změna směru
+    */
+
+    p.drift +=
+        (Math.random() - .5) * .03;
+
+
+    p.drift =
+        Math.max(
+            -0.8,
+            Math.min(0.8, p.drift)
+        );
+
+}
 
 
 
