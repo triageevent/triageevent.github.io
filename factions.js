@@ -469,22 +469,16 @@ FACTION BRIEFING COMING SOON...`;
 
     typeText(loading, () => {
 
+    wallpaper.style.backgroundImage =
+        `url('${image}')`;
 
-        wallpaper.style.backgroundImage =
-            `url('${image}')`;
-
-
-        description.textContent =
-            text;
+    description.textContent =
+        text;
 
 
-        setTimeout(() => {
+    transition.classList.remove("active");
 
-            transition.classList.remove("active");
-
-        },500);
-
-    });
+});
 
 }
 /* =========================
