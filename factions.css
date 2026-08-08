@@ -663,7 +663,33 @@ body{
     transform:translateY(-2px);
 
 }
+/* =========================
+   FACTION HOVER GLOW
+========================= */
 
+.faction-options button[onclick*="stars"]:hover{
+    border-color:#181645;
+    box-shadow:0 0 18px rgba(24,22,69,.9);
+    text-shadow:0 0 10px rgba(24,22,69,1);
+}
+
+.faction-options button[onclick*="uss"]:hover{
+    border-color:#41050a;
+    box-shadow:0 0 18px rgba(65,5,10,.9);
+    text-shadow:0 0 10px rgba(65,5,10,1);
+}
+
+.faction-options button[onclick*="ubcs"]:hover{
+    border-color:#636b2f;
+    box-shadow:0 0 18px rgba(99,107,47,.9);
+    text-shadow:0 0 10px rgba(99,107,47,1);
+}
+
+.faction-options button[onclick*="specops"]:hover{
+    border-color:#6d5b29;
+    box-shadow:0 0 18px rgba(109,91,41,.9);
+    text-shadow:0 0 10px rgba(109,91,41,1);
+}
 
 .choose-text{
 
