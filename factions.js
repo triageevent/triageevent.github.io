@@ -486,3 +486,26 @@ document.addEventListener("DOMContentLoaded", () => {
     setAtmosphere("rain");
 
 });
+let selectedFaction = "";
+
+function selectFaction(faction){
+
+    selectedFaction = faction;
+
+    const chooseText =
+        document.getElementById("chooseText");
+
+    const factionTabs =
+        document.getElementById("factionTabs");
+
+    const factionContent =
+        document.getElementById("factionContent");
+
+
+    chooseText.style.display = "none";
+
+    factionTabs.classList.add("active");
+
+    factionContent.innerHTML = "";
+
+}
