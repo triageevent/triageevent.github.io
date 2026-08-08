@@ -329,7 +329,7 @@ const wallpaper =
     document.getElementById("wallpaper");
 
 const description =
-    document.getElementById("description");
+    document.getElementById("factionContent");
 
 const transition =
     document.getElementById("transition");
