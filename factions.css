@@ -760,7 +760,15 @@ body{
 /* =========================
    ARMORY TABLE
 ========================= */
-
+.armory-legend{
+    width:min(650px,92vw);
+    margin:0 auto 15px;
+    text-align:center;
+    font-size:14px;
+    letter-spacing:1px;
+    color:#e8e2d0;
+    line-height:1.6;
+}
 .armory-table{
     width:min(650px,92vw);
     margin:0 auto;
