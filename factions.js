@@ -1,3 +1,248 @@
+const particleCanvas =
+    document.getElementById("factionParticles");
+
+const particleCtx =
+    particleCanvas.getContext("2d");
+
+const drone =
+    document.getElementById("drone");
+
+let currentEffect = "rain";
+
+let particles = [];
+
+let effectAnimation;
+
+function resizeParticles(){
+
+    particleCanvas.width =
+        window.innerWidth;
+
+    particleCanvas.height =
+        window.innerHeight;
+
+}
+
+resizeParticles();
+
+window.addEventListener(
+    "resize",
+    resizeParticles
+);
+
+
+
+function createParticles(effect){
+
+    particles = [];
+
+    const amount =
+        window.innerWidth < 700
+        ? 90
+        : 180;
+
+
+    for(let i = 0; i < amount; i++){
+
+        particles.push({
+
+            x:Math.random() *
+                particleCanvas.width,
+
+            y:Math.random() *
+                particleCanvas.height,
+
+            speed:
+                Math.random() * 4 + 3,
+
+            length:
+                Math.random() * 12 + 6,
+
+            size:
+                Math.random() * 1.5 + .5,
+
+            alpha:
+                Math.random() * .4 + .15,
+
+            drift:
+                Math.random() * 1.5 - .75
+
+        });
+
+    }
+
+}
+
+function drawParticles(){
+
+    particleCtx.clearRect(
+        0,
+        0,
+        particleCanvas.width,
+        particleCanvas.height
+    );
+
+
+    particles.forEach(p => {
+
+
+        if(currentEffect === "rain"){
+
+            particleCtx.beginPath();
+
+            particleCtx.strokeStyle =
+                `rgba(180,200,210,${p.alpha})`;
+
+            particleCtx.lineWidth =
+                p.size;
+
+            particleCtx.moveTo(
+                p.x,
+                p.y
+            );
+
+            particleCtx.lineTo(
+                p.x + 2,
+                p.y + p.length
+            );
+
+            particleCtx.stroke();
+
+
+            p.y += p.speed;
+
+            p.x += .7;
+
+
+        }
+
+
+
+        if(currentEffect === "wind"){
+
+            particleCtx.beginPath();
+
+            particleCtx.strokeStyle =
+                `rgba(180,180,180,${p.alpha * .45})`;
+
+            particleCtx.lineWidth =
+                p.size;
+
+            particleCtx.moveTo(
+                p.x,
+                p.y
+            );
+
+            particleCtx.lineTo(
+                p.x + p.length * 3,
+                p.y - 2
+            );
+
+            particleCtx.stroke();
+
+
+            p.x += p.speed * 2;
+
+            p.y += p.drift * .2;
+
+
+        }
+
+
+
+        if(currentEffect === "water"){
+
+            particleCtx.beginPath();
+
+            particleCtx.fillStyle =
+                `rgba(210,220,225,${p.alpha})`;
+
+            particleCtx.arc(
+                p.x,
+                p.y,
+                p.size + .5,
+                0,
+                Math.PI * 2
+            );
+
+            particleCtx.fill();
+
+
+            p.y += p.speed * .5;
+
+            p.x += p.drift * .2;
+
+        }
+
+
+
+        if(
+            p.y >
+            particleCanvas.height + 30
+        ){
+
+            p.y = -30;
+
+            p.x =
+                Math.random() *
+                particleCanvas.width;
+
+        }
+
+
+        if(
+            p.x >
+            particleCanvas.width + 30
+        ){
+
+            p.x = -30;
+
+        }
+
+    });
+
+
+    effectAnimation =
+        requestAnimationFrame(
+            drawParticles
+        );
+
+}
+function setAtmosphere(effect){
+
+    currentEffect = effect;
+
+    cancelAnimationFrame(
+        effectAnimation
+    );
+
+    drone.classList.remove("active");
+
+
+    if(effect === "drone"){
+
+        particles = [];
+
+        particleCtx.clearRect(
+            0,
+            0,
+            particleCanvas.width,
+            particleCanvas.height
+        );
+
+        drone.classList.add("active");
+
+        return;
+
+    }
+
+
+    createParticles(effect);
+
+    drawParticles();
+
+}
+
 const wallpaper =
     document.getElementById("wallpaper");
 
@@ -65,6 +310,8 @@ FACTION BRIEFING COMING SOON...`;
         loading =
             "LOADING STARS PROTOCOL...";
 
+        setAtmosphere("rain");
+
     }
 
 
@@ -82,6 +329,8 @@ FACTION BRIEFING COMING SOON...`;
 
         loading =
             "LOADING USS PROTOCOL...";
+
+        setAtmosphere("water");
 
     }
 
@@ -101,6 +350,8 @@ FACTION BRIEFING COMING SOON...`;
         loading =
             "LOADING UBCS PROTOCOL...";
 
+        setAtmosphere("wind");
+
     }
 
 
@@ -118,6 +369,8 @@ FACTION BRIEFING COMING SOON...`;
 
         loading =
             "LOADING SPEC OPS PROTOCOL...";
+
+         setAtmosphere("drone");
 
     }
 
