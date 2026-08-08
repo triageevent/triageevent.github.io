@@ -1,0 +1,393 @@
+*{
+
+    margin:0;
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+
+body{
+
+    background:#000;
+
+    color:white;
+
+    font-family:Consolas, monospace;
+
+    overflow-x:hidden;
+
+    overflow-y:auto;
+
+}
+
+
+
+/* =========================
+   WALLPAPER
+========================= */
+
+
+.wallpaper{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:0;
+
+    background-image:url("factions.png");
+
+    background-size:cover;
+
+    background-position:center;
+
+    transition:1.5s ease;
+
+}
+
+
+
+/* =========================
+   DARK FILTER
+========================= */
+
+
+.dark-filter{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:1;
+
+    pointer-events:none;
+
+    background:
+
+    linear-gradient(
+
+        rgba(0,0,0,.35),
+
+        rgba(0,0,0,.78)
+
+    );
+
+}
+
+
+
+/* =========================
+   CRT
+========================= */
+
+
+.scanlines{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:3;
+
+    pointer-events:none;
+
+    opacity:.12;
+
+    background:
+
+    repeating-linear-gradient(
+
+        to bottom,
+
+        rgba(255,255,255,.04) 0px,
+
+        rgba(255,255,255,.04) 1px,
+
+        transparent 3px,
+
+        transparent 5px
+
+    );
+
+}
+
+
+
+/* =========================
+   MENU
+========================= */
+
+
+.faction-menu{
+
+    position:relative;
+
+    z-index:10;
+
+    min-height:100vh;
+
+    width:100%;
+
+    padding:70px 20px 100px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    text-align:center;
+
+}
+
+
+
+/* =========================
+   TITLE
+========================= */
+
+
+.faction-title{
+
+    margin-top:30px;
+
+}
+
+
+.faction-main{
+
+    color:#ff2b2b;
+
+    font-size:100px;
+
+    font-weight:bold;
+
+    letter-spacing:15px;
+
+    text-shadow:
+
+        0 0 20px red,
+
+        0 0 50px rgba(255,0,0,.5);
+
+}
+
+
+.faction-subtitle{
+
+    margin-top:15px;
+
+    font-family:
+
+        "Brush Script MT",
+        "Segoe Script",
+        cursive;
+
+    font-size:35px;
+
+    color:#ddd;
+
+}
+
+
+
+/* =========================
+   OPTIONS
+========================= */
+
+
+.faction-options{
+
+    margin-top:80px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+    align-items:flex-start;
+
+}
+
+
+.faction-options a{
+
+    color:#777;
+
+    text-decoration:none;
+
+    font-size:35px;
+
+    letter-spacing:6px;
+
+    transition:.3s;
+
+}
+
+
+.faction-options a:hover{
+
+    color:white;
+
+    transform:translateX(15px);
+
+    text-shadow:
+
+        0 0 15px red;
+
+}
+
+
+.faction-options a:hover::before{
+
+    content:"> ";
+
+    color:#ff2b2b;
+
+}
+
+
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+
+.faction-description{
+
+    width:min(850px, 92%);
+
+    margin-top:60px;
+
+    padding-bottom:60px;
+
+    color:#aaa;
+
+    font-size:18px;
+
+    line-height:1.7;
+
+    letter-spacing:2px;
+
+    white-space:pre-line;
+
+}
+
+
+
+/* =========================
+   TRANSITION
+========================= */
+
+
+#transition{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(0,0,0,.88);
+
+    color:#ff2b2b;
+
+    font-family:Consolas, monospace;
+
+    font-size:20px;
+
+    letter-spacing:2px;
+
+    text-shadow:
+
+        0 0 10px #ff2b2b;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    z-index:9999;
+
+    transition:.2s;
+
+}
+
+
+#transition.active{
+
+    opacity:1;
+
+}
+
+
+
+/* =========================
+   MOBILE
+========================= */
+
+
+@media(max-width:600px){
+
+    .faction-menu{
+
+        padding-top:45px;
+
+    }
+
+
+    .faction-main{
+
+        font-size:45px;
+
+        letter-spacing:5px;
+
+    }
+
+
+    .faction-subtitle{
+
+        font-size:18px;
+
+    }
+
+
+    .faction-options{
+
+        margin-top:50px;
+
+        gap:20px;
+
+    }
+
+
+    .faction-options a{
+
+        font-size:22px;
+
+        letter-spacing:3px;
+
+    }
+
+
+    .faction-description{
+
+        margin-top:50px;
+
+        width:94%;
+
+        font-size:14px;
+
+        line-height:1.6;
+
+        letter-spacing:1px;
+
+    }
+
+}
