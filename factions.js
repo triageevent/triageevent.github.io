@@ -421,61 +421,69 @@ function changeFaction(faction){
 
     if(faction === "uss"){
 
-        image = "uss.png";
+    image = "uss.png";
 
-        text =
-`USS
+    introData = {
+        title: "USS",
+        subtitle: "UMBRELLA SECURITY SERVICE",
+        paragraphs: [
+            "Nikdo z nás tu není proto, aby zachraňoval.\nJsme tu, protože Umbrella potřebuje vědět,\nco přesně jejich vlastní výzkum dokáže —\na tahle data se nedají získat z bezpečné\nvzdálenosti.",
+            "STARS nás nazývají katany bez svědomí.\nMají pravdu jen z poloviny — svědomí máme,\njen jsme se ho už dávno naučili nepoužívat\nve chvílích, kdy jde o výsledky.",
+            "UBCS válčí za výplatní pásku. My válčíme\nza informace, které přežijí i tehdy,\nkdyž tohle město nepřežije nikdo jiný.\nSPEC OPS honí pravdu, kterou stejně nikdo\nnebude poslouchat.",
+            "Zatímco ostatní bojují o to, kdo odsud\nvyjde jako hrdina, my sbíráme to jediné,\nco bude mít cenu, až se dým rozplyne:\ndůkaz, co se tu doopravdy stalo —\na moc rozhodnout, kdo se to dozví.",
+            "Pokud dokážeš dělat správné rozhodnutí\ni tehdy, když vypadá jako to špatné —\ntvoje místo je v USS."
+        ]
+    };
 
-UMBRELLA SECURITY SERVICE
+    loading = "LOADING USS PROTOCOL...";
+    setAtmosphere("water");
 
-FACTION BRIEFING COMING SOON...`;
-
-        loading =
-            "LOADING USS PROTOCOL...";
-
-        setAtmosphere("water");
-
-    }
+}
 
 
 
     if(faction === "ubcs"){
 
-        image = "ubcs.png";
+    image = "ubcs.png";
 
-        text =
-`UBCS
+    introData = {
+        title: "UBCS",
+        subtitle: "UMBRELLA BIOHAZARD COUNTERMEASURE SERVICE",
+        paragraphs: [
+            "Umbrella zaplatila za tenhle byznys smlouvu,\nne omluvu. Jsme žoldáci — a ano, víme přesně,\nkdo nás sem poslal a proč. Rozdíl mezi námi\na ostatními je ten, že my si aspoň nelžeme\ndo kapsy o tom, čí je tohle válka.",
+            "STARS chtějí zachraňovat civilisty, kterých\nuž většina není k záchraně. USS chtějí sbírat\nvzorky pro laboratoř, která tohle celé stvořila.\nSPEC OPS nemají ani vlastní vlajku, natož důvod,\nproč by měli vyhrát.",
+            "My máme granátomety, těžkou výzbroj\na smlouvu, která nekončí, dokud neskončí\nposlední cíl na seznamu. Nejsme tu, abychom\nzachraňovali město. Jsme tu, abychom\nz něj dostali ven to, za co nám zaplatili —\ni kdyby to znamenalo srovnat ho se zemí.",
+            "Pokud věříš, že v tomhle pekle vyhrává\nten, kdo má lepší výzbroj a míň iluzí —\npatříš do UBCS."
+        ]
+    };
 
-UMBRELLA BIOHAZARD COUNTERMEASURE SERVICE
+    loading = "LOADING UBCS PROTOCOL...";
+    setAtmosphere("wind");
 
-FACTION BRIEFING COMING SOON...`;
-
-        loading =
-            "LOADING UBCS PROTOCOL...";
-
-        setAtmosphere("wind");
-
-    }
+}
 
 
 
     if(faction === "specops"){
 
-        image = "specops.png";
+    image = "specops.png";
 
-        text =
-`SPEC OPS
+    introData = {
+        title: "SPEC OPS",
+        subtitle: "FIELD UNIT",
+        paragraphs: [
+            "Nikdo nám nezavolal. Nikdo nás nezaregistroval\nv žádném systému, který přežil tenhle týden.\nPřišli jsme, protože tohle je přesně ten druh\nkatastrofy, na kterou nás cvičili — a protože\nněkdo musí dělat práci, kterou STARS má pořád\nještě příliš čisté svědomí udělat.",
+            "Neseme termovize a noční vidění ne proto,\nže bychom se báli tmy. Nosíme je, protože\nve tmě je vidět nejlíp, kdo tady lže.\nA lže tu skoro každý s emblémem na rukávu.",
+            "UBCS jsou žoldáci placení firmou, která tohle\nzpůsobila. USS jsou stíny, co ani nepředstírají,\nže jim jde o něco jiného než o data.\nSTARS chtějí zachránit svět s pravidly,\nkterá tenhle svět už nemá.",
+            "My nemáme rozkazy. Máme jen misi:\ndostat se z Raccoon City s pravdou,\nkterou nikdo jiný neunese.",
+            "Pokud ti nevadí pracovat bez podpory,\nbez uznání a beze jména na uniformě —\nnajdeš nás tam, kde je nejtemněji."
+        ]
+    };
 
-SPECIAL OPERATIONS
+    loading = "LOADING SPEC OPS PROTOCOL...";
+    setAtmosphere("drone");
 
-FACTION BRIEFING COMING SOON...`;
-
-        loading =
-            "LOADING SPEC OPS PROTOCOL...";
-
-         setAtmosphere("drone");
-
-    }
+}
 
 
    typeText(loading, () => {
