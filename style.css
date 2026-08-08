@@ -544,3 +544,65 @@ MOBILE
 
 }
     }
+/* ======================
+   BOOT SKIP
+====================== */
+
+#skip-button{
+
+    position:absolute;
+
+    right:30px;
+    bottom:25px;
+
+    color:#777;
+
+    text-decoration:none;
+
+    font-family:Consolas, monospace;
+
+    font-size:14px;
+
+    letter-spacing:3px;
+
+    padding:8px 12px;
+
+    border:1px solid rgba(255,43,43,.35);
+
+    background:rgba(0,0,0,.45);
+
+    transition:.25s;
+
+}
+
+
+#skip-button:hover{
+
+    color:#ff2b2b;
+
+    border-color:#ff2b2b;
+
+    text-shadow:
+        0 0 10px #ff2b2b;
+
+    box-shadow:
+        0 0 15px rgba(255,0,0,.3);
+
+}
+
+
+@media(max-width:600px){
+
+    #skip-button{
+
+        right:15px;
+
+        bottom:15px;
+
+        font-size:12px;
+
+        letter-spacing:2px;
+
+    }
+
+}
