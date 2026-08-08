@@ -281,50 +281,227 @@ function setAtmosphere(effect){
 
     currentEffect = effect;
 
-    cancelAnimationFrame(
-        effectAnimation
-    );
+    cancelAnimationFrame(effectAnimation);
 
-    drone.classList.remove("active");
-
+    if(effect !== "drone"){
+        stopDroneWander();
+    }
 
     if(effect === "drone"){
 
-    particles = [];
+        particles = [];
 
-    particleCtx.clearRect(
-        0,
-        0,
-        particleCanvas.width,
-        particleCanvas.height
-    );
+        particleCtx.clearRect(
+            0, 0,
+            particleCanvas.width,
+            particleCanvas.height
+        );
 
+        startDroneWander();
 
-    drone.classList.remove("active");
+        return;
 
+    }
 
-    /*
-       malá pauza před průletem
-    */
-
-    setTimeout(() => {
-
-        if(currentEffect === "drone"){
-
-            drone.classList.add("active");
-
-        }
-
-    },100);
-
-    return;
+    createParticles(effect);
+    drawParticles();
 
 }
 
 
-    createParticles(effect);
+/* =========================
+   DRONE MANEUVERS
+========================= */
 
-    drawParticles();
+let droneWanderToken = 0;
+
+const scanCone = document.getElementById("scanCone");
+
+
+function showDrone(x, y){
+    drone.style.left = x + "px";
+    drone.style.top = y + "px";
+    drone.style.opacity = 1;
+    drone.classList.add("glow");
+}
+
+function hideDrone(){
+    drone.style.opacity = 0;
+    drone.classList.remove("glow");
+}
+
+function positionCone(x, y){
+    scanCone.style.left = (x + 35) + "px";
+    scanCone.style.top  = (y + 95) + "px";
+}
+
+function wait(ms, token){
+    return new Promise(resolve => {
+        setTimeout(() => resolve(token === droneWanderToken), ms);
+    });
+}
+
+function easeInOutQuad(t){
+    return t < .5 ? 2*t*t : -1 + (4 - 2*t) * t;
+}
+
+function moveDrone(x0, y0, x1, y1, duration, token){
+    return new Promise(resolve => {
+
+        const start = performance.now();
+
+        function frame(now){
+
+            if(token !== droneWanderToken){
+                resolve(false);
+                return;
+            }
+
+            const t = Math.min(1, (now - start) / duration);
+            const e = easeInOutQuad(t);
+
+            const x = x0 + (x1 - x0) * e;
+            const y = y0 + (y1 - y0) * e;
+
+            drone.style.left = x + "px";
+            drone.style.top  = y + "px";
+
+            positionCone(x, y);
+
+            if(t < 1){
+                requestAnimationFrame(frame);
+            }else{
+                resolve(true);
+            }
+
+        }
+
+        requestAnimationFrame(frame);
+
+    });
+}
+
+function randomEdgePoint(){
+
+    const margin = 250;
+    const side = ["left","right","top"][Math.floor(Math.random()*3)];
+
+    if(side === "left")  return { x:-margin, y:Math.random()*window.innerHeight*.55 };
+    if(side === "right") return { x:window.innerWidth + margin, y:Math.random()*window.innerHeight*.55 };
+
+    return { x:Math.random()*window.innerWidth, y:-margin };
+
+}
+
+function randomInnerPoint(){
+
+    const padX = 150;
+    const padY = 100;
+
+    return {
+        x: padX + Math.random() * (window.innerWidth - padX*2),
+        y: padY + Math.random() * (window.innerHeight*.5 - padY)
+    };
+
+}
+
+
+async function scanManeuver(token){
+
+    const entry = randomEdgePoint();
+    const target = randomInnerPoint();
+    const exit = randomEdgePoint();
+
+    showDrone(entry.x, entry.y);
+    positionCone(entry.x, entry.y);
+
+    if(!await moveDrone(entry.x, entry.y, target.x, target.y, 1800, token)) return;
+
+    scanCone.style.opacity = .85;
+
+    if(!await wait(3000, token)) return;
+
+    scanCone.style.opacity = 0;
+
+    if(!await moveDrone(target.x, target.y, exit.x, exit.y, 1800, token)) return;
+
+    hideDrone();
+
+    await wait(400, token);
+
+}
+
+async function flybyManeuver(token){
+
+    const entry = randomEdgePoint();
+    const exit = randomEdgePoint();
+
+    showDrone(entry.x, entry.y);
+
+    if(!await moveDrone(entry.x, entry.y, exit.x, exit.y, 3200, token)) return;
+
+    hideDrone();
+
+    await wait(400, token);
+
+}
+
+async function hoverLeaveManeuver(token){
+
+    const entry = randomEdgePoint();
+    const hoverPoint = randomInnerPoint();
+    const exit = randomEdgePoint();
+
+    showDrone(entry.x, entry.y);
+
+    if(!await moveDrone(entry.x, entry.y, hoverPoint.x, hoverPoint.y, 1800, token)) return;
+
+    if(!await wait(1500, token)) return;
+
+    if(!await moveDrone(hoverPoint.x, hoverPoint.y, exit.x, exit.y, 4500, token)) return;
+
+    hideDrone();
+
+    await wait(400, token);
+
+}
+
+
+async function startDroneWander(){
+
+    const myToken = ++droneWanderToken;
+
+    const maneuvers = [scanManeuver, flybyManeuver, hoverLeaveManeuver];
+
+    let lastIndex = -1;
+
+    while(myToken === droneWanderToken){
+
+        let idx;
+
+        do{
+            idx = Math.floor(Math.random() * maneuvers.length);
+        }while(idx === lastIndex && maneuvers.length > 1);
+
+        lastIndex = idx;
+
+        await maneuvers[idx](myToken);
+
+        if(myToken !== droneWanderToken) return;
+
+        await wait(500 + Math.random() * 900, myToken);
+
+    }
+
+}
+
+function stopDroneWander(){
+
+    droneWanderToken++;
+
+    hideDrone();
+
+    scanCone.style.opacity = 0;
 
 }
 
