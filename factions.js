@@ -504,8 +504,7 @@ factionIntroText = introData;
         "--faction-armory-bg",
         armoryColors[faction] || "rgba(24,22,69,.85)"
     );
-       const introBtn = document.querySelector('#factionTabs button');
-    showFactionSection("intro", introBtn);
+       document.getElementById("factionContent").innerHTML = "";
 
 
     /* SKRYTÍ LOADING OBRAZOVKY */
