@@ -325,7 +325,11 @@ body{
     opacity:1;
 
 }
+#transition:not(.active){
 
+    opacity:0;
+
+}
 
 
 /* =========================
