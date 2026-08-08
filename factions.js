@@ -377,7 +377,11 @@ function changeFaction(faction){
 
     factionTabs.classList.add("active");
 
+    transition.style.display = "flex";
+
     transition.classList.add("active");
+
+    
 
 
     let image = "";
@@ -480,7 +484,7 @@ FACTION BRIEFING COMING SOON...`;
 
     transition.classList.remove("active");
 
-    transition.style.opacity = "0";
+    transition.style.display = "none";
 
 });
 
