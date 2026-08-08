@@ -606,9 +606,13 @@ function renderArmory(faction){
             Co není uvedeno mezi povoleným vybavením frakce, není pro danou frakci povoleno.
         </div>`;
 }
+let introTypingInterval = null;
+
 function renderIntro(data){
 
     const content = document.getElementById("factionContent");
+
+    clearInterval(introTypingInterval);
 
     if(!data){
         content.innerHTML =
@@ -620,13 +624,61 @@ function renderIntro(data){
         <div class="intro-wrap">
             <div class="intro-title">${data.title}</div>
             <div class="intro-subtitle">${data.subtitle}</div>
-            <div class="intro-body">
-                ${data.paragraphs.map((p, i) =>
-                    `<p style="animation-delay:${i * .35}s">${p}</p>`
-                ).join("")}
-            </div>
+            <div class="intro-body" id="introBody"></div>
         </div>
     `;
+
+    const bodyEl = document.getElementById("introBody");
+
+    typeIntro(data.paragraphs, bodyEl);
+
+}
+
+function typeIntro(paragraphs, bodyEl){
+
+    let paraIndex = 0;
+    let charIndex = 0;
+
+    let currentP = document.createElement("p");
+    currentP.innerHTML = `<span class="typing-cursor"></span>`;
+    bodyEl.appendChild(currentP);
+
+    introTypingInterval = setInterval(() => {
+
+        if(paraIndex >= paragraphs.length){
+            clearInterval(introTypingInterval);
+            const cursor = bodyEl.querySelector(".typing-cursor");
+            if(cursor) cursor.remove();
+            return;
+        }
+
+        const text = paragraphs[paraIndex];
+
+        if(charIndex < text.length){
+
+            const typed = text.slice(0, charIndex + 1)
+                .replace(/\n/g,"<br>");
+
+            currentP.innerHTML =
+                typed + `<span class="typing-cursor"></span>`;
+
+            charIndex++;
+
+        }else{
+
+            paraIndex++;
+            charIndex = 0;
+
+            if(paraIndex < paragraphs.length){
+                currentP = document.createElement("p");
+                currentP.innerHTML = `<span class="typing-cursor"></span>`;
+                bodyEl.appendChild(currentP);
+            }
+
+        }
+
+    },18);
+
 }
 function showFactionSection(section, btn){
 
