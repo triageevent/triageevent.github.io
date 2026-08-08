@@ -476,7 +476,11 @@ FACTION BRIEFING COMING SOON...`;
         text;
 
 
+    /* SKRYTÍ LOADING OBRAZOVKY */
+
     transition.classList.remove("active");
+
+    transition.style.opacity = "0";
 
 });
 
