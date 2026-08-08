@@ -532,3 +532,82 @@ body{
     }
 
 }
+/* ======================
+   BACK BUTTON
+====================== */
+
+.back-button{
+
+    position:fixed;
+
+    top:30px;
+    left:35px;
+
+    z-index:100;
+
+    color:#777;
+
+    text-decoration:none;
+
+    font-family:Consolas, monospace;
+
+    font-size:20px;
+
+    letter-spacing:4px;
+
+    padding:8px 14px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.65),
+            rgba(0,0,0,.25),
+            transparent
+        );
+
+    text-shadow:
+        0 2px 5px rgba(0,0,0,.9);
+
+    transition:.25s;
+
+}
+
+
+.back-button:hover{
+
+    color:white;
+
+    transform:translateX(-5px);
+
+    text-shadow:
+        0 0 12px #ff2b2b;
+
+}
+
+
+.back-button:hover::first-letter{
+
+    color:#ff2b2b;
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .back-button{
+
+        top:20px;
+
+        left:15px;
+
+        font-size:16px;
+
+        letter-spacing:3px;
+
+        padding:6px 10px;
+
+    }
+
+}
