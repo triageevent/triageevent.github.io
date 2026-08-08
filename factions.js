@@ -481,6 +481,17 @@ FACTION BRIEFING COMING SOON...`;
 
     currentFaction = faction;
     factionIntroText = text;
+       const armoryColors = {
+        stars:   "rgba(24,22,69,.85)",
+        uss:     "rgba(65,5,10,.85)",
+        ubcs:    "rgba(99,107,47,.85)",
+        specops: "rgba(109,91,41,.85)"
+    };
+
+    document.documentElement.style.setProperty(
+        "--faction-armory-bg",
+        armoryColors[faction] || "rgba(24,22,69,.85)"
+    );
        const introBtn = document.querySelector('#factionTabs button');
     showFactionSection("intro", introBtn);
 
