@@ -411,22 +411,21 @@ body{
 
 }
 
-
 /* =========================
-   DRONE
+   SPEC OPS DRONE
 ========================= */
 
 #drone{
 
     position:fixed;
 
-    width:80px;
+    width:180px;
 
-    height:35px;
+    height:auto;
 
-    left:-120px;
+    left:-250px;
 
-    top:25%;
+    top:20%;
 
     pointer-events:none;
 
@@ -434,104 +433,99 @@ body{
 
     opacity:0;
 
-}
-
-
-/* jednoduchá silueta dronu */
-
-#drone::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:20px;
-
-    top:10px;
-
-    width:40px;
-
-    height:15px;
-
-    background:rgba(20,20,20,.85);
-
-    border-radius:8px;
-
-    box-shadow:
-        0 0 10px rgba(0,0,0,.8);
+    filter:
+        drop-shadow(0 0 12px rgba(0,0,0,.8));
 
 }
 
 
-#drone::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-
-    top:3px;
-
-    width:80px;
-
-    height:4px;
-
-    background:rgba(10,10,10,.7);
-
-    box-shadow:
-
-        0 25px 0 rgba(10,10,10,.7);
-
-}
-
+/* AKTIVNÍ PRŮLET */
 
 #drone.active{
 
-    opacity:.8;
+    opacity:1;
 
-    animation:droneFly 18s linear infinite;
+    animation:
+        droneFly 12s linear forwards;
 
 }
 
+
+/* PRŮLET */
 
 @keyframes droneFly{
 
     0%{
 
-        left:-120px;
+        left:-250px;
 
-        top:20%;
+        top:18%;
 
-        transform:rotate(-2deg);
+        transform:
+            scale(.65)
+            rotate(-5deg);
+
+        opacity:0;
 
     }
+
+
+    10%{
+
+        opacity:.85;
+
+    }
+
 
     45%{
 
-        top:27%;
+        left:35%;
 
-        transform:rotate(2deg);
+        top:28%;
+
+        transform:
+            scale(.9)
+            rotate(2deg);
+
+    }
+
+
+    65%{
+
+        left:58%;
+
+        top:24%;
+
+        transform:
+            scale(1)
+            rotate(-1deg);
 
     }
 
-    50%{
 
-        top:26%;
+    90%{
+
+        opacity:.9;
 
     }
+
 
     100%{
 
         left:110%;
 
-        top:18%;
+        top:15%;
 
-        transform:rotate(-2deg);
+        transform:
+            scale(.7)
+            rotate(4deg);
+
+        opacity:0;
 
     }
 
 }
+
 /* ======================
    BACK BUTTON
 ====================== */
