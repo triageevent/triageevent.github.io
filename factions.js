@@ -13,6 +13,9 @@ let particles = [];
 
 let effectAnimation;
 
+let currentFaction = null;
+let factionIntroText = "";
+
 function resizeParticles(){
 
     particleCanvas.width =
@@ -471,13 +474,15 @@ FACTION BRIEFING COMING SOON...`;
     }
 
 
-    typeText(loading, () => {
+   typeText(loading, () => {
 
     wallpaper.style.backgroundImage =
         `url('${image}')`;
 
-    description.textContent =
-        text;
+    currentFaction = faction;
+    factionIntroText = text;
+       const introBtn = document.querySelector('#factionTabs button');
+    showFactionSection("intro", introBtn);
 
 
     /* SKRYTÍ LOADING OBRAZOVKY */
@@ -498,3 +503,73 @@ document.addEventListener("DOMContentLoaded", () => {
     setAtmosphere("rain");
 
 });
+/* =========================
+   ARMORY DATA
+========================= */
+
+const armoryData = {
+
+    stars:[
+        { icon:"icons/pistol.png",  note:"CQB = budovy\nOS = venkovní prostor", joule:"1,3J", zone:"CQB/OS", mode:"semi" },
+        { icon:"icons/rifle.png",   note:"20RPS max", joule:"1,8J", zone:"OS", mode:"semi / full auto" },
+        { icon:"icons/grenade.png", note:"Pyrosoft\nTaggin\npružinové\nplynové", joule:null, zone:"OS", mode:null },
+        { icon:"icons/lmg.png",     note:"20RPS max", joule:"1,5J", zone:"OS", mode:"full auto" },
+        { icon:"icons/shotgun.png", note:null, joule:"1,3J", zone:"CQB/OS", mode:null },
+        { icon:"icons/shield.png",  note:"Pouze se záložní pistolí", joule:null, zone:"CQB/OS", mode:"semi" }
+    ]
+
+    // specops, ubcs, uss doplníme později stejným způsobem
+
+};
+
+function renderArmory(faction){
+
+    const table = document.getElementById("factionContent");
+
+    const data = armoryData[faction];
+
+    if(!data){
+        table.innerHTML =
+            `<p class="faction-text">ARMORY BRIEFING COMING SOON...</p>`;
+        return;
+    }
+
+    table.innerHTML = `<div class="armory-table">` +
+
+        data.map(row => `
+            <div class="armory-row">
+                <img src="${row.icon}" class="armory-icon" alt="">
+                ${row.note ? `<div class="armory-note">${row.note.replace(/\n/g,"<br>")}</div>` : "<div></div>"}
+                <div class="armory-right">
+                    ${row.joule ? `<div class="armory-joule">${row.joule}</div>` : ""}
+                    ${row.zone ? `<div class="armory-zone">${row.zone}</div>` : ""}
+                    ${row.mode ? `<div class="armory-mode">${row.mode}</div>` : ""}
+                </div>
+            </div>
+        `).join("") +
+
+        `</div>
+        <div class="armory-footer">
+            Co není uvedeno mezi povoleným vybavením frakce, není pro danou frakci povoleno.
+        </div>`;
+}
+function showFactionSection(section, btn){
+
+    if(!currentFaction) return;
+
+    document.querySelectorAll("#factionTabs button")
+        .forEach(b => b.classList.remove("active-tab"));
+
+    if(btn) btn.classList.add("active-tab");
+
+    const content = document.getElementById("factionContent");
+
+    if(section === "intro"){
+        content.innerHTML =
+            `<pre class="faction-text">${factionIntroText}</pre>`;
+    }
+
+    if(section === "armory"){
+        renderArmory(currentFaction);
+    }
+}
