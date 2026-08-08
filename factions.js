@@ -315,7 +315,7 @@ function setAtmosphere(effect){
 
 let droneWanderToken = 0;
 
-const scanCone = document.getElementById("scanCone");
+const screenScan = document.getElementById("screenScan");
 
 
 function showDrone(x, y){
@@ -328,11 +328,6 @@ function showDrone(x, y){
 function hideDrone(){
     drone.style.opacity = 0;
     drone.classList.remove("glow");
-}
-
-function positionCone(x, y){
-    scanCone.style.left = (x + 35) + "px";
-    scanCone.style.top  = (y + 95) + "px";
 }
 
 function wait(ms, token){
@@ -366,7 +361,6 @@ function moveDrone(x0, y0, x1, y1, duration, token){
             drone.style.left = x + "px";
             drone.style.top  = y + "px";
 
-            positionCone(x, y);
 
             if(t < 1){
                 requestAnimationFrame(frame);
@@ -413,15 +407,14 @@ async function scanManeuver(token){
     const exit = randomEdgePoint();
 
     showDrone(entry.x, entry.y);
-    positionCone(entry.x, entry.y);
 
     if(!await moveDrone(entry.x, entry.y, target.x, target.y, 1800, token)) return;
 
-    scanCone.style.opacity = .85;
+    screenScan.classList.add("active");
 
     if(!await wait(3000, token)) return;
 
-    scanCone.style.opacity = 0;
+    screenScan.classList.remove("active");
 
     if(!await moveDrone(target.x, target.y, exit.x, exit.y, 1800, token)) return;
 
@@ -501,7 +494,7 @@ function stopDroneWander(){
 
     hideDrone();
 
-    scanCone.style.opacity = 0;
+    screenScan.classList.remove("active");
 
 }
 
