@@ -374,7 +374,7 @@ FACTION BRIEFING COMING SOON...`;
 
     }
 
-
+setAtmosphere("rain");
 
     typeText(loading, () => {
 
