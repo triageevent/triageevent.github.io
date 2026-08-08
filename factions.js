@@ -287,20 +287,36 @@ function setAtmosphere(effect){
 
     if(effect === "drone"){
 
-        particles = [];
+    particles = [];
 
-        particleCtx.clearRect(
-            0,
-            0,
-            particleCanvas.width,
-            particleCanvas.height
-        );
+    particleCtx.clearRect(
+        0,
+        0,
+        particleCanvas.width,
+        particleCanvas.height
+    );
 
-        drone.classList.add("active");
 
-        return;
+    drone.classList.remove("active");
 
-    }
+
+    /*
+       malá pauza před průletem
+    */
+
+    setTimeout(() => {
+
+        if(currentEffect === "drone"){
+
+            drone.classList.add("active");
+
+        }
+
+    },100);
+
+    return;
+
+}
 
 
     createParticles(effect);
