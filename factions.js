@@ -666,14 +666,17 @@ function typeIntro(paragraphs, bodyEl){
 
         }else{
 
-            paraIndex++;
-            charIndex = 0;
+    // odstranit kurzor z právě dokončeného odstavce
+    currentP.innerHTML = text.replace(/\n/g,"<br>");
 
-            if(paraIndex < paragraphs.length){
-                currentP = document.createElement("p");
-                currentP.innerHTML = `<span class="typing-cursor"></span>`;
-                bodyEl.appendChild(currentP);
-            }
+    paraIndex++;
+    charIndex = 0;
+
+    if(paraIndex < paragraphs.length){
+        currentP = document.createElement("p");
+        currentP.innerHTML = `<span class="typing-cursor"></span>`;
+        bodyEl.appendChild(currentP);
+    }
 
         }
 
