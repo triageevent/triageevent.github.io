@@ -367,6 +367,16 @@ function typeText(text, callback){
 
 function changeFaction(faction){
 
+    const chooseText =
+        document.getElementById("chooseText");
+
+    const factionTabs =
+        document.getElementById("factionTabs");
+
+    chooseText.style.display = "none";
+
+    factionTabs.classList.add("active");
+
     transition.classList.add("active");
 
 
@@ -486,35 +496,3 @@ document.addEventListener("DOMContentLoaded", () => {
     setAtmosphere("rain");
 
 });
-
-let selectedFaction = "";
-
-function selectFaction(faction){
-
-    selectedFaction = faction;
-
-
-    /* PŘEPNUTÍ ATMOSFÉRY + WALLPAPERU */
-
-    changeFaction(faction);
-
-
-    /* UI */
-
-    const chooseText =
-        document.getElementById("chooseText");
-
-    const factionTabs =
-        document.getElementById("factionTabs");
-
-    const factionContent =
-        document.getElementById("factionContent");
-
-
-    chooseText.style.display = "none";
-
-    factionTabs.classList.add("active");
-
-    factionContent.innerHTML = "";
-
-}
