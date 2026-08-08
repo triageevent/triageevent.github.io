@@ -399,4 +399,8 @@ FACTION BRIEFING COMING SOON...`;
    DEFAULT ATMOSPHERE
 ========================= */
 
-setAtmosphere("rain");
+document.addEventListener("DOMContentLoaded", () => {
+
+    setAtmosphere("rain");
+
+});
