@@ -374,7 +374,6 @@ FACTION BRIEFING COMING SOON...`;
 
     }
 
-setAtmosphere("rain");
 
     typeText(loading, () => {
 
@@ -396,3 +395,8 @@ setAtmosphere("rain");
     });
 
 }
+/* =========================
+   DEFAULT ATMOSPHERE
+========================= */
+
+setAtmosphere("rain");
