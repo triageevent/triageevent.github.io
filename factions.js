@@ -389,7 +389,7 @@ function changeFaction(faction){
 
     let image = "";
 
-    let text = "";
+    let introData = null;
 
     let loading = "";
 
@@ -399,13 +399,17 @@ function changeFaction(faction){
 
         image = "stars.png";
 
-        text =
-`STARS
-
-SPECIAL TACTICS AND RESCUE SERVICE
-
-FACTION BRIEFING COMING SOON...`;
-
+        introData = {
+        title: "STARS",
+        subtitle: "SPECIAL TACTICS AND RESCUE SERVICE",
+        paragraphs: [
+            "Raccoon City hoří a nikdo jiný sem nepřijde.\nNe UBCS se svými žoldáky. Ne USS se svým mlčením.\nJen my.",
+            "Byli jsme tu jako první, když se měšťané začali měnit\nv něco, co už nechodilo, ale ani nezůstávalo ležet.\nZtratili jsme lidi. Ztratili jsme velitelství.\nAle neztratili jsme důvod, proč tu jsme.",
+            "Umbrella tenhle chaos vytvořila a teď sem posílá\nvlastní jednotky, aby si uklidila po sobě nepořádek\ndřív, než z něj někdo udělá důkaz. My jim v tom\nnezabráníme silou zbraně — zabráníme jim tím,\nže přežijeme a promluvíme.",
+            "Ostatní frakce bojují o kontrolu.\nMy bojujeme o to, aby bylo koho zachránit.",
+            "Pokud věříš, že z tohohle města má někdo vyjít\nse svědomím čistým jako uniforma, na které\nještě nezaschla krev — patříš k nám."
+        ]
+    };
         loading =
             "LOADING STARS PROTOCOL...";
 
@@ -480,7 +484,7 @@ FACTION BRIEFING COMING SOON...`;
         `url('${image}')`;
 
     currentFaction = faction;
-    factionIntroText = text;
+factionIntroText = introData;
        const armoryColors = {
         stars:   "rgba(24,22,69,.85)",
         uss:     "rgba(65,5,10,.85)",
@@ -594,6 +598,28 @@ function renderArmory(faction){
             Co není uvedeno mezi povoleným vybavením frakce, není pro danou frakci povoleno.
         </div>`;
 }
+function renderIntro(data){
+
+    const content = document.getElementById("factionContent");
+
+    if(!data){
+        content.innerHTML =
+            `<p class="faction-text">BRIEFING COMING SOON...</p>`;
+        return;
+    }
+
+    content.innerHTML = `
+        <div class="intro-wrap">
+            <div class="intro-title">${data.title}</div>
+            <div class="intro-subtitle">${data.subtitle}</div>
+            <div class="intro-body">
+                ${data.paragraphs.map((p, i) =>
+                    `<p style="animation-delay:${i * .35}s">${p}</p>`
+                ).join("")}
+            </div>
+        </div>
+    `;
+}
 function showFactionSection(section, btn){
 
     if(!currentFaction) return;
@@ -606,9 +632,8 @@ function showFactionSection(section, btn){
     const content = document.getElementById("factionContent");
 
     if(section === "intro"){
-        content.innerHTML =
-            `<pre class="faction-text">${factionIntroText}</pre>`;
-    }
+    renderIntro(factionIntroText);
+}
 
     if(section === "armory"){
         renderArmory(currentFaction);
