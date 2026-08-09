@@ -701,39 +701,39 @@ document.addEventListener("DOMContentLoaded", () => {
 const armoryData = {
 
     stars:[
-        { icon:"icons/pistol.png",  note:null, joule:"1,3J", zone:"CQB/OS", mode:"semi" },
-        { icon:"icons/rifle.png",   note:"20RPS max", joule:"1,8J", zone:"OS", mode:"semi / full auto" },
-        { icon:"icons/grenade.png", note:"Pyrosoft\nTaggin\npružinové\nplynové", joule:null, zone:"OS", mode:null },
-        { icon:"icons/lmg.png",     note:"20RPS max", joule:"1,5J", zone:"OS", mode:"full auto" },
-        { icon:"icons/shotgun.png", note:null, joule:"1,3J", zone:"CQB/OS", mode:null },
-        { icon:"icons/shield.png",  note:"Pouze se záložní pistolí", joule:null, zone:"CQB/OS", mode:"semi" }
+        { icon:"icons/pistol.png",  label:"PISTOLE", note:null, joule:"1,3J", zone:"CQB/OS", mode:"semi" },
+        { icon:"icons/rifle.png",   label:"ÚTOČNÁ PUŠKA", note:"20RPS max", joule:"1,8J", zone:"OS", mode:"semi / full auto" },
+        { icon:"icons/grenade.png", label:"GRANÁT", note:"Pyrosoft\nTaggin\npružinové\nplynové", joule:null, zone:"OS", mode:null },
+        { icon:"icons/lmg.png",     label:"KULOMET", note:"20RPS max", joule:"1,5J", zone:"OS", mode:"full auto" },
+        { icon:"icons/shotgun.png", label:"BROKOVNICE", note:null, joule:"1,3J", zone:"CQB/OS", mode:null },
+        { icon:"icons/shield.png",  label:"ŠTÍT (S HLEDÍM)", note:"Pouze se záložní pistolí", joule:null, zone:"CQB/OS", mode:"semi" }
     ],
 
     uss:[
-        { icon:"icons/pistol.png",  note:null, joule:"1,3J", zone:"CQB/OS", mode:"semi" },
-        { icon:"icons/rifle.png",   note:"20RPS max", joule:"1,8J", zone:"OS", mode:"semi / full auto" },
-        { icon:"icons/grenade.png", note:"Pyrosoft\nTaggin", joule:null, zone:"OS", mode:null },
-        { icon:"icons/lmg.png",     note:"20RPS max", joule:"1,5J", zone:"OS", mode:"full auto" },
-        { icon:"icons/smg.png",     note:"25RPS max\nReálná předloha", joule:"1,3J", zone:"CQB/OS", mode:"semi / full auto" },
-        { icon:"icons/grenade.png", note:"pružinové\nplynové", joule:null, zone:"CQB/OS", mode:null }
+        { icon:"icons/pistol.png",  label:"PISTOLE", note:null, joule:"1,3J", zone:"CQB/OS", mode:"semi" },
+        { icon:"icons/rifle.png",   label:"ÚTOČNÁ PUŠKA", note:"20RPS max", joule:"1,8J", zone:"OS", mode:"semi / full auto" },
+        { icon:"icons/grenade.png", label:"GRANÁT", note:"Pyrosoft\nTaggin", joule:null, zone:"OS", mode:null },
+        { icon:"icons/lmg.png",     label:"KULOMET", note:"20RPS max", joule:"1,5J", zone:"OS", mode:"full auto" },
+        { icon:"icons/smg.png",     label:"SAMOPAL", tooltipDesc:"Reálná předloha", tooltipLink:"https://www.imfdb.org/wiki/Category:Submachine_Gun", note:"25RPS max\nReálná předloha", joule:"1,3J", zone:"CQB/OS", mode:"semi / full auto" },
+        { icon:"icons/grenade.png", label:"GRANÁT", note:"pružinové\nplynové", joule:null, zone:"CQB/OS", mode:null }
     ],
 
     ubcs:[
-        { icon:"icons/pistol.png",   note:null, joule:"1,3J", zone:"CQB/OS", mode:"semi" },
-        { icon:"icons/rifle.png",    note:"20RPS max", joule:"1,8J", zone:"OS", mode:"semi / full auto" },
-        { icon:"icons/grenade.png",  note:"Pyrosoft\nTaggin\npružinové\nplynové", joule:null, zone:"OS", mode:null },
-        { icon:"icons/lmg.png",      note:"20RPS max", joule:"1,5J", zone:"OS", mode:"full auto" },
-        { icon:"icons/launcher.png", note:"Granátomet", joule:null, zone:"CQB/OS", mode:"Greengas" },
-        { icon:"icons/dmr.png",      note:"pouze nad 20m\nReálná předloha\nPouze se záložní pistolí", joule:"2,5J", zone:"OS", mode:"semi" }
+        { icon:"icons/pistol.png",   label:"PISTOLE", note:null, joule:"1,3J", zone:"CQB/OS", mode:"semi" },
+        { icon:"icons/rifle.png",    label:"ÚTOČNÁ PUŠKA", note:"20RPS max", joule:"1,8J", zone:"OS", mode:"semi / full auto" },
+        { icon:"icons/grenade.png",  label:"GRANÁT", note:"Pyrosoft\nTaggin\npružinové\nplynové", joule:null, zone:"OS", mode:null },
+        { icon:"icons/lmg.png",      label:"KULOMET", note:"20RPS max", joule:"1,5J", zone:"OS", mode:"full auto" },
+        { icon:"icons/launcher.png", label:"GRANÁTOMET", note:"Granátomet", joule:null, zone:"CQB/OS", mode:"Greengas" },
+        { icon:"icons/dmr.png",      label:"DMR", tooltipDesc:"Designated Marksman Rifle — reálná předloha, optika, dvojnožka, lowcap zásobník", tooltipLink:"https://en.wikipedia.org/wiki/Category:Designated_marksman_rifles", note:"pouze nad 20m\nReálná předloha\nPouze se záložní pistolí", joule:"2,5J", zone:"OS", mode:"semi" }
     ],
 
     specops:[
-        { icon:"icons/pistol.png",  note:null, joule:"1,3J", zone:"CQB/OS", mode:"semi" },
-        { icon:"icons/rifle.png",   note:"20RPS max", joule:"1,8J", zone:"OS", mode:"semi / full auto" },
-        { icon:"icons/grenade.png", note:"Pyrosoft\nTaggin\npružinové\nplynové", joule:null, zone:"OS", mode:null },
-        { icon:"icons/lmg.png",     note:"20RPS max", joule:"1,5J", zone:"OS", mode:"full auto" },
-        { icon:"icons/nvg.png", note:"Zákaz shazovat předměty", joule:null, zone:"CQB/OS", mode:"NVG / THERMOVIZE" },
-        { icon:"icons/sniper.png",  note:"pouze nad 30m\nPouze se záložní pistolí", joule:"3,5J", zone:"OS", mode:"semi" }
+        { icon:"icons/pistol.png",  label:"PISTOLE", note:null, joule:"1,3J", zone:"CQB/OS", mode:"semi" },
+        { icon:"icons/rifle.png",   label:"ÚTOČNÁ PUŠKA", note:"20RPS max", joule:"1,8J", zone:"OS", mode:"semi / full auto" },
+        { icon:"icons/grenade.png", label:"GRANÁT", note:"Pyrosoft\nTaggin\npružinové\nplynové", joule:null, zone:"OS", mode:null },
+        { icon:"icons/lmg.png",     label:"KULOMET", note:"20RPS max", joule:"1,5J", zone:"OS", mode:"full auto" },
+        { icon:"icons/nvg.png",     label:"DRONY", tooltipDesc:"Pouze průzkum — noční vidění, thermovize", note:"Zákaz shazovat předměty", joule:null, zone:"CQB/OS", mode:"NVG / THERMOVIZE" },
+        { icon:"icons/sniper.png",  label:"SNIPER", tooltipDesc:"Manuálně nabíjecí puška s optikou (greengas/CO2/HPA/manuál)", note:"pouze nad 30m\nPouze se záložní pistolí", joule:"3,5J", zone:"OS", mode:"semi" }
     ]
 
 };
@@ -759,7 +759,14 @@ function renderArmory(faction){
 
         data.map(row => `
             <div class="armory-row">
-                <img src="${row.icon}" class="armory-icon" alt="">
+               <div class="armory-icon-wrap" onclick="toggleArmoryTooltip(this, event)">
+    <img src="${row.icon}" class="armory-icon" alt="">
+    <div class="armory-tooltip">
+        <span class="tooltip-label">${row.label || ""}</span>
+        ${row.tooltipDesc ? `<span class="tooltip-desc">${row.tooltipDesc}</span>` : ""}
+        ${row.tooltipLink ? `<br><a href="${row.tooltipLink}" target="_blank" rel="noopener">reálná předloha ↗</a>` : ""}
+    </div>
+</div>
                 ${row.note ? `<div class="armory-note">${row.note.replace(/\n/g,"<br>")}</div>` : "<div></div>"}
                 <div class="armory-right">
                     ${row.joule ? `<div class="armory-joule">${row.joule}</div>` : ""}
