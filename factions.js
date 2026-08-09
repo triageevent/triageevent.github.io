@@ -762,9 +762,10 @@ function renderArmory(faction){
                <div class="armory-icon-wrap" onclick="toggleArmoryTooltip(this, event)">
     <img src="${row.icon}" class="armory-icon" alt="">
     <div class="armory-tooltip">
-    <span class="tooltip-label">${row.label || ""}</span>
+    ${row.tooltipLines
+        ? row.tooltipLines.map(line => `<span class="tooltip-line">${line}</span>`).join("")
+        : `<span class="tooltip-label">${row.label || ""}</span>`}
     ${row.tooltipDesc ? `<span class="tooltip-desc">${row.tooltipDesc}</span>` : ""}
-    ${row.tooltipLines ? row.tooltipLines.map(line => `<span class="tooltip-line">${line}</span>`).join("") : ""}
     ${row.tooltipLink ? `<a href="${row.tooltipLink}" target="_blank" rel="noopener">reálná předloha ↗</a>` : ""}
 </div>
 </div>
@@ -888,10 +889,33 @@ function toggleArmoryTooltip(wrap, event){
     const wasActive = wrap.classList.contains("tooltip-active");
 
     document.querySelectorAll(".armory-icon-wrap.tooltip-active")
-        .forEach(el => el.classList.remove("tooltip-active"));
+        .forEach(el => {
+            el.classList.remove("tooltip-active");
+            const tip = el.querySelector(".armory-tooltip");
+            if(tip) tip.style.transform = "";
+        });
 
     if(!wasActive){
+
         wrap.classList.add("tooltip-active");
+
+        const tooltip = wrap.querySelector(".armory-tooltip");
+        const rect = tooltip.getBoundingClientRect();
+        const margin = 12;
+
+        let shift = 0;
+
+        if(rect.left < margin){
+            shift = margin - rect.left;
+        }else if(rect.right > window.innerWidth - margin){
+            shift = (window.innerWidth - margin) - rect.right;
+        }
+
+        if(shift !== 0){
+            tooltip.style.transform =
+                `translateX(calc(-50% + ${shift}px)) translateY(0)`;
+        }
+
     }
 
 }
