@@ -732,7 +732,7 @@ const armoryData = {
         { icon:"icons/rifle.png",   label:"ÚTOČNÁ PUŠKA", note:"20RPS max", joule:"1,8J", zone:"OS", mode:"semi / full auto" },
         { icon:"icons/grenade.png", label:"GRANÁT", note:"Pyrosoft\nTaggin\npružinové\nplynové", joule:null, zone:"OS", mode:null },
         { icon:"icons/lmg.png",     label:"KULOMET", note:"20RPS max", joule:"1,5J", zone:"OS", mode:"full auto" },
-        { icon:"icons/nvg.png",     label:"DRONY", tooltipLines:["POUZE PRO PRŮZKUM","NOČNÍ VIDĚNÍ","THERMOVIZE"], note:"Zákaz shazovat předměty", joule:null, zone:"CQB/OS", mode:"NVG / THERMOVIZE" },
+        { icon:"icons/nvg.png",     tooltipLines:["DRONY","NOČNÍ VIDĚNÍ","THERMOVIZE"], note:"Zákaz shazovat předměty", joule:null, zone:"CQB/OS", mode:"NVG / THERMOVIZE" },
         { icon:"icons/sniper.png",  label:"SNIPER", tooltipDesc:"Manuálně nabíjecí puška s optikou (greengas/CO2/HPA/manuál)", note:"pouze nad 30m\nPouze se záložní pistolí", joule:"3,5J", zone:"OS", mode:"semi" }
     ]
 
