@@ -319,6 +319,7 @@ const screenScan = document.getElementById("screenScan");
 
 
 function showDrone(x, y){
+    drone.style.transform = "none";
     drone.style.left = x + "px";
     drone.style.top = y + "px";
     drone.style.opacity = 1;
@@ -328,8 +329,8 @@ function showDrone(x, y){
 function hideDrone(){
     drone.style.opacity = 0;
     drone.classList.remove("glow");
+    drone.style.transform = "translate(-9999px,-9999px)";
 }
-
 function wait(ms, token){
     return new Promise(resolve => {
         setTimeout(() => resolve(token === droneWanderToken), ms);
