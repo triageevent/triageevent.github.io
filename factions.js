@@ -825,13 +825,16 @@ function typeIntro(paragraphs, bodyEl){
 
         if(charIndex < text.length){
 
-            const typed = text.slice(0, charIndex + 1)
-                .replace(/\n/g,"<br>");
+    const typed = text.slice(0, charIndex + 1)
+        .replace(/\n/g,"<br>");
 
-            currentP.innerHTML =
-                typed + `<span class="typing-cursor"></span>`;
+    currentP.innerHTML =
+        typed + `<span class="typing-cursor"></span>`;
 
-            charIndex++;
+    charIndex++;
+
+    bodyEl.parentElement.scrollTop =
+        bodyEl.parentElement.scrollHeight;
 
         }else{
 
