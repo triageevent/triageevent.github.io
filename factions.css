@@ -965,3 +965,111 @@ body{
         line-height:1.75;
     }
 }
+/* =========================
+   ARMORY ICON TOOLTIP
+========================= */
+
+.armory-icon-wrap{
+
+    position:relative;
+
+    display:inline-block;
+
+    cursor:pointer;
+
+}
+
+.armory-tooltip{
+
+    position:absolute;
+
+    bottom:calc(100% + 10px);
+
+    left:50%;
+
+    transform:translateX(-50%) translateY(4px);
+
+    background:rgba(0,0,0,.92);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    color:#e8e2d0;
+
+    font-size:12px;
+
+    letter-spacing:1px;
+
+    white-space:normal;
+
+    width:max-content;
+
+    max-width:220px;
+
+    text-align:center;
+
+    line-height:1.5;
+
+    padding:10px 14px;
+
+    pointer-events:auto;
+
+    opacity:0;
+
+    transition:opacity .2s ease, transform .2s ease;
+
+    z-index:20;
+
+}
+
+.armory-tooltip::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:100%;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    border:6px solid transparent;
+
+    border-top-color:rgba(0,0,0,.92);
+
+}
+
+.armory-icon-wrap.tooltip-active .armory-tooltip{
+
+    opacity:1;
+
+    transform:translateX(-50%) translateY(0);
+
+}
+
+.armory-tooltip a{
+    color:#ff6b6b;
+    text-decoration:underline;
+}
+
+.armory-tooltip .tooltip-label{
+    font-weight:bold;
+    display:block;
+    margin-bottom:4px;
+}
+
+.armory-tooltip .tooltip-desc{
+    font-size:11px;
+    color:#aaa;
+    font-weight:normal;
+    letter-spacing:.5px;
+}
+
+@media(max-width:600px){
+
+    .armory-tooltip{
+        font-size:11px;
+        padding:8px 12px;
+    }
+
+}
