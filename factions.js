@@ -833,8 +833,8 @@ function typeIntro(paragraphs, bodyEl){
 
     charIndex++;
 
-    bodyEl.parentElement.scrollTop =
-        bodyEl.parentElement.scrollHeight;
+    const scrollContainer = document.getElementById("factionContent");
+scrollContainer.scrollTop = scrollContainer.scrollHeight;
 
         }else{
 
