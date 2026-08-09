@@ -438,8 +438,9 @@ body{
 
     height:auto;
 
-    left:-9999px;
-    top:-9999px;
+    left:0;
+    top:0;
+    transform:translate(-9999px,-9999px);
 
     pointer-events:none;
 
