@@ -27,6 +27,8 @@ body{
 
     overscroll-behavior-x:none;
 
+    touch-action:pan-y;
+
 }
 
 
@@ -732,6 +734,9 @@ body{
     max-height:55vh;
 
     overflow-y:auto;
+    overflow-x:hidden;
+
+    touch-action:pan-y;
 
     color:#ddd;
 
