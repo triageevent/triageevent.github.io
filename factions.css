@@ -20,6 +20,8 @@ body{
 
     overflow-y:auto;
 
+    overscroll-behavior-x:none;
+
 }
 
 
@@ -797,12 +799,21 @@ body{
 }
 
 .armory-row{
+
     display:grid;
-    grid-template-columns:70px 1fr auto;
+
+    grid-template-columns:70px minmax(0,1fr) auto;
+
     align-items:center;
+
     gap:15px;
+
     padding:20px 18px;
+
     border-bottom:1px solid rgba(255,255,255,.15);
+
+    max-width:100%;
+
 }
 
 .armory-row:last-child{
