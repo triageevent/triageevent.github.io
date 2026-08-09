@@ -732,7 +732,7 @@ const armoryData = {
         { icon:"icons/rifle.png",   label:"ÚTOČNÁ PUŠKA", note:"20RPS max", joule:"1,8J", zone:"OS", mode:"semi / full auto" },
         { icon:"icons/grenade.png", label:"GRANÁT", note:"Pyrosoft\nTaggin\npružinové\nplynové", joule:null, zone:"OS", mode:null },
         { icon:"icons/lmg.png",     label:"KULOMET", note:"20RPS max", joule:"1,5J", zone:"OS", mode:"full auto" },
-        { icon:"icons/nvg.png",     label:"DRONY", tooltipDesc:"Pouze průzkum — noční vidění, thermovize", note:"Zákaz shazovat předměty", joule:null, zone:"CQB/OS", mode:"NVG / THERMOVIZE" },
+        { icon:"icons/nvg.png",     label:"DRONY", tooltipLines:["POUZE PRO PRŮZKUM","NOČNÍ VIDĚNÍ","THERMOVIZE"], note:"Zákaz shazovat předměty", joule:null, zone:"CQB/OS", mode:"NVG / THERMOVIZE" },
         { icon:"icons/sniper.png",  label:"SNIPER", tooltipDesc:"Manuálně nabíjecí puška s optikou (greengas/CO2/HPA/manuál)", note:"pouze nad 30m\nPouze se záložní pistolí", joule:"3,5J", zone:"OS", mode:"semi" }
     ]
 
@@ -762,10 +762,11 @@ function renderArmory(faction){
                <div class="armory-icon-wrap" onclick="toggleArmoryTooltip(this, event)">
     <img src="${row.icon}" class="armory-icon" alt="">
     <div class="armory-tooltip">
-        <span class="tooltip-label">${row.label || ""}</span>
-        ${row.tooltipDesc ? `<span class="tooltip-desc">${row.tooltipDesc}</span>` : ""}
-        ${row.tooltipLink ? `<br><a href="${row.tooltipLink}" target="_blank" rel="noopener">reálná předloha ↗</a>` : ""}
-    </div>
+    <span class="tooltip-label">${row.label || ""}</span>
+    ${row.tooltipDesc ? `<span class="tooltip-desc">${row.tooltipDesc}</span>` : ""}
+    ${row.tooltipLines ? row.tooltipLines.map(line => `<span class="tooltip-line">${line}</span>`).join("") : ""}
+    ${row.tooltipLink ? `<a href="${row.tooltipLink}" target="_blank" rel="noopener">reálná předloha ↗</a>` : ""}
+</div>
 </div>
                 ${row.note ? `<div class="armory-note">${row.note.replace(/\n/g,"<br>")}</div>` : "<div></div>"}
                 <div class="armory-right">
