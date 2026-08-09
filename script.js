@@ -4,7 +4,7 @@ const bootText = document.getElementById("boot-text");
 
 const lines = [
 
-"TRIAGE TERMINAL v1.0",
+"TRIAGE TERMINAL v1.2",
 
 "",
 
