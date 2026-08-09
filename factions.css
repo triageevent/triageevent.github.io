@@ -1011,7 +1011,7 @@ body{
 
     padding:10px 14px;
 
-    pointer-events:auto;
+    pointer-events:none;
 
     opacity:0;
 
@@ -1045,6 +1045,8 @@ body{
 
     transform:translateX(-50%) translateY(0);
 
+    pointer-events:auto;
+
 }
 
 .armory-tooltip a{
@@ -1067,9 +1069,10 @@ body{
 .armory-tooltip .tooltip-line{
     display:block;
     font-size:12px;
+    font-weight:bold;
     color:#e8e2d0;
-    letter-spacing:.5px;
-    margin-top:2px;
+    letter-spacing:1px;
+    line-height:1.7;
 }
 @media(max-width:600px){
 
