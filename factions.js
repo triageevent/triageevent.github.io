@@ -880,3 +880,26 @@ function showFactionSection(section, btn){
         renderArmory(currentFaction);
     }
 }
+function toggleArmoryTooltip(wrap, event){
+
+    if(event.target.tagName === "A") return;
+
+    const wasActive = wrap.classList.contains("tooltip-active");
+
+    document.querySelectorAll(".armory-icon-wrap.tooltip-active")
+        .forEach(el => el.classList.remove("tooltip-active"));
+
+    if(!wasActive){
+        wrap.classList.add("tooltip-active");
+    }
+
+}
+
+document.addEventListener("click", (e) => {
+
+    if(!e.target.closest(".armory-icon-wrap")){
+        document.querySelectorAll(".armory-icon-wrap.tooltip-active")
+            .forEach(el => el.classList.remove("tooltip-active"));
+    }
+
+});
