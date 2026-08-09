@@ -874,9 +874,17 @@ body{
 ========================= */
 
 .intro-wrap{
+
     width:min(680px,92vw);
+
+    max-width:100%;
+
     margin:0 auto;
+
     text-align:left;
+
+    overflow-wrap:break-word;
+
 }
 
 .intro-title{
