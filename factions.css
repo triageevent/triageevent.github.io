@@ -870,9 +870,10 @@ body{
 
 @media(max-width:600px){
     .armory-row{
-        grid-template-columns:50px 1fr auto;
+        grid-template-columns:50px minmax(0,1fr) auto;
         padding:14px 10px;
         gap:10px;
+        max-width:100%;
     }
     .armory-icon{
         width:42px;
