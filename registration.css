@@ -184,3 +184,64 @@ body{
     }
 
 }
+/* =========================
+   LANGUAGE TOGGLE
+========================= */
+
+#langToggle{
+
+    position:fixed;
+
+    top:30px;
+    right:90px;
+
+    z-index:100;
+
+    width:44px;
+    height:44px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:rgba(0,0,0,.55);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    color:white;
+
+    font-size:13px;
+
+    letter-spacing:1px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+#langToggle:hover{
+
+    border-color:#fff;
+
+    background:rgba(0,0,0,.75);
+
+}
+
+@media(max-width:600px){
+
+    #langToggle{
+
+        top:20px;
+        right:60px;
+
+        width:38px;
+        height:38px;
+
+        font-size:11px;
+
+    }
+
+}
