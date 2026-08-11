@@ -16,52 +16,35 @@
 
 <body class="menu-page">
 <div id="musicToggle" onclick="toggleMusic()">🔊</div>
+<div id="langToggle" onclick="toggleLang()">EN</div>
+
 <div class="wallpaper"></div>
-
 <div class="glitch-background"></div>
-
 <div class="smoke"></div>
-
 <div class="scanlines"></div>
-
 <canvas id="particles"></canvas>
-
 <div class="glitch-layer"></div>
 
 <main class="game-menu">
-
-
     <div class="operation-title">
-
-    <div class="operation-main">
-        TRIAGE
+        <div class="operation-main">TRIAGE</div>
+        <div class="operation-subtitle"
+             data-cz="the ruthless inferno airsoft graveyard event"
+             data-en="the ruthless inferno airsoft graveyard event">
+            the ruthless inferno airsoft graveyard event
+        </div>
     </div>
-
-
-    <div class="operation-subtitle">
-        the ruthless inferno airsoft graveyard event
-    </div>
-
-    </div>
-
-
     <nav class="game-options">
-
-        <a href="gamemode.html">GAME MODE</a>
-
-        <a href="factions.html">FACTIONS</a>
-
-        <a href="map.html">MAP</a>
-
-        <a href="rules.html">RULES</a>
-
-        <a href="registration.html">REGISTRATION</a>
-
+        <a href="gamemode.html" data-cz="HERNÍ MÓD" data-en="GAME MODE">HERNÍ MÓD</a>
+        <a href="factions.html" data-cz="FRAKCE" data-en="FACTIONS">FRAKCE</a>
+        <a href="map.html" data-cz="MAPA" data-en="MAP">MAPA</a>
+        <a href="rules.html" data-cz="PRAVIDLA" data-en="RULES">PRAVIDLA</a>
+        <a href="registration.html" data-cz="REGISTRACE" data-en="REGISTRATION">REGISTRACE</a>
     </nav>
-
-
 </main>
+
 <script src="audio.js"></script>
+<script src="lang.js"></script>
 <script src="particles.js"></script>
     
 </body>
