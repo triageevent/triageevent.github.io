@@ -1,0 +1,186 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#000;
+    color:white;
+    font-family:Consolas, monospace;
+    overflow-x:hidden;
+}
+
+/* =========================
+   CRT
+========================= */
+
+.scanlines{
+    position:fixed;
+    inset:0;
+    z-index:3;
+    pointer-events:none;
+    opacity:.12;
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            rgba(255,255,255,.04) 0px,
+            rgba(255,255,255,.04) 1px,
+            transparent 3px,
+            transparent 5px
+        );
+}
+
+/* =========================
+   BACK BUTTON
+========================= */
+
+.back-button{
+    position:fixed;
+    top:30px;
+    left:35px;
+    z-index:100;
+    color:#777;
+    text-decoration:none;
+    font-family:Consolas, monospace;
+    font-size:20px;
+    letter-spacing:4px;
+    padding:8px 14px;
+    background:rgba(0,0,0,.55);
+    transition:.25s;
+}
+
+.back-button:hover{
+    color:white;
+    transform:translateX(-5px);
+    text-shadow:0 0 12px #ff2b2b;
+}
+
+/* =========================
+   MUSIC TOGGLE
+========================= */
+
+#musicToggle{
+    position:fixed;
+    top:30px;
+    right:35px;
+    z-index:100;
+    width:44px;
+    height:44px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(0,0,0,.55);
+    border:1px solid rgba(255,255,255,.25);
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+#musicToggle:hover{
+    border-color:#fff;
+    background:rgba(0,0,0,.75);
+}
+
+/* =========================
+   SCREEN
+========================= */
+
+.registration-screen{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:100px 24px;
+    text-align:center;
+}
+
+.reg-title{
+    color:#ff2b2b;
+    font-size:56px;
+    font-weight:bold;
+    letter-spacing:10px;
+    text-shadow:
+        0 0 20px red,
+        0 0 50px rgba(255,0,0,.5);
+    margin-bottom:50px;
+}
+
+.reg-box{
+    max-width:520px;
+}
+
+.reg-line{
+    font-size:16px;
+    line-height:1.8;
+    color:#c9c4b8;
+    letter-spacing:.5px;
+    margin-bottom:14px;
+}
+
+.reg-highlight{
+    color:#e8e2d0;
+    font-weight:bold;
+    margin:24px 0;
+}
+
+.reg-button{
+    display:inline-block;
+    margin-top:35px;
+    padding:18px 40px;
+    border:2px solid #ff2b2b;
+    color:#ff2b2b;
+    text-decoration:none;
+    letter-spacing:3px;
+    font-size:16px;
+    background:transparent;
+    transition:.3s;
+}
+
+.reg-button:hover{
+    background:#ff2b2b;
+    color:white;
+    box-shadow:0 0 30px #ff2b2b;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .reg-title{
+        font-size:30px;
+        letter-spacing:5px;
+        margin-bottom:35px;
+    }
+
+    .reg-line{
+        font-size:13.5px;
+    }
+
+    .reg-button{
+        padding:14px 28px;
+        font-size:14px;
+        letter-spacing:2px;
+    }
+
+    .back-button{
+        top:20px;
+        left:15px;
+        font-size:16px;
+        letter-spacing:3px;
+        padding:6px 10px;
+    }
+
+    #musicToggle{
+        top:20px;
+        right:15px;
+        width:38px;
+        height:38px;
+        font-size:16px;
+    }
+
+}
