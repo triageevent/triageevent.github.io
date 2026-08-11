@@ -75,8 +75,6 @@ async function runBoot(){
 }
 
 
-document.addEventListener("DOMContentLoaded", runBoot);
-
 
 function onLangApplied(lang){
     runBoot();
