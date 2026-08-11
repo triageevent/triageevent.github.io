@@ -19,29 +19,31 @@
 <div class="scanlines"></div>
 
 <div id="musicToggle" onclick="toggleMusic()">🔊</div>
+<div id="musicToggle" onclick="toggleMusic()">🔊</div>
+<div id="langToggle" onclick="toggleLang()">EN</div>
 
-<a href="operation.html" class="back-button">
-    &lt; BACK
-</a>
+<a href="operation.html" class="back-button" data-cz="&lt; ZPĚT" data-en="&lt; BACK">&lt; BACK</a>
 
 <main class="registration-screen">
 
-    <div class="reg-title">REGISTRACE</div>
+    <div class="reg-title" data-cz="REGISTRACE" data-en="REGISTRATION">REGISTRACE</div>
 
     <div class="reg-box">
 
-        <p class="reg-line">Jsi tu moc brzo.</p>
-        <p class="reg-line">Registrace ještě nejsou otevřené.</p>
+        <p class="reg-line" data-cz="Jsi tu moc brzo." data-en="You're way too early.">Jsi tu moc brzo.</p>
+        <p class="reg-line" data-cz="Registrace ještě nejsou otevřené." data-en="Registration isn't open yet.">Registrace ještě nejsou otevřené.</p>
 
-        <p class="reg-line reg-highlight">Ale to neznamená, že musíš jen čekat.</p>
+        <p class="reg-line reg-highlight" data-cz="Ale to neznamená, že musíš jen čekat." data-en="But that doesn't mean you have to just wait.">Ale to neznamená, že musíš jen čekat.</p>
 
-        <p class="reg-line">Chceš vědět, do které frakce se hodíš?</p>
-        <p class="reg-line">Vyplň náš krátký test a zjisti, která jednotka nejlépe odpovídá tvému hernímu stylu.</p>
+        <p class="reg-line" data-cz="Chceš vědět, do které frakce se hodíš?" data-en="Want to know which faction you belong to?">Chceš vědět, do které frakce se hodíš?</p>
+        <p class="reg-line" data-cz="Vyplň náš krátký test a zjisti, která jednotka nejlépe odpovídá tvému hernímu stylu." data-en="Take our short test to find out which unit best matches your playstyle.">Vyplň náš krátký test a zjisti, která jednotka nejlépe odpovídá tvému hernímu stylu.</p>
 
         <a href="https://umbrellacorporationairsoft-max.github.io/triage-test/"
            class="reg-button"
            target="_blank"
-           rel="noopener">
+           rel="noopener"
+           data-cz="ZJISTIT SVOU FRAKCI"
+           data-en="FIND YOUR FACTION">
             ZJISTIT SVOU FRAKCI
         </a>
 
@@ -49,8 +51,8 @@
 
 </main>
 
-
 <script src="audio.js"></script>
+<script src="lang.js"></script>
 
 
 </body>
