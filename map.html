@@ -14,22 +14,28 @@
 
 
 <body>
-<div id="musicToggle" onclick="toggleMusic()">🔊</div>
+
 
 <div class="scanlines"></div>
+
+<div id="musicToggle" onclick="toggleMusic()">🔊</div>
 
 <a href="operation.html" class="back-button">
     &lt; BACK
 </a>
 
-<main class="map-screen">
+<main class="boot-screen">
 
-    <div class="loading-text">
-        LOADING FAILED<span class="dots"><span>.</span><span>.</span><span>.</span></span>
-    </div>
+    <div class="boot-titlebar">TRIAGE MAP</div>
+
+    <div class="boot-log" id="bootLog"></div>
 
 </main>
+
+
 <script src="audio.js"></script>
+<script src="map.js"></script>
+
 
 </body>
 
