@@ -1,8 +1,8 @@
 const bootSequence = [
-    { label:"LOADING FACTIONS",  dots:18, result:"OK" },
-    { label:"LOADING GAME MODE", dots:18, result:"OK" },
-    { label:"LOADING RULES",     dots:18, result:"OK" },
-    { label:"LOADING MAP",       dots:13, result:null }
+    { cz:"NAČÍTÁNÍ FRAKCÍ",      en:"LOADING FACTIONS",  dots:18, result:"OK" },
+    { cz:"NAČÍTÁNÍ HERNÍHO MÓDU", en:"LOADING GAME MODE", dots:18, result:"OK" },
+    { cz:"NAČÍTÁNÍ PRAVIDEL",     en:"LOADING RULES",     dots:18, result:"OK" },
+    { cz:"NAČÍTÁNÍ MAPY",         en:"LOADING MAP",       dots:13, result:null }
 ];
 
 const bootLog = document.getElementById("bootLog");
@@ -16,18 +16,18 @@ async function typeChar(el, char){
 }
 
 
-async function runBootLine(step, isLast){
+async function runBootLine(step, isLast, lang){
 
     const line = document.createElement("span");
     line.className = "boot-line";
     bootLog.appendChild(line);
 
-    // napiš label
-    for(const char of step.label){
+    const label = lang === "en" ? step.en : step.cz;
+
+    for(const char of label){
         await typeChar(line, char);
     }
 
-    // napiš tečky
     const dotsSpan = document.createElement("span");
     line.appendChild(dotsSpan);
 
@@ -37,7 +37,6 @@ async function runBootLine(step, isLast){
 
     if(isLast){
 
-        // poslední řádek — blikající kurzor navždy, žádný výsledek
         const cursor = document.createElement("span");
         cursor.className = "boot-cursor";
         cursor.textContent = ".";
@@ -61,11 +60,15 @@ async function runBootLine(step, isLast){
 
 async function runBoot(){
 
+    const lang = getLang();
+
+    bootLog.innerHTML = "";
+
     for(let i = 0; i < bootSequence.length; i++){
 
         const isLast = i === bootSequence.length - 1;
 
-        await runBootLine(bootSequence[i], isLast);
+        await runBootLine(bootSequence[i], isLast, lang);
 
     }
 
@@ -73,3 +76,8 @@ async function runBoot(){
 
 
 document.addEventListener("DOMContentLoaded", runBoot);
+
+
+function onLangApplied(lang){
+    runBoot();
+}
