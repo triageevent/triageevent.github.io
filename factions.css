@@ -1460,3 +1460,81 @@ body{
     }
 
 }
+/* =========================
+   DRONE SCAN FLASH
+========================= */
+
+.drone-scan-flash{
+
+    position:fixed;
+
+    width:220px;
+    height:220px;
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    z-index:41;
+
+    opacity:0;
+
+    transform:
+        translate(-50%,-50%)
+        scale(.2);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,80,80,.95) 0%,
+            rgba(255,20,20,.55) 18%,
+            rgba(255,0,0,.18) 40%,
+            transparent 70%
+        );
+
+    filter:
+        blur(2px);
+
+    mix-blend-mode:screen;
+}
+
+.drone-scan-flash.active{
+
+    animation:
+        droneScanFlash .35s ease-out forwards;
+}
+
+@keyframes droneScanFlash{
+
+    0%{
+        opacity:0;
+
+        transform:
+            translate(-50%,-50%)
+            scale(.2);
+    }
+
+    20%{
+        opacity:1;
+
+        transform:
+            translate(-50%,-50%)
+            scale(.55);
+    }
+
+    50%{
+        opacity:.8;
+
+        transform:
+            translate(-50%,-50%)
+            scale(1);
+    }
+
+    100%{
+        opacity:0;
+
+        transform:
+            translate(-50%,-50%)
+            scale(1.4);
+    }
+}
