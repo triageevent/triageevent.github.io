@@ -1395,3 +1395,205 @@ function onLangApplied(lang){
     updateHordeButtonText();
 
 }
+/* =========================
+   STARS ZOMBIE HORDE
+========================= */
+
+const hordeLayer = document.getElementById("hordeLayer");
+const hordeScoreValue = document.getElementById("hordeScoreValue");
+
+let hordeActive = false;
+let hordeStopped = false;
+let hordeSpawnTimeout = null;
+let hordeStartTime = 0;
+let hordeScore = 0;
+
+const zombieSprites = ["zombie1.png","zombie2.png","zombie3.png"];
+
+
+function updateHordeVisibility(faction){
+
+    const score = document.getElementById("hordeScore");
+    const btn = document.getElementById("stopHordeBtn");
+
+    if(!score || !btn) return;
+
+    if(faction === "stars"){
+        score.classList.add("visible");
+        btn.classList.add("visible");
+    }else{
+        score.classList.remove("visible");
+        btn.classList.remove("visible");
+    }
+
+}
+
+function updateHordeScore(){
+    if(hordeScoreValue) hordeScoreValue.textContent = hordeScore;
+}
+
+function updateHordeButtonText(){
+
+    const btn = document.getElementById("stopHordeBtn");
+    if(!btn) return;
+
+    const lang = getLang();
+
+    if(hordeStopped){
+        btn.textContent = lang === "en" ? "HORDE TERMINATED" : "HORDA ZLIKVIDOVÁNA";
+    }else{
+        btn.textContent = lang === "en" ? "STOP HORDE" : "ZASTAVIT HORDU";
+    }
+
+}
+
+
+function spawnZombie(isBoss){
+
+    const el = document.createElement("img");
+    el.className = "zombie-sprite" + (isBoss ? " boss" : "");
+    el.alt = "";
+
+    let points = 100;
+
+    if(isBoss){
+        el.src = Math.random() < 0.5 ? "nemesis.png" : "wesker.png";
+        points = 1000;
+    }else{
+        el.src = zombieSprites[Math.floor(Math.random() * zombieSprites.length)];
+    }
+
+    const startX = Math.random() * (window.innerWidth - 130);
+    el.style.left = startX + "px";
+    el.style.bottom = "-160px";
+
+    hordeLayer.appendChild(el);
+
+    const elapsed = performance.now() - hordeStartTime;
+    const baseDuration = isBoss ? 9000 : 7000;
+    const minDuration = isBoss ? 5000 : 2800;
+    const duration = Math.max(minDuration, baseDuration - elapsed / 25);
+
+    el.style.transition = `transform ${duration}ms linear, opacity .25s ease`;
+
+    requestAnimationFrame(() => {
+        el.style.transform = `translateY(-${window.innerHeight + 250}px)`;
+    });
+
+    let removed = false;
+
+    const removeZombie = () => {
+        if(removed) return;
+        removed = true;
+        el.remove();
+    };
+
+    el.addEventListener("transitionend", (e) => {
+        if(e.propertyName === "transform"){
+            removeZombie();
+        }
+    });
+
+    el.addEventListener("click", () => {
+
+        if(removed || hordeStopped) return;
+
+        hordeScore += points;
+        updateHordeScore();
+
+        el.classList.add("hit");
+        setTimeout(removeZombie, 220);
+
+    });
+
+}
+
+
+function hordeSpawnLoop(){
+
+    if(!hordeActive || hordeStopped) return;
+
+    const elapsed = performance.now() - hordeStartTime;
+
+    const isWave = Math.random() < 0.08 && elapsed > 8000;
+    const isBoss = !isWave && Math.random() < 0.06;
+
+    if(isWave){
+
+        const waveSize = 4 + Math.floor(Math.random() * 4);
+
+        for(let i = 0; i < waveSize; i++){
+            setTimeout(() => spawnZombie(false), i * 120);
+        }
+
+    }else{
+
+        spawnZombie(isBoss);
+
+    }
+
+    const baseInterval = 1100;
+    const minInterval = 400;
+    const interval = Math.max(minInterval, baseInterval - elapsed / 40);
+
+    hordeSpawnTimeout = setTimeout(hordeSpawnLoop, interval);
+
+}
+
+
+function startZombieHorde(){
+
+    hordeActive = true;
+    hordeStopped = false;
+    hordeScore = 0;
+    hordeStartTime = performance.now();
+
+    updateHordeScore();
+    updateHordeButtonText();
+
+    const btn = document.getElementById("stopHordeBtn");
+    if(btn) btn.classList.remove("terminated");
+
+    clearTimeout(hordeSpawnTimeout);
+    hordeSpawnLoop();
+
+}
+
+
+function stopZombieHorde(clearBoard){
+
+    hordeActive = false;
+    clearTimeout(hordeSpawnTimeout);
+
+    hordeLayer.querySelectorAll(".zombie-sprite").forEach(el => el.remove());
+
+    if(clearBoard){
+        const score = document.getElementById("hordeScore");
+        const btn = document.getElementById("stopHordeBtn");
+        if(score) score.classList.remove("visible");
+        if(btn) btn.classList.remove("visible");
+    }
+
+}
+
+
+function toggleHorde(){
+
+    if(hordeStopped) return;
+
+    hordeStopped = true;
+    hordeActive = false;
+
+    clearTimeout(hordeSpawnTimeout);
+
+    hordeLayer.querySelectorAll(".zombie-sprite").forEach(el => {
+        el.classList.add("hit");
+        setTimeout(() => el.remove(), 250);
+    });
+
+    const btn = document.getElementById("stopHordeBtn");
+    if(btn) btn.classList.add("terminated");
+
+    updateHordeButtonText();
+
+}
