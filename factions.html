@@ -24,6 +24,8 @@
 
 <canvas id="factionParticles"></canvas>
 
+<div id="langToggle" onclick="toggleLang()">EN</div>
+
 <img src="drone.png" id="drone" alt="">
 
 <img src="drone.png" id="drone" alt="">
@@ -36,18 +38,13 @@
 </a>
 
 
-    <div class="faction-title">
+<div class="faction-title">
 
-        <div class="faction-main">
-            FACTIONS
-        </div>
+    <div class="faction-main" data-cz="FRAKCE" data-en="FACTIONS">FACTIONS</div>
 
+    <div class="faction-subtitle" data-cz="vyber si stranu" data-en="choose your side">choose your side</div>
 
-        <div class="faction-subtitle">
-            choose your side
-        </div>
-
-    </div>
+</div>
 
 
 
@@ -61,18 +58,18 @@
 </div>
 
 
-<div class="choose-text" id="chooseText">
+<div class="choose-text" id="chooseText" data-cz="VYBER SI FRAKCI" data-en="CHOOSE YOUR FACTION">
     CHOOSE YOUR FACTION
 </div>
 
 
 <div class="faction-tabs" id="factionTabs">
 
-    <button onclick="showFactionSection('intro')">
+    <button data-section="intro" onclick="showFactionSection('intro', this)" data-cz="ÚVOD" data-en="INTRO">
         INTRO
     </button>
 
-    <button onclick="showFactionSection('armory')">
+    <button data-section="armory" onclick="showFactionSection('armory', this)" data-cz="ZBROJNICE" data-en="ARMORY">
         ARMORY
     </button>
 
@@ -88,7 +85,7 @@
 
 
 <div id="transition"></div>
-
+<script src="lang.js"></script>
 <script src="audio.js"></script>
 <script src="factions.js"></script>
 
@@ -112,6 +109,8 @@ window.addEventListener("load", () => {
     }, 1500);
 });
 </script>
+   
+
 </body>
 
 </html>
