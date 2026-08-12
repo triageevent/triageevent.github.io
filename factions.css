@@ -98,7 +98,7 @@ body{
 
     inset:0;
 
-    z-index:3;
+    z-index:50;
 
     pointer-events:none;
 
@@ -458,6 +458,8 @@ body{
     transition:opacity .6s ease;
 
     filter:
+        contrast(1.4)
+        brightness(1.1)
         drop-shadow(0 0 12px rgba(0,0,0,.8));
 
 }
