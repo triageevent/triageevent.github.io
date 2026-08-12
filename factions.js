@@ -148,6 +148,82 @@ function showDrone(x, y){
     drone.style.opacity = 1;
     drone.classList.add("glow");
 }
+let droneShotDown = false;
+
+drone.addEventListener("click", () => {
+
+    if(droneShotDown) return;
+    if(drone.style.opacity == 0) return;
+
+    shootDownDrone();
+
+});
+
+
+function shootDownDrone(){
+
+    droneShotDown = true;
+    droneWanderToken++; // zastaví aktuální manévr
+
+    drone.classList.remove("glow");
+    screenScan.classList.remove("active");
+
+    const rect = drone.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+
+    const isExplosion = Math.random() < 0.5;
+
+    if(isExplosion){
+
+        const flash = document.createElement("div");
+        flash.className = "explosion-flash active";
+        flash.style.left = centerX + "px";
+        flash.style.top = centerY + "px";
+        document.body.appendChild(flash);
+
+        drone.classList.add("exploding");
+
+        setTimeout(() => {
+            flash.remove();
+            finishShootdown();
+        }, 550);
+
+    }else{
+
+        drone.classList.add("falling");
+
+        setTimeout(() => {
+            finishShootdown();
+        }, 1450);
+
+    }
+
+}
+
+
+function finishShootdown(){
+
+    drone.classList.remove("exploding", "falling");
+    drone.style.opacity = 0;
+    drone.style.transform = "";
+
+    document.getElementById("sendDroneBtn").classList.add("visible");
+
+}
+
+
+function sendAnotherDrone(){
+
+    document.getElementById("sendDroneBtn").classList.remove("visible");
+
+    droneShotDown = false;
+
+    if(currentEffect === "drone"){
+        startDroneWander();
+    }
+
+}
 
 function hideDrone(){
     drone.style.opacity = 0;
@@ -278,9 +354,19 @@ async function startDroneWander(){
 }
 
 function stopDroneWander(){
+
     droneWanderToken++;
+
     hideDrone();
+
     screenScan.classList.remove("active");
+
+    droneShotDown = false;
+
+    drone.classList.remove("exploding", "falling");
+
+    document.getElementById("sendDroneBtn").classList.remove("visible");
+
 }
 
 
