@@ -142,6 +142,9 @@ let droneShotDown = false;
 
 const screenScan = document.getElementById("screenScan");
 
+const droneScanFlash =
+    document.getElementById("droneScanFlash");
+
 
 /* =========================
    SHOW DRONE
@@ -562,22 +565,80 @@ async function scanManeuver(token){
     }
 
 
-    screenScan.classList.add("active");
+/* =========================
+   DRONE SCAN FLASH
+========================= */
+
+const rect =
+    drone.getBoundingClientRect();
+
+const flashX =
+    rect.left +
+    rect.width / 2;
+
+const flashY =
+    rect.top +
+    rect.height / 2;
 
 
-    if(
-        !await wait(
-            3000,
-            token
-        )
-    ){
+droneScanFlash.style.left =
+    flashX + "px";
 
-        return;
-
-    }
+droneScanFlash.style.top =
+    flashY + "px";
 
 
-    screenScan.classList.remove("active");
+droneScanFlash.classList.remove("active");
+
+/* restart CSS animace */
+void droneScanFlash.offsetWidth;
+
+droneScanFlash.classList.add("active");
+
+
+/*
+    Krátká prodleva,
+    aby byl vidět záblesk
+    ještě před scanem.
+*/
+
+if(
+    !await wait(
+        250,
+        token
+    )
+){
+
+    return;
+
+}
+
+
+/* =========================
+   SCREEN SCAN
+========================= */
+
+screenScan.classList.remove("active");
+
+/* restart animace */
+void screenScan.offsetWidth;
+
+screenScan.classList.add("active");
+
+
+if(
+    !await wait(
+        3000,
+        token
+    )
+){
+
+    return;
+
+}
+
+
+screenScan.classList.remove("active");
 
 
     if(
