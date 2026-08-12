@@ -152,7 +152,19 @@ function updateDroneScore(){
         operatorScore;
 
 }
+function updateDroneScoreVisibility(faction){
 
+    const score = document.getElementById("droneScore");
+
+    if(!score) return;
+
+    if(faction === "specops"){
+        score.classList.add("visible");
+    }else{
+        score.classList.remove("visible");
+    }
+
+}
 const screenScan = document.getElementById("screenScan");
 
 const droneScanFlash =
