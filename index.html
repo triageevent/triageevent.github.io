@@ -16,11 +16,13 @@
 <body>
 
 <div id="musicToggle" onclick="toggleMusic()">🔊</div>
+<div id="langToggle" onclick="toggleLang()">EN</div>
+
 <div id="boot-screen">
 
     <div id="boot-text"></div>
 
-    <a href="operation.html" id="skip-button">
+    <a href="operation.html" id="skip-button" data-cz="PŘESKOČIT >>" data-en="SKIP >>">
         SKIP &gt;&gt;
     </a>
 
@@ -41,7 +43,7 @@
         </div>
 
 
-        <a href="operation.html" id="enterButton">
+        <a href="operation.html" id="enterButton" data-cz="VSTOUPIT DO OPERACE" data-en="ENTER OPERATION">
             ENTER OPERATION
         </a>
 
@@ -52,6 +54,7 @@
 
 
 <script src="audio.js"></script>
+<script src="lang.js"></script>
 <script src="script.js"></script>
 
 
