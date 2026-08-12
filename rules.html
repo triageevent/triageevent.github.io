@@ -19,17 +19,20 @@
 <div class="scanlines"></div>
 
 <div id="musicToggle" onclick="toggleMusic()">🔊</div>
+<div id="langToggle" onclick="toggleLang()">EN</div>
 
-<a href="operation.html" class="back-button">
+<a href="operation.html" class="back-button" data-cz="&lt; ZPĚT" data-en="&lt; BACK">
     &lt; BACK
 </a>
 
 <main class="rules-page">
 
-    <div class="rules-title">RULES</div>
-    <div class="rules-subtitle">všeobecná herní pravidla — TRIAGE</div>
+    <div class="rules-title" data-cz="PRAVIDLA" data-en="RULES">RULES</div>
+    <div class="rules-subtitle" data-cz="všeobecná herní pravidla — TRIAGE" data-en="general game rules — TRIAGE">všeobecná herní pravidla — TRIAGE</div>
 
-    <p class="rules-intro">
+    <p class="rules-intro"
+       data-cz="Tato pravidla platí pro všechny účastníky akce TRIAGE po celou dobu pobytu v herním prostoru. Jednotlivé herní módy mohou obsahovat další specifická pravidla, která tato pravidla doplňují."
+       data-en="These rules apply to all participants of the TRIAGE event for the entire duration of their presence in the game area. Individual game modes may include additional specific rules that supplement these rules.">
         Tato pravidla platí pro všechny účastníky akce TRIAGE po celou dobu pobytu
         v herním prostoru. Jednotlivé herní módy mohou obsahovat další specifická
         pravidla, která tato pravidla doplňují.
@@ -38,60 +41,60 @@
     <!-- ============ OBSAH ============ -->
     <nav class="toc">
 
-        <div class="toc-title">OBSAH</div>
+        <div class="toc-title" data-cz="OBSAH" data-en="CONTENTS">OBSAH</div>
 
         <ol class="toc-list">
-            <li><a href="#sec1">1. ZÁKLADNÍ BEZPEČNOSTNÍ PRAVIDLA</a>
+            <li><a href="#sec1" data-cz="1. ZÁKLADNÍ BEZPEČNOSTNÍ PRAVIDLA" data-en="1. BASIC SAFETY RULES">1. ZÁKLADNÍ BEZPEČNOSTNÍ PRAVIDLA</a>
                 <ol>
-                    <li><a href="#sec1-1">1.1 Ochrana zraku</a></li>
-                    <li><a href="#sec1-2">1.2 Bezpečnostní / mimoherní zóna</a></li>
-                    <li><a href="#sec1-3">1.3 Civilní osoby</a></li>
-                    <li><a href="#sec1-4">1.4 Alkohol a návykové látky</a></li>
+                    <li><a href="#sec1-1" data-cz="1.1 Ochrana zraku" data-en="1.1 Eye protection">1.1 Ochrana zraku</a></li>
+                    <li><a href="#sec1-2" data-cz="1.2 Bezpečnostní / mimoherní zóna" data-en="1.2 Safe / off-game zone">1.2 Bezpečnostní / mimoherní zóna</a></li>
+                    <li><a href="#sec1-3" data-cz="1.3 Civilní osoby" data-en="1.3 Civilians">1.3 Civilní osoby</a></li>
+                    <li><a href="#sec1-4" data-cz="1.4 Alkohol a návykové látky" data-en="1.4 Alcohol and substances">1.4 Alkohol a návykové látky</a></li>
                 </ol>
             </li>
-            <li><a href="#sec2">2. VÝKONOVÉ LIMITY A CHRONO</a>
+            <li><a href="#sec2" data-cz="2. VÝKONOVÉ LIMITY A CHRONO" data-en="2. POWER LIMITS AND CHRONO">2. VÝKONOVÉ LIMITY A CHRONO</a>
                 <ol>
-                    <li><a href="#sec2-1">2.1 DMR a sniper</a></li>
-                    <li><a href="#sec2-2">2.2 Kontrola kadence</a></li>
+                    <li><a href="#sec2-1" data-cz="2.1 DMR a sniper" data-en="2.1 DMR and sniper">2.1 DMR a sniper</a></li>
+                    <li><a href="#sec2-2" data-cz="2.2 Kontrola kadence" data-en="2.2 Rate of fire check">2.2 Kontrola kadence</a></li>
                 </ol>
             </li>
-            <li><a href="#sec3">3. VÝZBROJ A VÝSTROJ FRAKCÍ</a>
+            <li><a href="#sec3" data-cz="3. VÝZBROJ A VÝSTROJ FRAKCÍ" data-en="3. FACTION WEAPONS AND GEAR">3. VÝZBROJ A VÝSTROJ FRAKCÍ</a>
                 <ol>
-                    <li><a href="#sec3-1">3.1 Výjimky a omezení</a></li>
+                    <li><a href="#sec3-1" data-cz="3.1 Výjimky a omezení" data-en="3.1 Exceptions and restrictions">3.1 Výjimky a omezení</a></li>
                 </ol>
             </li>
-            <li><a href="#sec4">4. PYROTECHNIKA, GRANÁTY A DÝMOVNICE</a>
+            <li><a href="#sec4" data-cz="4. PYROTECHNIKA, GRANÁTY A DÝMOVNICE" data-en="4. PYROTECHNICS, GRENADES AND SMOKE">4. PYROTECHNIKA, GRANÁTY A DÝMOVNICE</a>
                 <ol>
-                    <li><a href="#sec4-1">4.1 Povolená pyrotechnika</a></li>
-                    <li><a href="#sec4-2">4.2 Granáty</a></li>
-                    <li><a href="#sec4-3">4.3 Granáty v budovách</a></li>
-                    <li><a href="#sec4-4">4.4 Dýmovnice</a></li>
+                    <li><a href="#sec4-1" data-cz="4.1 Povolená pyrotechnika" data-en="4.1 Allowed pyrotechnics">4.1 Povolená pyrotechnika</a></li>
+                    <li><a href="#sec4-2" data-cz="4.2 Granáty" data-en="4.2 Grenades">4.2 Granáty</a></li>
+                    <li><a href="#sec4-3" data-cz="4.3 Granáty v budovách" data-en="4.3 Grenades in buildings">4.3 Granáty v budovách</a></li>
+                    <li><a href="#sec4-4" data-cz="4.4 Dýmovnice" data-en="4.4 Smoke grenades">4.4 Dýmovnice</a></li>
                 </ol>
             </li>
-            <li><a href="#sec5">5. PRAVIDLA STŘELBY</a>
+            <li><a href="#sec5" data-cz="5. PRAVIDLA STŘELBY" data-en="5. SHOOTING RULES">5. PRAVIDLA STŘELBY</a>
                 <ol>
-                    <li><a href="#sec5-1">5.1 Blind Fire</a></li>
-                    <li><a href="#sec5-2">5.2 Střelba skrz malé otvory</a></li>
-                    <li><a href="#sec5-3">5.3 Zásah přes zakázaný otvor</a></li>
+                    <li><a href="#sec5-1" data-cz="5.1 Blind Fire" data-en="5.1 Blind Fire">5.1 Blind Fire</a></li>
+                    <li><a href="#sec5-2" data-cz="5.2 Střelba skrz malé otvory" data-en="5.2 Shooting through small openings">5.2 Střelba skrz malé otvory</a></li>
+                    <li><a href="#sec5-3" data-cz="5.3 Zásah přes zakázaný otvor" data-en="5.3 Hit through a forbidden opening">5.3 Zásah přes zakázaný otvor</a></li>
                 </ol>
             </li>
-            <li><a href="#sec6">6. ZÁSAHY A FAIR PLAY</a>
+            <li><a href="#sec6" data-cz="6. ZÁSAHY A FAIR PLAY" data-en="6. HITS AND FAIR PLAY">6. ZÁSAHY A FAIR PLAY</a>
                 <ol>
-                    <li><a href="#sec6-1">6.1 Přiznání zásahu</a></li>
-                    <li><a href="#sec6-2">6.2 Chování po zásahu</a></li>
+                    <li><a href="#sec6-1" data-cz="6.1 Přiznání zásahu" data-en="6.1 Acknowledging a hit">6.1 Přiznání zásahu</a></li>
+                    <li><a href="#sec6-2" data-cz="6.2 Chování po zásahu" data-en="6.2 Behavior after a hit">6.2 Chování po zásahu</a></li>
                 </ol>
             </li>
-            <li><a href="#sec7">7. PÁSKA A MEDIC SYSTÉM</a>
+            <li><a href="#sec7" data-cz="7. PÁSKA A MEDIC SYSTÉM" data-en="7. ARMBAND AND MEDIC SYSTEM">7. PÁSKA A MEDIC SYSTÉM</a>
                 <ol>
-                    <li><a href="#sec7-1">7.1 Živý hráč</a></li>
-                    <li><a href="#sec7-2">7.2 Oživení</a></li>
-                    <li><a href="#sec7-3">7.3 Umrtvení / odebrání pásky</a></li>
+                    <li><a href="#sec7-1" data-cz="7.1 Živý hráč" data-en="7.1 Live player">7.1 Živý hráč</a></li>
+                    <li><a href="#sec7-2" data-cz="7.2 Oživení" data-en="7.2 Revival">7.2 Oživení</a></li>
+                    <li><a href="#sec7-3" data-cz="7.3 Umrtvení / odebrání pásky" data-en="7.3 Elimination / removing the armband">7.3 Umrtvení / odebrání pásky</a></li>
                 </ol>
             </li>
-            <li><a href="#sec8">8. VYSÍLAČKY A KOMUNIKACE</a></li>
-            <li><a href="#sec9">9. DRONY</a></li>
-            <li><a href="#sec10">10. ORGANIZÁTOR A ROZHODOVÁNÍ</a></li>
-            <li><a href="#sec11">11. FAIR PLAY</a></li>
+            <li><a href="#sec8" data-cz="8. VYSÍLAČKY A KOMUNIKACE" data-en="8. RADIOS AND COMMUNICATION">8. VYSÍLAČKY A KOMUNIKACE</a></li>
+            <li><a href="#sec9" data-cz="9. DRONY" data-en="9. DRONES">9. DRONY</a></li>
+            <li><a href="#sec10" data-cz="10. ORGANIZÁTOR A ROZHODOVÁNÍ" data-en="10. ORGANIZER AND DECISIONS">10. ORGANIZÁTOR A ROZHODOVÁNÍ</a></li>
+            <li><a href="#sec11" data-cz="11. FAIR PLAY" data-en="11. FAIR PLAY">11. FAIR PLAY</a></li>
         </ol>
 
     </nav>
@@ -100,48 +103,48 @@
     <div class="rules-body">
 
         <section id="sec1">
-            <h2>1. ZÁKLADNÍ BEZPEČNOSTNÍ PRAVIDLA</h2>
+            <h2 data-cz="1. ZÁKLADNÍ BEZPEČNOSTNÍ PRAVIDLA" data-en="1. BASIC SAFETY RULES">1. ZÁKLADNÍ BEZPEČNOSTNÍ PRAVIDLA</h2>
 
             <div id="sec1-1" class="sub">
-                <h3>1.1 Ochrana zraku</h3>
+                <h3 data-cz="1.1 Ochrana zraku" data-en="1.1 Eye protection">1.1 Ochrana zraku</h3>
                 <ul>
-                    <li>Ochranné brýle nebo maska s odpovídající balistickou certifikací jsou povinné po celou dobu pobytu v herním prostoru.</li>
-                    <li>Ochranu zraku je zakázáno sundávat v herním prostoru, a to i v případě, že hráč není aktivně zapojen do hry.</li>
-                    <li>Sundání ochrany zraku v herním prostoru může vést k okamžitému vyloučení z akce.</li>
+                    <li data-cz="Ochranné brýle nebo maska s odpovídající balistickou certifikací jsou povinné po celou dobu pobytu v herním prostoru." data-en="Certified ballistic eye protection or a mask is mandatory for the entire time spent in the game area.">Ochranné brýle nebo maska s odpovídající balistickou certifikací jsou povinné po celou dobu pobytu v herním prostoru.</li>
+                    <li data-cz="Ochranu zraku je zakázáno sundávat v herním prostoru, a to i v případě, že hráč není aktivně zapojen do hry." data-en="Removing eye protection in the game area is forbidden, even if the player is not actively engaged in the game.">Ochranu zraku je zakázáno sundávat v herním prostoru, a to i v případě, že hráč není aktivně zapojen do hry.</li>
+                    <li data-cz="Sundání ochrany zraku v herním prostoru může vést k okamžitému vyloučení z akce." data-en="Removing eye protection in the game area may result in immediate disqualification from the event.">Sundání ochrany zraku v herním prostoru může vést k okamžitému vyloučení z akce.</li>
                 </ul>
             </div>
 
             <div id="sec1-2" class="sub">
-                <h3>1.2 Bezpečnostní / mimoherní zóna</h3>
-                <p>V mimoherních zónách a na místech k tomu určených:</p>
+                <h3 data-cz="1.2 Bezpečnostní / mimoherní zóna" data-en="1.2 Safe / off-game zone">1.2 Bezpečnostní / mimoherní zóna</h3>
+                <p data-cz="V mimoherních zónách a na místech k tomu určených:" data-en="In off-game zones and designated areas:">V mimoherních zónách a na místech k tomu určených:</p>
                 <ul>
-                    <li>zbraň musí mít vyjmutý zásobník,</li>
-                    <li>zbraň musí být zajištěná,</li>
-                    <li>je zakázáno mířit na jiné osoby,</li>
-                    <li>je zakázáno střílet, včetně střelby naprázdno.</li>
+                    <li data-cz="zbraň musí mít vyjmutý zásobník," data-en="the weapon must have its magazine removed,">zbraň musí mít vyjmutý zásobník,</li>
+                    <li data-cz="zbraň musí být zajištěná," data-en="the weapon must be on safety,">zbraň musí být zajištěná,</li>
+                    <li data-cz="je zakázáno mířit na jiné osoby," data-en="aiming at other people is forbidden,">je zakázáno mířit na jiné osoby,</li>
+                    <li data-cz="je zakázáno střílet, včetně střelby naprázdno." data-en="shooting is forbidden, including dry firing.">je zakázáno střílet, včetně střelby naprázdno.</li>
                 </ul>
-                <p>Testování, nastavení a střelba ze zbraní jsou povoleny pouze na vyhrazené střelnici / chrono zóně.</p>
+                <p data-cz="Testování, nastavení a střelba ze zbraní jsou povoleny pouze na vyhrazené střelnici / chrono zóně." data-en="Testing, adjusting, and firing weapons is only permitted at the designated range / chrono zone.">Testování, nastavení a střelba ze zbraní jsou povoleny pouze na vyhrazené střelnici / chrono zóně.</p>
             </div>
 
             <div id="sec1-3" class="sub">
-                <h3>1.3 Civilní osoby</h3>
-                <p>Pokud se v herním prostoru objeví osoba, která není účastníkem hry, hráč je povinen okamžitě zvolat:</p>
-                <p class="callout">„CIVIL!“</p>
-                <p>Hráči v okolí:</p>
+                <h3 data-cz="1.3 Civilní osoby" data-en="1.3 Civilians">1.3 Civilní osoby</h3>
+                <p data-cz="Pokud se v herním prostoru objeví osoba, která není účastníkem hry, hráč je povinen okamžitě zvolat:" data-en="If a person who is not a participant in the game appears in the game area, the player must immediately shout:">Pokud se v herním prostoru objeví osoba, která není účastníkem hry, hráč je povinen okamžitě zvolat:</p>
+                <p class="callout" data-cz="„CIVIL!“" data-en="“CIVILIAN!”">„CIVIL!“</p>
+                <p data-cz="Hráči v okolí:" data-en="Nearby players must:">Hráči v okolí:</p>
                 <ul>
-                    <li>okamžitě přeruší střelbu,</li>
-                    <li>sklopí zbraně,</li>
-                    <li>neprovádějí žádnou další střelbu směrem k civilní osobě,</li>
-                    <li>pokračují ve hře až po potvrzení, že je prostor opět bezpečný.</li>
+                    <li data-cz="okamžitě přeruší střelbu," data-en="immediately stop shooting,">okamžitě přeruší střelbu,</li>
+                    <li data-cz="sklopí zbraně," data-en="lower their weapons,">sklopí zbraně,</li>
+                    <li data-cz="neprovádějí žádnou další střelbu směrem k civilní osobě," data-en="not fire in the direction of the civilian,">neprovádějí žádnou další střelbu směrem k civilní osobě,</li>
+                    <li data-cz="pokračují ve hře až po potvrzení, že je prostor opět bezpečný." data-en="resume the game only after confirmation that the area is safe again.">pokračují ve hře až po potvrzení, že je prostor opět bezpečný.</li>
                 </ul>
-                <p>Pokud si hráč není jistý, zda jde o civilní osobu, vždy se situace řeší jako přítomnost civilisty.</p>
+                <p data-cz="Pokud si hráč není jistý, zda jde o civilní osobu, vždy se situace řeší jako přítomnost civilisty." data-en="If a player is unsure whether a person is a civilian, the situation must always be treated as if a civilian is present.">Pokud si hráč není jistý, zda jde o civilní osobu, vždy se situace řeší jako přítomnost civilisty.</p>
             </div>
 
             <div id="sec1-4" class="sub">
-                <h3>1.4 Alkohol a návykové látky</h3>
+                <h3 data-cz="1.4 Alkohol a návykové látky" data-en="1.4 Alcohol and substances">1.4 Alkohol a návykové látky</h3>
                 <ul>
-                    <li>Účast ve hře pod vlivem alkoholu nebo jiných návykových látek je zakázána.</li>
-                    <li>Organizátor má právo osobu pod vlivem okamžitě vykázat z akce bez nároku na vrácení vstupného.</li>
+                    <li data-cz="Účast ve hře pod vlivem alkoholu nebo jiných návykových látek je zakázána." data-en="Participating in the game under the influence of alcohol or other substances is forbidden.">Účast ve hře pod vlivem alkoholu nebo jiných návykových látek je zakázána.</li>
+                    <li data-cz="Organizátor má právo osobu pod vlivem okamžitě vykázat z akce bez nároku na vrácení vstupného." data-en="The organizer has the right to immediately remove a person under the influence from the event without a refund.">Organizátor má právo osobu pod vlivem okamžitě vykázat z akce bez nároku na vrácení vstupného.</li>
                 </ul>
             </div>
 
@@ -149,55 +152,58 @@
 
 
         <section id="sec2">
-            <h2>2. VÝKONOVÉ LIMITY A CHRONO</h2>
+            <h2 data-cz="2. VÝKONOVÉ LIMITY A CHRONO" data-en="2. POWER LIMITS AND CHRONO">2. VÝKONOVÉ LIMITY A CHRONO</h2>
 
-            <p>Veškeré zbraně musí před zahájením hry projít kontrolou organizátora. Měření probíhá v Joulech (J) na střelivu používaném hráčem a při nastavení Hop-Upu odpovídajícímu hernímu použití.</p>
+            <p data-cz="Veškeré zbraně musí před zahájením hry projít kontrolou organizátora. Měření probíhá v Joulech (J) na střelivu používaném hráčem a při nastavení Hop-Upu odpovídajícímu hernímu použití."
+               data-en="All weapons must be checked by the organizer before the game begins. Measurement is done in Joules (J) using the BB weight the player is using, with the Hop-Up set for gameplay use.">
+                Veškeré zbraně musí před zahájením hry projít kontrolou organizátora. Měření probíhá v Joulech (J) na střelivu používaném hráčem a při nastavení Hop-Upu odpovídajícímu hernímu použití.
+            </p>
 
             <div class="table-wrap">
                 <table class="rules-table">
                     <thead>
                         <tr>
-                            <th>Kategorie</th>
-                            <th>Max. energie</th>
-                            <th>Režim / kadence</th>
-                            <th>Budovy</th>
-                            <th>MED</th>
+                            <th data-cz="Kategorie" data-en="Category">Kategorie</th>
+                            <th data-cz="Max. energie" data-en="Max. energy">Max. energie</th>
+                            <th data-cz="Režim / kadence" data-en="Mode / rate of fire">Režim / kadence</th>
+                            <th data-cz="Budovy" data-en="Buildings">Budovy</th>
+                            <th data-cz="MED" data-en="MED">MED</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Pistole</td>
+                            <td data-cz="Pistole" data-en="Pistol">Pistole</td>
                             <td>1,3 J</td>
-                            <td>pouze Semi</td>
-                            <td class="ok">POVOLENA</td>
-                            <td>bez omezení</td>
+                            <td data-cz="pouze Semi" data-en="Semi only">pouze Semi</td>
+                            <td class="ok" data-cz="POVOLENA" data-en="ALLOWED">POVOLENA</td>
+                            <td data-cz="bez omezení" data-en="no restriction">bez omezení</td>
                         </tr>
                         <tr>
                             <td>SMG</td>
                             <td>1,3 J</td>
-                            <td>Semi / Full Auto, max. 25 RPS</td>
-                            <td class="ok">POVOLENO</td>
-                            <td>bez omezení</td>
+                            <td data-cz="Semi / Full Auto, max. 25 RPS" data-en="Semi / Full Auto, max. 25 RPS">Semi / Full Auto, max. 25 RPS</td>
+                            <td class="ok" data-cz="POVOLENO" data-en="ALLOWED">POVOLENO</td>
+                            <td data-cz="bez omezení" data-en="no restriction">bez omezení</td>
                         </tr>
                         <tr>
-                            <td>Útočná puška</td>
+                            <td data-cz="Útočná puška" data-en="Assault rifle">Útočná puška</td>
                             <td>1,8 J</td>
-                            <td>Semi / Full Auto, max. 20 RPS</td>
-                            <td class="no">ZAKÁZÁNA</td>
-                            <td>dle bezpečného použití</td>
+                            <td data-cz="Semi / Full Auto, max. 20 RPS" data-en="Semi / Full Auto, max. 20 RPS">Semi / Full Auto, max. 20 RPS</td>
+                            <td class="no" data-cz="ZAKÁZÁNA" data-en="FORBIDDEN">ZAKÁZÁNA</td>
+                            <td data-cz="dle bezpečného použití" data-en="per safe use">dle bezpečného použití</td>
                         </tr>
                         <tr>
                             <td>DMR</td>
                             <td>2,5 J</td>
-                            <td>pouze Semi</td>
-                            <td class="no">ZAKÁZÁNA</td>
+                            <td data-cz="pouze Semi" data-en="Semi only">pouze Semi</td>
+                            <td class="no" data-cz="ZAKÁZÁNA" data-en="FORBIDDEN">ZAKÁZÁNA</td>
                             <td>20 m</td>
                         </tr>
                         <tr>
-                            <td>Sniper</td>
+                            <td data-cz="Sniper" data-en="Sniper">Sniper</td>
                             <td>3,5 J</td>
-                            <td>Manual / Semi</td>
-                            <td class="no">ZAKÁZÁN</td>
+                            <td data-cz="Manual / Semi" data-en="Manual / Semi">Manual / Semi</td>
+                            <td class="no" data-cz="ZAKÁZÁN" data-en="FORBIDDEN">ZAKÁZÁN</td>
                             <td>30 m</td>
                         </tr>
                     </tbody>
@@ -205,103 +211,112 @@
             </div>
 
             <div id="sec2-1" class="sub">
-                <h3>2.1 DMR a sniper</h3>
+                <h3 data-cz="2.1 DMR a sniper" data-en="2.1 DMR and sniper">2.1 DMR a sniper</h3>
                 <ul>
-                    <li>DMR a sniper musí dodržovat stanovenou minimální vzdálenost.</li>
-                    <li>Hráč používající DMR nebo sniper musí mít u sebe vhodnou záložní zbraň pro boj na kratší vzdálenost.</li>
-                    <li>Při vzdálenosti kratší než stanovený MED je hráč povinen použít záložní zbraň nebo jiný povolený způsob vyřešení situace.</li>
+                    <li data-cz="DMR a sniper musí dodržovat stanovenou minimální vzdálenost." data-en="DMR and sniper must observe the specified minimum engagement distance.">DMR a sniper musí dodržovat stanovenou minimální vzdálenost.</li>
+                    <li data-cz="Hráč používající DMR nebo sniper musí mít u sebe vhodnou záložní zbraň pro boj na kratší vzdálenost." data-en="A player using a DMR or sniper must carry a suitable secondary weapon for close-range combat.">Hráč používající DMR nebo sniper musí mít u sebe vhodnou záložní zbraň pro boj na kratší vzdálenost.</li>
+                    <li data-cz="Při vzdálenosti kratší než stanovený MED je hráč povinen použít záložní zbraň nebo jiný povolený způsob vyřešení situace." data-en="At a distance shorter than the specified MED, the player must use their secondary weapon or another approved way to resolve the situation.">Při vzdálenosti kratší než stanovený MED je hráč povinen použít záložní zbraň nebo jiný povolený způsob vyřešení situace.</li>
                 </ul>
             </div>
 
             <div id="sec2-2" class="sub">
-                <h3>2.2 Kontrola kadence</h3>
-                <p>U zbraní s omezenou kadencí může organizátor provést kontrolu RPS. Úmyslné obcházení výkonových nebo kadančních limitů je důvodem k okamžitému zákazu používání dané zbraně, případně k vyloučení hráče.</p>
+                <h3 data-cz="2.2 Kontrola kadence" data-en="2.2 Rate of fire check">2.2 Kontrola kadence</h3>
+                <p data-cz="U zbraní s omezenou kadencí může organizátor provést kontrolu RPS. Úmyslné obcházení výkonových nebo kadančních limitů je důvodem k okamžitému zákazu používání dané zbraně, případně k vyloučení hráče."
+                   data-en="For weapons with a limited rate of fire, the organizer may check RPS. Deliberately bypassing power or rate-of-fire limits is grounds for an immediate ban on using that weapon, or disqualification of the player.">
+                    U zbraní s omezenou kadencí může organizátor provést kontrolu RPS. Úmyslné obcházení výkonových nebo kadančních limitů je důvodem k okamžitému zákazu používání dané zbraně, případně k vyloučení hráče.
+                </p>
             </div>
 
         </section>
 
 
         <section id="sec3">
-            <h2>3. VÝZBROJ A VÝSTROJ FRAKCÍ</h2>
+            <h2 data-cz="3. VÝZBROJ A VÝSTROJ FRAKCÍ" data-en="3. FACTION WEAPONS AND GEAR">3. VÝZBROJ A VÝSTROJ FRAKCÍ</h2>
 
-            <p>Každá frakce má přístup ke specifické výzbroji a výstroji.</p>
+            <p data-cz="Každá frakce má přístup ke specifické výzbroji a výstroji." data-en="Each faction has access to specific weapons and gear.">Každá frakce má přístup ke specifické výzbroji a výstroji.</p>
 
             <div class="table-wrap">
                 <table class="rules-table">
                     <thead>
                         <tr>
-                            <th>Frakce</th>
-                            <th>Speciální výzbroj / výstroj</th>
-                            <th>Podmínky</th>
+                            <th data-cz="Frakce" data-en="Faction">Frakce</th>
+                            <th data-cz="Speciální výzbroj / výstroj" data-en="Special weapons / gear">Speciální výzbroj / výstroj</th>
+                            <th data-cz="Podmínky" data-en="Conditions">Podmínky</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>STARS</td>
-                            <td>Balistické štíty, brokovnice</td>
-                            <td>Štít pouze v kombinaci s pistolí. Musí mít průhledné hledí umožňující bezpečný výhled.</td>
+                            <td data-cz="Balistické štíty, brokovnice" data-en="Ballistic shields, shotguns">Balistické štíty, brokovnice</td>
+                            <td data-cz="Štít pouze v kombinaci s pistolí. Musí mít průhledné hledí umožňující bezpečný výhled." data-en="Shield only in combination with a pistol. Must have a clear visor allowing safe visibility.">Štít pouze v kombinaci s pistolí. Musí mít průhledné hledí umožňující bezpečný výhled.</td>
                         </tr>
                         <tr>
                             <td>UBCS</td>
-                            <td>DMR, granátomety</td>
-                            <td>DMR musí odpovídat reálné předloze a být vybaven optikou, dvojnožkou a Low-Cap zásobníkem.</td>
+                            <td data-cz="DMR, granátomety" data-en="DMR, grenade launchers">DMR, granátomety</td>
+                            <td data-cz="DMR musí odpovídat reálné předloze a být vybaven optikou, dvojnožkou a Low-Cap zásobníkem." data-en="DMR must be a realistic replica and equipped with optics, a bipod, and a low-cap magazine.">DMR musí odpovídat reálné předloze a být vybaven optikou, dvojnožkou a Low-Cap zásobníkem.</td>
                         </tr>
                         <tr>
                             <td>USS</td>
-                            <td>SMG, CQB granáty</td>
-                            <td>SMG musí odpovídat reálné předloze. USS má jako jediná frakce povolení používat GreenGas a pružinové granáty v budovách.</td>
+                            <td data-cz="SMG, CQB granáty" data-en="SMG, CQB grenades">SMG, CQB granáty</td>
+                            <td data-cz="SMG musí odpovídat reálné předloze. USS má jako jediná frakce povolení používat GreenGas a pružinové granáty v budovách." data-en="SMG must be a realistic replica. USS is the only faction permitted to use GreenGas and spring grenades inside buildings.">SMG musí odpovídat reálné předloze. USS má jako jediná frakce povolení používat GreenGas a pružinové granáty v budovách.</td>
                         </tr>
                         <tr>
                             <td>Spec Ops</td>
-                            <td>Sniper, termovize, NVG, drony</td>
-                            <td>Drony nesmí shazovat žádné předměty. Na drony je zakázáno střílet.</td>
+                            <td data-cz="Sniper, termovize, NVG, drony" data-en="Sniper, thermal, NVG, drones">Sniper, termovize, NVG, drony</td>
+                            <td data-cz="Drony nesmí shazovat žádné předměty. Na drony je zakázáno střílet." data-en="Drones may not drop any objects. Shooting at drones is forbidden.">Drony nesmí shazovat žádné předměty. Na drony je zakázáno střílet.</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
             <div id="sec3-1" class="sub">
-                <h3>3.1 Výjimky a omezení</h3>
-                <p>Speciální vybavení je možné používat pouze v souladu s pravidly příslušné frakce. Organizátor může konkrétní vybavení před hrou zkontrolovat a v případě pochybností jeho použití zakázat.</p>
+                <h3 data-cz="3.1 Výjimky a omezení" data-en="3.1 Exceptions and restrictions">3.1 Výjimky a omezení</h3>
+                <p data-cz="Speciální vybavení je možné používat pouze v souladu s pravidly příslušné frakce. Organizátor může konkrétní vybavení před hrou zkontrolovat a v případě pochybností jeho použití zakázat."
+                   data-en="Special equipment may only be used in accordance with the rules of the relevant faction. The organizer may inspect specific equipment before the game and forbid its use in case of doubt.">
+                    Speciální vybavení je možné používat pouze v souladu s pravidly příslušné frakce. Organizátor může konkrétní vybavení před hrou zkontrolovat a v případě pochybností jeho použití zakázat.
+                </p>
             </div>
 
         </section>
 
 
         <section id="sec4">
-            <h2>4. PYROTECHNIKA, GRANÁTY A DÝMOVNICE</h2>
+            <h2 data-cz="4. PYROTECHNIKA, GRANÁTY A DÝMOVNICE" data-en="4. PYROTECHNICS, GRENADES AND SMOKE">4. PYROTECHNIKA, GRANÁTY A DÝMOVNICE</h2>
 
             <div id="sec4-1" class="sub">
-                <h3>4.1 Povolená pyrotechnika</h3>
-                <p>Povolena je pouze pyrotechnika značek:</p>
+                <h3 data-cz="4.1 Povolená pyrotechnika" data-en="4.1 Allowed pyrotechnics">4.1 Povolená pyrotechnika</h3>
+                <p data-cz="Povolena je pouze pyrotechnika značek:" data-en="Only pyrotechnics from the following brands are allowed:">Povolena je pouze pyrotechnika značek:</p>
                 <ul>
                     <li>Pyrosoft</li>
                     <li>TAGinn</li>
                 </ul>
-                <p>Jakákoliv jiná pyrotechnika může být použita pouze po předchozím schválení organizátorem.</p>
+                <p data-cz="Jakákoliv jiná pyrotechnika může být použita pouze po předchozím schválení organizátorem." data-en="Any other pyrotechnics may only be used with the organizer's prior approval.">Jakákoliv jiná pyrotechnika může být použita pouze po předchozím schválení organizátorem.</p>
             </div>
 
             <div id="sec4-2" class="sub">
-                <h3>4.2 Granáty</h3>
-                <p>Povoleny jsou:</p>
+                <h3 data-cz="4.2 Granáty" data-en="4.2 Grenades">4.2 Granáty</h3>
+                <p data-cz="Povoleny jsou:" data-en="Allowed:">Povoleny jsou:</p>
                 <ul>
-                    <li>GreenGas granáty,</li>
-                    <li>pružinové granáty,</li>
-                    <li>povolená pyrotechnika TAGinn a Pyrosoft.</li>
+                    <li data-cz="GreenGas granáty," data-en="GreenGas grenades,">GreenGas granáty,</li>
+                    <li data-cz="pružinové granáty," data-en="spring grenades,">pružinové granáty,</li>
+                    <li data-cz="povolená pyrotechnika TAGinn a Pyrosoft." data-en="approved TAGinn and Pyrosoft pyrotechnics.">povolená pyrotechnika TAGinn a Pyrosoft.</li>
                 </ul>
             </div>
 
             <div id="sec4-3" class="sub">
-                <h3>4.3 Granáty v budovách</h3>
-                <p>Používání granátů v budovách je obecně zakázáno. Výjimku má pouze frakce USS, která může v budovách používat povolené GreenGas a pružinové granáty.</p>
+                <h3 data-cz="4.3 Granáty v budovách" data-en="4.3 Grenades in buildings">4.3 Granáty v budovách</h3>
+                <p data-cz="Používání granátů v budovách je obecně zakázáno. Výjimku má pouze frakce USS, která může v budovách používat povolené GreenGas a pružinové granáty."
+                   data-en="Using grenades inside buildings is generally forbidden. The only exception is the USS faction, which may use approved GreenGas and spring grenades inside buildings.">
+                    Používání granátů v budovách je obecně zakázáno. Výjimku má pouze frakce USS, která může v budovách používat povolené GreenGas a pružinové granáty.
+                </p>
             </div>
 
             <div id="sec4-4" class="sub">
-                <h3>4.4 Dýmovnice</h3>
+                <h3 data-cz="4.4 Dýmovnice" data-en="4.4 Smoke grenades">4.4 Dýmovnice</h3>
                 <ul>
-                    <li>Povolené jsou pouze barevné dýmovnice s maximální dobou hoření 140 sekund.</li>
-                    <li>Bílé a černé dýmovnice jsou zakázány.</li>
-                    <li>Používání jakýchkoliv dýmovnic uvnitř budov je zakázáno.</li>
+                    <li data-cz="Povolené jsou pouze barevné dýmovnice s maximální dobou hoření 140 sekund." data-en="Only colored smoke grenades with a maximum burn time of 140 seconds are allowed.">Povolené jsou pouze barevné dýmovnice s maximální dobou hoření 140 sekund.</li>
+                    <li data-cz="Bílé a černé dýmovnice jsou zakázány." data-en="White and black smoke grenades are forbidden.">Bílé a černé dýmovnice jsou zakázány.</li>
+                    <li data-cz="Používání jakýchkoliv dýmovnic uvnitř budov je zakázáno." data-en="Using any smoke grenades inside buildings is forbidden.">Používání jakýchkoliv dýmovnic uvnitř budov je zakázáno.</li>
                 </ul>
             </div>
 
@@ -309,37 +324,43 @@
 
 
         <section id="sec5">
-            <h2>5. PRAVIDLA STŘELBY</h2>
+            <h2 data-cz="5. PRAVIDLA STŘELBY" data-en="5. SHOOTING RULES">5. PRAVIDLA STŘELBY</h2>
 
             <div id="sec5-1" class="sub">
-                <h3>5.1 Blind Fire</h3>
-                <p>Je přísně zakázáno střílet bez vizuální kontroly cíle. Hráč musí vždy vidět, kam střílí. Je zakázáno:</p>
+                <h3 data-cz="5.1 Blind Fire" data-en="5.1 Blind Fire">5.1 Blind Fire</h3>
+                <p data-cz="Je přísně zakázáno střílet bez vizuální kontroly cíle. Hráč musí vždy vidět, kam střílí. Je zakázáno:"
+                   data-en="Shooting without visual confirmation of the target is strictly forbidden. A player must always see where they are shooting. It is forbidden to:">
+                    Je přísně zakázáno střílet bez vizuální kontroly cíle. Hráč musí vždy vidět, kam střílí. Je zakázáno:
+                </p>
                 <ul>
-                    <li>střílet přes překážku bez možnosti kontrolovat prostor,</li>
-                    <li>vystrčit pouze zbraň a střílet bez vystrčení hlavy / možnosti vizuální kontroly,</li>
-                    <li>střílet do prostoru, o kterém hráč nemá přehled.</li>
+                    <li data-cz="střílet přes překážku bez možnosti kontrolovat prostor," data-en="shoot over an obstacle without being able to see the area,">střílet přes překážku bez možnosti kontrolovat prostor,</li>
+                    <li data-cz="vystrčit pouze zbraň a střílet bez vystrčení hlavy / možnosti vizuální kontroly," data-en="stick out only the weapon and shoot without exposing your head / having visual control,">vystrčit pouze zbraň a střílet bez vystrčení hlavy / možnosti vizuální kontroly,</li>
+                    <li data-cz="střílet do prostoru, o kterém hráč nemá přehled." data-en="shoot into an area the player cannot see.">střílet do prostoru, o kterém hráč nemá přehled.</li>
                 </ul>
             </div>
 
             <div id="sec5-2" class="sub">
-                <h3>5.2 Střelba skrz malé otvory</h3>
-                <p>Je zakázáno střílet skrz:</p>
+                <h3 data-cz="5.2 Střelba skrz malé otvory" data-en="5.2 Shooting through small openings">5.2 Střelba skrz malé otvory</h3>
+                <p data-cz="Je zakázáno střílet skrz:" data-en="It is forbidden to shoot through:">Je zakázáno střílet skrz:</p>
                 <ul>
-                    <li>malé škvíry,</li>
-                    <li>úzké štěrbiny,</li>
-                    <li>malé otvory v deskách,</li>
-                    <li>díry v plotě nebo stěně,</li>
+                    <li data-cz="malé škvíry," data-en="small cracks,">malé škvíry,</li>
+                    <li data-cz="úzké štěrbiny," data-en="narrow slits,">úzké štěrbiny,</li>
+                    <li data-cz="malé otvory v deskách," data-en="small openings in boards,">malé otvory v deskách,</li>
+                    <li data-cz="díry v plotě nebo stěně," data-en="holes in a fence or wall,">díry v plotě nebo stěně,</li>
                 </ul>
-                <p>pokud jsou menší než prostor odpovídající velikosti lidské hlavy.</p>
+                <p data-cz="pokud jsou menší než prostor odpovídající velikosti lidské hlavy." data-en="if they are smaller than the space corresponding to the size of a human head.">pokud jsou menší než prostor odpovídající velikosti lidské hlavy.</p>
             </div>
 
             <div id="sec5-3" class="sub">
-                <h3>5.3 Zásah přes zakázaný otvor</h3>
-                <p>Zásah, který byl proveden střelbou skrz nepovolenou škvíru nebo otvor, se nepočítá. Zasažený hráč v takovém případě:</p>
+                <h3 data-cz="5.3 Zásah přes zakázaný otvor" data-en="5.3 Hit through a forbidden opening">5.3 Zásah přes zakázaný otvor</h3>
+                <p data-cz="Zásah, který byl proveden střelbou skrz nepovolenou škvíru nebo otvor, se nepočítá. Zasažený hráč v takovém případě:"
+                   data-en="A hit made by shooting through a forbidden crack or opening does not count. In this case, the hit player:">
+                    Zásah, který byl proveden střelbou skrz nepovolenou škvíru nebo otvor, se nepočítá. Zasažený hráč v takovém případě:
+                </p>
                 <ul>
-                    <li>neodchází na respawn,</li>
-                    <li>nepoužívá medic systém,</li>
-                    <li>pokračuje ve hře.</li>
+                    <li data-cz="neodchází na respawn," data-en="does not go to respawn,">neodchází na respawn,</li>
+                    <li data-cz="nepoužívá medic systém," data-en="does not use the medic system,">nepoužívá medic systém,</li>
+                    <li data-cz="pokračuje ve hře." data-en="continues playing.">pokračuje ve hře.</li>
                 </ul>
             </div>
 
@@ -347,36 +368,42 @@
 
 
         <section id="sec6">
-            <h2>6. ZÁSAHY A FAIR PLAY</h2>
+            <h2 data-cz="6. ZÁSAHY A FAIR PLAY" data-en="6. HITS AND FAIR PLAY">6. ZÁSAHY A FAIR PLAY</h2>
 
-            <p>TRIAGE je hra založená na čestnosti, fair play a vzájemném respektu. Zásah platí do:</p>
+            <p data-cz="TRIAGE je hra založená na čestnosti, fair play a vzájemném respektu. Zásah platí do:"
+               data-en="TRIAGE is a game based on honesty, fair play, and mutual respect. A hit counts on:">
+                TRIAGE je hra založená na čestnosti, fair play a vzájemném respektu. Zásah platí do:
+            </p>
             <ul>
-                <li>jakékoliv části těla,</li>
-                <li>výstroje,</li>
-                <li>vybavení,</li>
-                <li>zbraně.</li>
+                <li data-cz="jakékoliv části těla," data-en="any part of the body,">jakékoliv části těla,</li>
+                <li data-cz="výstroje," data-en="gear,">výstroje,</li>
+                <li data-cz="vybavení," data-en="equipment,">vybavení,</li>
+                <li data-cz="zbraně." data-en="weapon.">zbraně.</li>
             </ul>
-            <p>Pokud hráč není schopen jednoznačně určit, zda byl zasažen, je povinen zásah uznat.</p>
+            <p data-cz="Pokud hráč není schopen jednoznačně určit, zda byl zasažen, je povinen zásah uznat."
+               data-en="If a player cannot clearly determine whether they were hit, they must acknowledge the hit.">
+                Pokud hráč není schopen jednoznačně určit, zda byl zasažen, je povinen zásah uznat.
+            </p>
 
             <div id="sec6-1" class="sub">
-                <h3>6.1 Přiznání zásahu</h3>
-                <p>Po zásahu hráč:</p>
+                <h3 data-cz="6.1 Přiznání zásahu" data-en="6.1 Acknowledging a hit">6.1 Přiznání zásahu</h3>
+                <p data-cz="Po zásahu hráč:" data-en="After being hit, the player:">Po zásahu hráč:</p>
                 <ol class="numbered">
-                    <li>zvolá „MÁM!“ nebo „ZÁSAH!“,</li>
-                    <li>viditelně označí svůj stav reflexní vestou / šátkem,</li>
-                    <li>přestane se zapojovat do boje,</li>
-                    <li>řídí se pravidly aktuálního herního módu.</li>
+                    <li data-cz="zvolá „MÁM!“ nebo „ZÁSAH!“," data-en="shouts “HIT!”,">zvolá „MÁM!“ nebo „ZÁSAH!“,</li>
+                    <li data-cz="viditelně označí svůj stav reflexní vestou / šátkem," data-en="visibly marks their status with a reflective vest / bandana,">viditelně označí svůj stav reflexní vestou / šátkem,</li>
+                    <li data-cz="přestane se zapojovat do boje," data-en="stops engaging in combat,">přestane se zapojovat do boje,</li>
+                    <li data-cz="řídí se pravidly aktuálního herního módu." data-en="follows the rules of the current game mode.">řídí se pravidly aktuálního herního módu.</li>
                 </ol>
             </div>
 
             <div id="sec6-2" class="sub">
-                <h3>6.2 Chování po zásahu</h3>
-                <p>Zasažený hráč nesmí:</p>
+                <h3 data-cz="6.2 Chování po zásahu" data-en="6.2 Behavior after a hit">6.2 Chování po zásahu</h3>
+                <p data-cz="Zasažený hráč nesmí:" data-en="A hit player must not:">Zasažený hráč nesmí:</p>
                 <ul>
-                    <li>radit živým hráčům,</li>
-                    <li>předávat informace o poloze nepřítele,</li>
-                    <li>používat vysílačku za účelem komunikace s živými hráči,</li>
-                    <li>aktivně ovlivňovat probíhající hru.</li>
+                    <li data-cz="radit živým hráčům," data-en="give advice to live players,">radit živým hráčům,</li>
+                    <li data-cz="předávat informace o poloze nepřítele," data-en="pass on information about enemy positions,">předávat informace o poloze nepřítele,</li>
+                    <li data-cz="používat vysílačku za účelem komunikace s živými hráči," data-en="use a radio to communicate with live players,">používat vysílačku za účelem komunikace s živými hráči,</li>
+                    <li data-cz="aktivně ovlivňovat probíhající hru." data-en="actively influence the ongoing game.">aktivně ovlivňovat probíhající hru.</li>
                 </ul>
             </div>
 
@@ -384,94 +411,108 @@
 
 
         <section id="sec7">
-            <h2>7. PÁSKA A MEDIC SYSTÉM</h2>
+            <h2 data-cz="7. PÁSKA A MEDIC SYSTÉM" data-en="7. ARMBAND AND MEDIC SYSTEM">7. PÁSKA A MEDIC SYSTÉM</h2>
 
-            <p>Pokud je v konkrétním herním módu používán systém pásky:</p>
+            <p data-cz="Pokud je v konkrétním herním módu používán systém pásky:" data-en="If a specific game mode uses the armband system:">Pokud je v konkrétním herním módu používán systém pásky:</p>
 
             <div id="sec7-1" class="sub">
-                <h3>7.1 Živý hráč</h3>
-                <p>Živý hráč má na sobě přidělenou pásku živého hráče.</p>
+                <h3 data-cz="7.1 Živý hráč" data-en="7.1 Live player">7.1 Živý hráč</h3>
+                <p data-cz="Živý hráč má na sobě přidělenou pásku živého hráče." data-en="A live player wears their assigned live-player armband.">Živý hráč má na sobě přidělenou pásku živého hráče.</p>
             </div>
 
             <div id="sec7-2" class="sub">
-                <h3>7.2 Oživení</h3>
-                <p>Zasažený hráč může být podle pravidel konkrétního herního módu oživen určeným zdravotníkem / medikem.</p>
+                <h3 data-cz="7.2 Oživení" data-en="7.2 Revival">7.2 Oživení</h3>
+                <p data-cz="Zasažený hráč může být podle pravidel konkrétního herního módu oživen určeným zdravotníkem / medikem."
+                   data-en="Depending on the rules of the specific game mode, a hit player may be revived by a designated medic.">
+                    Zasažený hráč může být podle pravidel konkrétního herního módu oživen určeným zdravotníkem / medikem.
+                </p>
             </div>
 
             <div id="sec7-3" class="sub">
-                <h3>7.3 Umrtvení / odebrání pásky</h3>
-                <p>Pokud pravidla aktuálního herního módu umožňují definitivní vyřazení hráče odebráním pásky:</p>
+                <h3 data-cz="7.3 Umrtvení / odebrání pásky" data-en="7.3 Elimination / removing the armband">7.3 Umrtvení / odebrání pásky</h3>
+                <p data-cz="Pokud pravidla aktuálního herního módu umožňují definitivní vyřazení hráče odebráním pásky:"
+                   data-en="If the rules of the current game mode allow a player's final elimination by removing their armband:">
+                    Pokud pravidla aktuálního herního módu umožňují definitivní vyřazení hráče odebráním pásky:
+                </p>
                 <ul>
-                    <li>pásku může odebrat oprávněný hráč podle pravidel daného módu,</li>
-                    <li>po odebrání pásky je hráč definitivně vyřazen z aktuálního života,</li>
-                    <li>hráč následně postupuje podle pravidel respawnu daného herního módu.</li>
+                    <li data-cz="pásku může odebrat oprávněný hráč podle pravidel daného módu," data-en="the armband may be removed by a player authorized under that mode's rules,">pásku může odebrat oprávněný hráč podle pravidel daného módu,</li>
+                    <li data-cz="po odebrání pásky je hráč definitivně vyřazen z aktuálního života," data-en="once the armband is removed, the player is finally eliminated from their current life,">po odebrání pásky je hráč definitivně vyřazen z aktuálního života,</li>
+                    <li data-cz="hráč následně postupuje podle pravidel respawnu daného herního módu." data-en="the player then follows the respawn rules of that game mode.">hráč následně postupuje podle pravidel respawnu daného herního módu.</li>
                 </ul>
-                <p>Konkrétní podmínky oživování, odebírání pásek a respawnu jsou vždy upřesněny v pravidlech daného herního módu.</p>
+                <p data-cz="Konkrétní podmínky oživování, odebírání pásek a respawnu jsou vždy upřesněny v pravidlech daného herního módu."
+                   data-en="Specific conditions for reviving, removing armbands, and respawning are always specified in the rules of the given game mode.">
+                    Konkrétní podmínky oživování, odebírání pásek a respawnu jsou vždy upřesněny v pravidlech daného herního módu.
+                </p>
             </div>
 
         </section>
 
 
         <section id="sec8">
-            <h2>8. VYSÍLAČKY A KOMUNIKACE</h2>
+            <h2 data-cz="8. VYSÍLAČKY A KOMUNIKACE" data-en="8. RADIOS AND COMMUNICATION">8. VYSÍLAČKY A KOMUNIKACE</h2>
             <ul>
-                <li>Používání vysílaček je během akce povoleno.</li>
-                <li>Vysílačky musí být provozovány v souladu s platnými právními předpisy České republiky a podmínkami stanovenými Českým telekomunikačním úřadem (ČTÚ).</li>
-                <li>Pro běžnou účastnickou komunikaci jsou doporučovány radiostanice PMR446, provozované v souladu s příslušným všeobecným oprávněním ČTÚ VO-R/3.</li>
-                <li>Použití jiných radiostanic nebo frekvenčních pásem je možné pouze v případě, že jejich provoz splňuje všechny zákonné podmínky a nezasahuje do provozu jiných rádiových služeb.</li>
-                <li>Je zakázáno používat frekvence nebo nastavení radiostanic, k jejichž provozu účastník nemá příslušné oprávnění.</li>
-                <li>Hráči jsou povinni dodržovat pravidla přidělených herních kanálů.</li>
-                <li>Zneužívání rádiové komunikace k předávání informací po zásahu nebo k jinému neoprávněnému ovlivňování hry je zakázáno.</li>
-                <li>Organizátor může v případě potřeby nařídit změnu komunikačního kanálu nebo způsobu komunikace.</li>
+                <li data-cz="Používání vysílaček je během akce povoleno." data-en="Using radios during the event is allowed.">Používání vysílaček je během akce povoleno.</li>
+                <li data-cz="Vysílačky musí být provozovány v souladu s platnými právními předpisy České republiky a podmínkami stanovenými Českým telekomunikačním úřadem (ČTÚ)." data-en="Radios must be operated in accordance with applicable Czech law and the conditions set by the Czech Telecommunication Office (ČTÚ).">Vysílačky musí být provozovány v souladu s platnými právními předpisy České republiky a podmínkami stanovenými Českým telekomunikačním úřadem (ČTÚ).</li>
+                <li data-cz="Pro běžnou účastnickou komunikaci jsou doporučovány radiostanice PMR446, provozované v souladu s příslušným všeobecným oprávněním ČTÚ VO-R/3." data-en="For regular participant communication, PMR446 radios are recommended, operated in accordance with the relevant ČTÚ general authorization VO-R/3.">Pro běžnou účastnickou komunikaci jsou doporučovány radiostanice PMR446, provozované v souladu s příslušným všeobecným oprávněním ČTÚ VO-R/3.</li>
+                <li data-cz="Použití jiných radiostanic nebo frekvenčních pásem je možné pouze v případě, že jejich provoz splňuje všechny zákonné podmínky a nezasahuje do provozu jiných rádiových služeb." data-en="Using other radios or frequency bands is only allowed if their operation meets all legal conditions and does not interfere with other radio services.">Použití jiných radiostanic nebo frekvenčních pásem je možné pouze v případě, že jejich provoz splňuje všechny zákonné podmínky a nezasahuje do provozu jiných rádiových služeb.</li>
+                <li data-cz="Je zakázáno používat frekvence nebo nastavení radiostanic, k jejichž provozu účastník nemá příslušné oprávnění." data-en="It is forbidden to use frequencies or radio settings for which the participant does not hold the required authorization.">Je zakázáno používat frekvence nebo nastavení radiostanic, k jejichž provozu účastník nemá příslušné oprávnění.</li>
+                <li data-cz="Hráči jsou povinni dodržovat pravidla přidělených herních kanálů." data-en="Players must follow the rules of their assigned game channels.">Hráči jsou povinni dodržovat pravidla přidělených herních kanálů.</li>
+                <li data-cz="Zneužívání rádiové komunikace k předávání informací po zásahu nebo k jinému neoprávněnému ovlivňování hry je zakázáno." data-en="Misusing radio communication to pass on information after being hit, or to otherwise unfairly influence the game, is forbidden.">Zneužívání rádiové komunikace k předávání informací po zásahu nebo k jinému neoprávněnému ovlivňování hry je zakázáno.</li>
+                <li data-cz="Organizátor může v případě potřeby nařídit změnu komunikačního kanálu nebo způsobu komunikace." data-en="The organizer may, if necessary, order a change of communication channel or method.">Organizátor může v případě potřeby nařídit změnu komunikačního kanálu nebo způsobu komunikace.</li>
             </ul>
         </section>
 
 
         <section id="sec9">
-            <h2>9. DRONY</h2>
-            <p>Drony jsou povoleny pouze v případě, že jejich použití umožňují pravidla akce a konkrétního herního prostoru.</p>
+            <h2 data-cz="9. DRONY" data-en="9. DRONES">9. DRONY</h2>
+            <p data-cz="Drony jsou povoleny pouze v případě, že jejich použití umožňují pravidla akce a konkrétního herního prostoru."
+               data-en="Drones are only allowed if their use is permitted by the event rules and the specific game area.">
+                Drony jsou povoleny pouze v případě, že jejich použití umožňují pravidla akce a konkrétního herního prostoru.
+            </p>
             <ul>
-                <li>Dron nesmí shazovat žádné předměty.</li>
-                <li>Je zakázáno střílet na drony.</li>
-                <li>Provozovatel dronu je povinen dbát na bezpečnost osob v prostoru.</li>
-                <li>Organizátor může používání konkrétního dronu kdykoliv omezit nebo zakázat z bezpečnostních důvodů.</li>
+                <li data-cz="Dron nesmí shazovat žádné předměty." data-en="A drone may not drop any objects.">Dron nesmí shazovat žádné předměty.</li>
+                <li data-cz="Je zakázáno střílet na drony." data-en="Shooting at drones is forbidden.">Je zakázáno střílet na drony.</li>
+                <li data-cz="Provozovatel dronu je povinen dbát na bezpečnost osob v prostoru." data-en="The drone operator must ensure the safety of people in the area.">Provozovatel dronu je povinen dbát na bezpečnost osob v prostoru.</li>
+                <li data-cz="Organizátor může používání konkrétního dronu kdykoliv omezit nebo zakázat z bezpečnostních důvodů." data-en="The organizer may restrict or forbid the use of a specific drone at any time for safety reasons.">Organizátor může používání konkrétního dronu kdykoliv omezit nebo zakázat z bezpečnostních důvodů.</li>
             </ul>
         </section>
 
 
         <section id="sec10">
-            <h2>10. ORGANIZÁTOR A ROZHODOVÁNÍ</h2>
+            <h2 data-cz="10. ORGANIZÁTOR A ROZHODOVÁNÍ" data-en="10. ORGANIZER AND DECISIONS">10. ORGANIZÁTOR A ROZHODOVÁNÍ</h2>
             <ul>
-                <li>Pokyny organizátorů, rozhodčích a bezpečnostního personálu jsou závazné.</li>
-                <li>Organizátor má právo kdykoliv přerušit hru z bezpečnostních důvodů.</li>
-                <li>Organizátor má právo zakázat použití vybavení, které považuje za nebezpečné nebo odporující pravidlům.</li>
-                <li>Organizátor má právo hráče při závažném nebo opakovaném porušování pravidel napomenout, dočasně vyřadit nebo z akce definitivně vyloučit.</li>
-                <li>V případě nejasnosti pravidel rozhoduje organizátor.</li>
+                <li data-cz="Pokyny organizátorů, rozhodčích a bezpečnostního personálu jsou závazné." data-en="Instructions from organizers, referees, and safety staff are binding.">Pokyny organizátorů, rozhodčích a bezpečnostního personálu jsou závazné.</li>
+                <li data-cz="Organizátor má právo kdykoliv přerušit hru z bezpečnostních důvodů." data-en="The organizer has the right to stop the game at any time for safety reasons.">Organizátor má právo kdykoliv přerušit hru z bezpečnostních důvodů.</li>
+                <li data-cz="Organizátor má právo zakázat použití vybavení, které považuje za nebezpečné nebo odporující pravidlům." data-en="The organizer has the right to forbid the use of equipment considered dangerous or in violation of the rules.">Organizátor má právo zakázat použití vybavení, které považuje za nebezpečné nebo odporující pravidlům.</li>
+                <li data-cz="Organizátor má právo hráče při závažném nebo opakovaném porušování pravidel napomenout, dočasně vyřadit nebo z akce definitivně vyloučit." data-en="For a serious or repeated rule violation, the organizer has the right to warn, temporarily suspend, or permanently disqualify a player from the event.">Organizátor má právo hráče při závažném nebo opakovaném porušování pravidel napomenout, dočasně vyřadit nebo z akce definitivně vyloučit.</li>
+                <li data-cz="V případě nejasnosti pravidel rozhoduje organizátor." data-en="In case of unclear rules, the organizer's decision is final.">V případě nejasnosti pravidel rozhoduje organizátor.</li>
             </ul>
         </section>
 
 
         <section id="sec11">
-            <h2>11. FAIR PLAY</h2>
-            <p>Každý účastník je povinen:</p>
+            <h2 data-cz="11. FAIR PLAY" data-en="11. FAIR PLAY">11. FAIR PLAY</h2>
+            <p data-cz="Každý účastník je povinen:" data-en="Every participant must:">Každý účastník je povinen:</p>
             <ul>
-                <li>přiznávat zásahy,</li>
-                <li>respektovat ostatní hráče,</li>
-                <li>dodržovat bezpečnostní pravidla,</li>
-                <li>řídit se pokyny organizátorů,</li>
-                <li>nepoužívat vybavení způsobem, který může ohrozit ostatní,</li>
-                <li>řešit sporné situace s organizátorem, nikoliv konfliktem mezi hráči.</li>
+                <li data-cz="přiznávat zásahy," data-en="acknowledge hits,">přiznávat zásahy,</li>
+                <li data-cz="respektovat ostatní hráče," data-en="respect other players,">respektovat ostatní hráče,</li>
+                <li data-cz="dodržovat bezpečnostní pravidla," data-en="follow safety rules,">dodržovat bezpečnostní pravidla,</li>
+                <li data-cz="řídit se pokyny organizátorů," data-en="follow the organizers' instructions,">řídit se pokyny organizátorů,</li>
+                <li data-cz="nepoužívat vybavení způsobem, který může ohrozit ostatní," data-en="not use equipment in a way that could endanger others,">nepoužívat vybavení způsobem, který může ohrozit ostatní,</li>
+                <li data-cz="řešit sporné situace s organizátorem, nikoliv konfliktem mezi hráči." data-en="resolve disputed situations with the organizer, not through conflict between players.">řešit sporné situace s organizátorem, nikoliv konfliktem mezi hráči.</li>
             </ul>
-            <p class="callout">Pravidla jsou základ. Fair Play je to, co z nich dělá hru.</p>
+            <p class="callout" data-cz="Pravidla jsou základ. Fair Play je to, co z nich dělá hru." data-en="Rules are the foundation. Fair Play is what turns them into a game.">Pravidla jsou základ. Fair Play je to, co z nich dělá hru.</p>
         </section>
 
     </div>
 
 </main>
 
-<div id="scrollTopBtn" onclick="scrollToTop()">▲ NAHORU</div>
+<div id="scrollTopBtn" onclick="scrollToTop()" data-cz="▲ NAHORU" data-en="▲ TOP">▲ NAHORU</div>
 
 <script src="audio.js"></script>
+<script src="lang.js"></script>
+
 <script>
 const scrollTopBtn = document.getElementById("scrollTopBtn");
 
