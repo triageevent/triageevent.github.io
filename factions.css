@@ -1964,3 +1964,57 @@ function toggleHorde(){
     updateHordeButtonText();
 
         }
+/* =========================
+   UBCS GRENADE CATCH
+========================= */
+
+.grenade-layer{
+    position:fixed;
+    inset:0;
+    z-index:35;
+    pointer-events:none;
+    overflow:hidden;
+}
+
+.grenade-drop{
+    position:fixed;
+    width:70px;
+    height:auto;
+    pointer-events:none;
+    filter:drop-shadow(0 0 8px rgba(0,0,0,.7));
+    user-select:none;
+    -webkit-user-drag:none;
+}
+
+.grenade-drop.caught{
+    animation:grenadeCatchPop .25s ease forwards;
+}
+
+@keyframes grenadeCatchPop{
+    0%{ transform:scale(1); opacity:1; }
+    50%{ transform:scale(1.4); opacity:1; }
+    100%{ transform:scale(1.6); opacity:0; }
+}
+
+.ubcs-basket{
+    position:fixed;
+    bottom:20px;
+    width:160px;
+    height:auto;
+    z-index:36;
+    pointer-events:none;
+    opacity:0;
+    transition:opacity .3s ease;
+    filter:drop-shadow(0 0 10px rgba(0,0,0,.6));
+    user-select:none;
+    -webkit-user-drag:none;
+}
+
+.ubcs-basket.active{
+    opacity:1;
+}
+
+@media(max-width:600px){
+    .grenade-drop{ width:48px; }
+    .ubcs-basket{ width:110px; bottom:15px; }
+}
