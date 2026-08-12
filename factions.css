@@ -441,8 +441,8 @@ body{
     left:0;
     top:0;
 
-    pointer-events:auto;
-    cursor:crosshair;
+    pointer-events:none;
+    cursor:default;
 
     z-index:40;
 
@@ -462,7 +462,10 @@ body{
 
     transform-origin:center center;
 }
-
+#drone.glow{
+    pointer-events:auto;
+    cursor:crosshair;
+}
 
 /* =========================
    DRONE ACTIVE GLOW
