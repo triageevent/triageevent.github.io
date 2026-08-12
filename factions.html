@@ -109,7 +109,24 @@
 
 
 </main>
+<div class="horde-layer" id="hordeLayer"></div>
 
+<div id="hordeScore" class="drone-score">
+    <div class="score-title" data-cz="SKÓRE HORDY" data-en="HORDE SCORE">HORDE SCORE</div>
+    <div class="score-line">
+        <span data-cz="ZABITO" data-en="KILLED">KILLED</span>
+        <strong id="hordeScoreValue">0</strong>
+    </div>
+</div>
+
+<button
+    id="stopHordeBtn"
+    class="stop-horde-btn"
+    onclick="toggleHorde()"
+    data-cz="ZASTAVIT HORDU"
+    data-en="STOP HORDE">
+    STOP HORDE
+</button>
 
 <div id="transition"></div>
 <script src="lang.js"></script>
