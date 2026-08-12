@@ -2,32 +2,7 @@ const bootScreen = document.getElementById("boot-screen");
 const bootText = document.getElementById("boot-text");
 
 
-const linesCZ = [
-
-"TRIAGE TERMINÁL v1.2",
-
-"",
-
-"Inicializace systému...........OK",
-
-"Načítání taktických modulů.....OK",
-
-"Připojování k zabezpečené síti.OK",
-
-"Synchronizace dat mise.........OK",
-
-"Načítání evakuačního protokolu.OK",
-
-"Kontrola databáze hráčů........OK",
-
-"",
-
-"SYSTÉM PŘIPRAVEN"
-
-];
-
-
-const linesEN = [
+const lines = [
 
 "TRIAGE TERMINAL v1.2",
 
@@ -54,13 +29,10 @@ const linesEN = [
 
 let lineIndex = 0;
 let charIndex = 0;
-let bootFinished = false;
 
 
-function typeWriter(lines){
 
-
-    if(bootFinished) return;
+function typeWriter(){
 
 
     if(lineIndex >= lines.length){
@@ -96,7 +68,7 @@ function typeWriter(lines){
         charIndex++;
 
 
-        setTimeout(()=>typeWriter(lines),35);
+        setTimeout(typeWriter,35);
 
 
     }
@@ -111,7 +83,7 @@ function typeWriter(lines){
         charIndex=0;
 
 
-        setTimeout(()=>typeWriter(lines),300);
+        setTimeout(typeWriter,300);
 
     }
 
@@ -119,36 +91,16 @@ function typeWriter(lines){
 }
 
 
-function startBoot(){
-
-    const lang = getLang();
-
-    const lines = lang === "en" ? linesEN : linesCZ;
-
-    bootText.textContent = "";
-    lineIndex = 0;
-    charIndex = 0;
-
-    typeWriter(lines);
-
-}
 
 
 window.onload=()=>{
 
-    startBoot();
+    typeWriter();
 
 };
 
 
-function onLangApplied(lang){
 
-    // pokud už boot skončil (obrazovka je schovaná), nerestartuj ho znovu
-    if(bootScreen.style.display === "none") return;
-
-    startBoot();
-
-}
 
 
 const enterButton = document.getElementById("enterButton");
