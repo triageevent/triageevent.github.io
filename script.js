@@ -2,7 +2,32 @@ const bootScreen = document.getElementById("boot-screen");
 const bootText = document.getElementById("boot-text");
 
 
-const lines = [
+const linesCZ = [
+
+"TRIAGE TERMINÁL v1.2",
+
+"",
+
+"Inicializace systému...........OK",
+
+"Načítání taktických modulů.....OK",
+
+"Připojování k zabezpečené síti.OK",
+
+"Synchronizace dat mise.........OK",
+
+"Načítání evakuačního protokolu.OK",
+
+"Kontrola databáze hráčů........OK",
+
+"",
+
+"SYSTÉM PŘIPRAVEN"
+
+];
+
+
+const linesEN = [
 
 "TRIAGE TERMINAL v1.2",
 
@@ -29,10 +54,13 @@ const lines = [
 
 let lineIndex = 0;
 let charIndex = 0;
+let bootFinished = false;
 
 
+function typeWriter(lines){
 
-function typeWriter(){
+
+    if(bootFinished) return;
 
 
     if(lineIndex >= lines.length){
@@ -68,7 +96,7 @@ function typeWriter(){
         charIndex++;
 
 
-        setTimeout(typeWriter,35);
+        setTimeout(()=>typeWriter(lines),35);
 
 
     }
@@ -83,7 +111,7 @@ function typeWriter(){
         charIndex=0;
 
 
-        setTimeout(typeWriter,300);
+        setTimeout(()=>typeWriter(lines),300);
 
     }
 
@@ -91,16 +119,36 @@ function typeWriter(){
 }
 
 
+function startBoot(){
+
+    const lang = getLang();
+
+    const lines = lang === "en" ? linesEN : linesCZ;
+
+    bootText.textContent = "";
+    lineIndex = 0;
+    charIndex = 0;
+
+    typeWriter(lines);
+
+}
 
 
 window.onload=()=>{
 
-    typeWriter();
+    startBoot();
 
 };
 
 
+function onLangApplied(lang){
 
+    // pokud už boot skončil (obrazovka je schovaná), nerestartuj ho znovu
+    if(bootScreen.style.display === "none") return;
+
+    startBoot();
+
+}
 
 
 const enterButton = document.getElementById("enterButton");
@@ -108,18 +156,22 @@ const operationScreen = document.getElementById("operation-screen");
 const introScreen = document.getElementById("intro-screen");
 
 
-enterButton.addEventListener("click",()=>{
+if(enterButton && introScreen && operationScreen){
 
-    introScreen.classList.add("hidden");
+    enterButton.addEventListener("click",()=>{
 
-
-    setTimeout(()=>{
-
-        introScreen.style.display="none";
-
-        operationScreen.style.display="block";
-
-    },700);
+        introScreen.classList.add("hidden");
 
 
-});
+        setTimeout(()=>{
+
+            introScreen.style.display="none";
+
+            operationScreen.style.display="block";
+
+        },700);
+
+
+    });
+
+}
