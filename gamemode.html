@@ -15,7 +15,7 @@
 
 <body>
 <div id="musicToggle" onclick="toggleMusic()">🔊</div>
-
+<div id="langToggle" onclick="toggleLang()">EN</div>
 <div class="wallpaper" id="wallpaper"></div>
 
 <div class="dark-filter"></div>
@@ -30,49 +30,33 @@
 </a>
 
 
-    <div class="operation-title">
-
-        <div class="operation-main">
-            GAME MODE
-        </div>
-
-
-        <div class="operation-subtitle">
-            select operation phase
-        </div>
-
-    </div>
+<div class="operation-title">
+    <div class="operation-main" data-cz="HERNÍ MÓD" data-en="GAME MODE">GAME MODE</div>
+    <div class="operation-subtitle" data-cz="vyber fázi operace" data-en="select operation phase">select operation phase</div>
+</div>
 
 
 
-    <nav class="mode-options">
-
-        <a href="#" onclick="changeMode('nightfall')">
-            NIGHTFALL
-        </a>
-
-
-        <a href="#" onclick="changeMode('sunrise')">
-            SUNRISE
-        </a>
-
-
-        <a href="#" onclick="changeMode('dawn')">
-            DAWN
-        </a>
-
-    </nav>
-
-
-
-        <div class="mode-description" id="description">
-        Choose your battlefield
-    </div>
+ <nav class="mode-options">
+    <a href="#" onclick="changeMode('nightfall')">
+        NIGHTFALL
+    </a>
+    <a href="#" onclick="changeMode('sunrise')">
+        SUNRISE
+    </a>
+    <a href="#" onclick="changeMode('dawn')">
+        DAWN
+    </a>
+</nav>
+    <div class="mode-description" id="description" data-cz="Vyber si své bojiště" data-en="Choose your battlefield">
+    Choose your battlefield
+</div>
 
 </main>
 
 <div id="transition"></div>
 <script src="audio.js"></script>
+<script src="lang.js"></script>
 <script src="gamemode.js"></script>
 
 </body>
