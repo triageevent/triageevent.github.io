@@ -1538,3 +1538,119 @@ body{
             scale(1.4);
     }
 }
+/* =========================
+   DRONE SCORE
+========================= */
+
+.drone-score{
+
+    position:fixed;
+
+    top:28px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    z-index:60;
+
+    text-align:center;
+
+    font-family:Consolas, monospace;
+
+    pointer-events:none;
+
+    color:#aaa;
+
+    text-shadow:
+        0 2px 5px rgba(0,0,0,.9);
+}
+
+.score-title{
+
+    font-size:9px;
+
+    letter-spacing:4px;
+
+    color:#777;
+
+    margin-bottom:3px;
+}
+
+.score-line{
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:8px;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+}
+
+.score-line span{
+
+    color:#888;
+
+}
+
+.score-line strong{
+
+    min-width:12px;
+
+    color:#e8e2d0;
+
+    font-size:15px;
+
+    font-weight:bold;
+}
+
+.score-line b{
+
+    color:#555;
+
+    font-size:13px;
+
+    font-weight:normal;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .drone-score{
+
+        top:20px;
+
+    }
+
+    .score-title{
+
+        font-size:8px;
+
+        letter-spacing:3px;
+
+    }
+
+    .score-line{
+
+        gap:6px;
+
+        font-size:8px;
+
+        letter-spacing:1.5px;
+
+    }
+
+    .score-line strong{
+
+        font-size:13px;
+
+    }
+
+}
