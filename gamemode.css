@@ -218,6 +218,12 @@ body{
 
 .mode-options a{
 
+    position:relative;
+
+    display:inline-block;
+
+    padding-left:38px;
+
     color:#777;
 
     text-decoration:none;
@@ -230,6 +236,22 @@ body{
 
 }
 
+
+.mode-options a::before{
+
+    content:"> ";
+
+    position:absolute;
+
+    left:0;
+
+    color:#ff2b2b;
+
+    opacity:0;
+
+    transition:.3s;
+
+}
 
 
 .mode-options a:hover{
@@ -245,12 +267,9 @@ body{
 }
 
 
-
 .mode-options a:hover::before{
 
-    content:"> ";
-
-    color:#ff2b2b;
+    opacity:1;
 
 }
 
