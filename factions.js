@@ -1059,6 +1059,8 @@ const uiText = {
 
 function changeFaction(faction){
 
+    updateDroneScoreVisibility(faction);
+    
     const chooseText = document.getElementById("chooseText");
     const factionTabs = document.getElementById("factionTabs");
 
