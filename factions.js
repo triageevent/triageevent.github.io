@@ -1060,6 +1060,13 @@ const uiText = {
 function changeFaction(faction){
 
     updateDroneScoreVisibility(faction);
+    updateHordeVisibility(faction);
+
+    if(faction === "stars"){
+        startZombieHorde();
+    }else{
+        stopZombieHorde(true);
+    }
     
     const chooseText = document.getElementById("chooseText");
     const factionTabs = document.getElementById("factionTabs");
@@ -1384,5 +1391,7 @@ function onLangApplied(lang){
     if(section === "armory"){
         renderArmory(currentFaction);
     }
+
+    updateHordeButtonText();
 
 }
