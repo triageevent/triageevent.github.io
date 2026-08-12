@@ -26,7 +26,16 @@
 
 <div id="langToggle" onclick="toggleLang()">EN</div>
 
-<video id="drone" src="drone-flight.mp4" autoplay loop muted playsinline></video>
+<img id="drone" src="drone.png" alt="Recon Drone">
+
+<div class="screen-scan" id="screenScan"></div>
+
+<button
+    id="sendDroneBtn"
+    class="send-drone-btn"
+    onclick="sendAnotherDrone()">
+    SEND ANOTHER DRONE
+</button>
 
 <div class="screen-scan" id="screenScan"></div>
 
