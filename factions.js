@@ -139,6 +139,19 @@ function setAtmosphere(effect){
 
 let droneWanderToken = 0;
 let droneShotDown = false;
+let droneScanScore = 0;
+let operatorScore = 0;
+
+
+function updateDroneScore(){
+
+    document.getElementById("droneScoreValue").textContent =
+        droneScanScore;
+
+    document.getElementById("operatorScoreValue").textContent =
+        operatorScore;
+
+}
 
 const screenScan = document.getElementById("screenScan");
 
@@ -205,6 +218,9 @@ function shootDownDrone(){
     if(droneShotDown) return;
 
     droneShotDown = true;
+
+    operatorScore++;
+updateDroneScore();
 
     /* okamžitě přeruší aktuální let */
     droneWanderToken++;
@@ -639,7 +655,10 @@ if(
 
 
 screenScan.classList.remove("active");
+droneScanScore++;
+updateDroneScore();
 
+    
 
     if(
         !await moveDrone(
