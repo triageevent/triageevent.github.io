@@ -444,7 +444,7 @@ body{
     pointer-events:auto;
     cursor:crosshair;
 
-    z-index:5;
+    z-index:40;
 
     opacity:0;
 
