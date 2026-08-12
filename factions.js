@@ -138,63 +138,144 @@ function setAtmosphere(effect){
 ========================= */
 
 let droneWanderToken = 0;
+let droneShotDown = false;
 
 const screenScan = document.getElementById("screenScan");
 
 
+/* =========================
+   SHOW DRONE
+========================= */
+
 function showDrone(x, y){
+
     drone.style.left = x + "px";
     drone.style.top = y + "px";
-    drone.style.opacity = 1;
+    drone.style.opacity = "1";
+
+    drone.classList.remove(
+        "exploding",
+        "falling"
+    );
+
     drone.classList.add("glow");
 }
-let droneShotDown = false;
+
+
+/* =========================
+   HIDE DRONE
+========================= */
+
+function hideDrone(){
+
+    drone.style.opacity = "0";
+
+    drone.classList.remove(
+        "glow",
+        "exploding",
+        "falling"
+    );
+}
+
+
+/* =========================
+   CLICK DRONE
+========================= */
 
 drone.addEventListener("click", () => {
 
     if(droneShotDown) return;
-    if(drone.style.opacity == 0) return;
+
+    if(drone.style.opacity === "0") return;
 
     shootDownDrone();
 
 });
 
 
+/* =========================
+   SHOOT DOWN DRONE
+========================= */
+
 function shootDownDrone(){
 
+    if(droneShotDown) return;
+
     droneShotDown = true;
-    droneWanderToken++; // zastaví aktuální manévr
+
+    /* okamžitě přeruší aktuální let */
+    droneWanderToken++;
 
     drone.classList.remove("glow");
+
     screenScan.classList.remove("active");
 
-    const rect = drone.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
 
-    const isExplosion = Math.random() < 0.5;
+    /* aktuální pozice dronu */
+
+    const rect = drone.getBoundingClientRect();
+
+    const centerX =
+        rect.left + rect.width / 2;
+
+    const centerY =
+        rect.top + rect.height / 2;
+
+
+    /* 50 % exploze / 50 % pád */
+
+    const isExplosion =
+        Math.random() < 0.5;
+
+
+    /* =========================
+       EXPLOZE
+    ========================= */
 
     if(isExplosion){
 
-        const flash = document.createElement("div");
-        flash.className = "explosion-flash active";
-        flash.style.left = centerX + "px";
-        flash.style.top = centerY + "px";
+        const flash =
+            document.createElement("div");
+
+        flash.className =
+            "explosion-flash active";
+
+        flash.style.left =
+            centerX + "px";
+
+        flash.style.top =
+            centerY + "px";
+
         document.body.appendChild(flash);
+
 
         drone.classList.add("exploding");
 
+
         setTimeout(() => {
+
             flash.remove();
+
             finishShootdown();
+
         }, 550);
 
-    }else{
+    }
+
+
+    /* =========================
+       PÁD
+    ========================= */
+
+    else{
 
         drone.classList.add("falling");
 
+
         setTimeout(() => {
+
             finishShootdown();
+
         }, 1450);
 
     }
@@ -202,156 +283,529 @@ function shootDownDrone(){
 }
 
 
+/* =========================
+   FINISH SHOOTDOWN
+========================= */
+
 function finishShootdown(){
 
-    drone.classList.remove("exploding", "falling");
-    drone.style.opacity = 0;
+    drone.classList.remove(
+        "exploding",
+        "falling"
+    );
+
+    drone.classList.remove("glow");
+
+    drone.style.opacity = "0";
+
     drone.style.transform = "";
 
-    document.getElementById("sendDroneBtn").classList.add("visible");
+    document
+        .getElementById("sendDroneBtn")
+        .classList.add("visible");
 
 }
 
 
+/* =========================
+   SEND ANOTHER DRONE
+========================= */
+
 function sendAnotherDrone(){
 
-    document.getElementById("sendDroneBtn").classList.remove("visible");
+    document
+        .getElementById("sendDroneBtn")
+        .classList.remove("visible");
 
     droneShotDown = false;
 
     if(currentEffect === "drone"){
+
         startDroneWander();
+
     }
 
 }
 
-function hideDrone(){
-    drone.style.opacity = 0;
-    drone.classList.remove("glow");
-}
+
+/* =========================
+   WAIT
+========================= */
 
 function wait(ms, token){
+
     return new Promise(resolve => {
-        setTimeout(() => resolve(token === droneWanderToken), ms);
+
+        setTimeout(() => {
+
+            resolve(
+                token === droneWanderToken
+            );
+
+        }, ms);
+
     });
+
 }
+
+
+/* =========================
+   EASING
+========================= */
 
 function easeInOutQuad(t){
-    return t < .5 ? 2*t*t : -1 + (4 - 2*t) * t;
+
+    return t < .5
+        ? 2 * t * t
+        : -1 + (4 - 2 * t) * t;
+
 }
 
-function moveDrone(x0, y0, x1, y1, duration, token){
+
+/* =========================
+   MOVE DRONE
+========================= */
+
+function moveDrone(
+    x0,
+    y0,
+    x1,
+    y1,
+    duration,
+    token
+){
+
     return new Promise(resolve => {
 
-        const start = performance.now();
+        const start =
+            performance.now();
+
 
         function frame(now){
 
             if(token !== droneWanderToken){
+
                 resolve(false);
+
                 return;
+
             }
 
-            const t = Math.min(1, (now - start) / duration);
-            const e = easeInOutQuad(t);
 
-            const x = x0 + (x1 - x0) * e;
-            const y = y0 + (y1 - y0) * e;
+            const t =
+                Math.min(
+                    1,
+                    (now - start) / duration
+                );
 
-            drone.style.left = x + "px";
-            drone.style.top  = y + "px";
+
+            const e =
+                easeInOutQuad(t);
+
+
+            const x =
+                x0 +
+                (x1 - x0) * e;
+
+            const y =
+                y0 +
+                (y1 - y0) * e;
+
+
+            drone.style.left =
+                x + "px";
+
+            drone.style.top =
+                y + "px";
+
 
             if(t < 1){
+
                 requestAnimationFrame(frame);
+
             }else{
+
                 resolve(true);
+
             }
 
         }
 
+
         requestAnimationFrame(frame);
 
     });
+
 }
+
+
+/* =========================
+   RANDOM EDGE POINT
+========================= */
 
 function randomEdgePoint(){
+
     const margin = 250;
-    const side = ["left","right","top"][Math.floor(Math.random()*3)];
-    if(side === "left")  return { x:-margin, y:Math.random()*window.innerHeight*.55 };
-    if(side === "right") return { x:window.innerWidth + margin, y:Math.random()*window.innerHeight*.55 };
-    return { x:Math.random()*window.innerWidth, y:-margin };
+
+    const side =
+        ["left","right","top"]
+        [Math.floor(Math.random() * 3)];
+
+
+    if(side === "left"){
+
+        return {
+            x:-margin,
+            y:
+                Math.random() *
+                window.innerHeight *
+                .55
+        };
+
+    }
+
+
+    if(side === "right"){
+
+        return {
+            x:
+                window.innerWidth +
+                margin,
+
+            y:
+                Math.random() *
+                window.innerHeight *
+                .55
+        };
+
+    }
+
+
+    return {
+        x:
+            Math.random() *
+            window.innerWidth,
+
+        y:-margin
+    };
+
 }
+
+
+/* =========================
+   RANDOM INNER POINT
+========================= */
 
 function randomInnerPoint(){
+
     const padX = 150;
     const padY = 100;
+
     return {
-        x: padX + Math.random() * (window.innerWidth - padX*2),
-        y: padY + Math.random() * (window.innerHeight*.5 - padY)
+
+        x:
+            padX +
+            Math.random() *
+            (
+                window.innerWidth -
+                padX * 2
+            ),
+
+        y:
+            padY +
+            Math.random() *
+            (
+                window.innerHeight * .5 -
+                padY
+            )
+
     };
+
 }
 
+
+/* =========================
+   SCAN MANEUVER
+========================= */
 
 async function scanManeuver(token){
-    const entry = randomEdgePoint();
-    const target = randomInnerPoint();
-    const exit = randomEdgePoint();
-    showDrone(entry.x, entry.y);
-    if(!await moveDrone(entry.x, entry.y, target.x, target.y, 1800, token)) return;
+
+    const entry =
+        randomEdgePoint();
+
+    const target =
+        randomInnerPoint();
+
+    const exit =
+        randomEdgePoint();
+
+
+    showDrone(
+        entry.x,
+        entry.y
+    );
+
+
+    if(
+        !await moveDrone(
+            entry.x,
+            entry.y,
+            target.x,
+            target.y,
+            1800,
+            token
+        )
+    ){
+
+        return;
+
+    }
+
+
     screenScan.classList.add("active");
-    if(!await wait(3000, token)) return;
+
+
+    if(
+        !await wait(
+            3000,
+            token
+        )
+    ){
+
+        return;
+
+    }
+
+
     screenScan.classList.remove("active");
-    if(!await moveDrone(target.x, target.y, exit.x, exit.y, 1800, token)) return;
+
+
+    if(
+        !await moveDrone(
+            target.x,
+            target.y,
+            exit.x,
+            exit.y,
+            1800,
+            token
+        )
+    ){
+
+        return;
+
+    }
+
+
     hideDrone();
-    await wait(400, token);
+
+
+    await wait(
+        400,
+        token
+    );
+
 }
+
+
+/* =========================
+   FLYBY
+========================= */
 
 async function flybyManeuver(token){
-    const entry = randomEdgePoint();
-    const exit = randomEdgePoint();
-    showDrone(entry.x, entry.y);
-    if(!await moveDrone(entry.x, entry.y, exit.x, exit.y, 3200, token)) return;
+
+    const entry =
+        randomEdgePoint();
+
+    const exit =
+        randomEdgePoint();
+
+
+    showDrone(
+        entry.x,
+        entry.y
+    );
+
+
+    if(
+        !await moveDrone(
+            entry.x,
+            entry.y,
+            exit.x,
+            exit.y,
+            3200,
+            token
+        )
+    ){
+
+        return;
+
+    }
+
+
     hideDrone();
-    await wait(400, token);
+
+
+    await wait(
+        400,
+        token
+    );
+
 }
+
+
+/* =========================
+   HOVER / LEAVE
+========================= */
 
 async function hoverLeaveManeuver(token){
-    const entry = randomEdgePoint();
-    const hoverPoint = randomInnerPoint();
-    const exit = randomEdgePoint();
-    showDrone(entry.x, entry.y);
-    if(!await moveDrone(entry.x, entry.y, hoverPoint.x, hoverPoint.y, 1800, token)) return;
-    if(!await wait(1500, token)) return;
-    if(!await moveDrone(hoverPoint.x, hoverPoint.y, exit.x, exit.y, 4500, token)) return;
+
+    const entry =
+        randomEdgePoint();
+
+    const hoverPoint =
+        randomInnerPoint();
+
+    const exit =
+        randomEdgePoint();
+
+
+    showDrone(
+        entry.x,
+        entry.y
+    );
+
+
+    if(
+        !await moveDrone(
+            entry.x,
+            entry.y,
+            hoverPoint.x,
+            hoverPoint.y,
+            1800,
+            token
+        )
+    ){
+
+        return;
+
+    }
+
+
+    if(
+        !await wait(
+            1500,
+            token
+        )
+    ){
+
+        return;
+
+    }
+
+
+    if(
+        !await moveDrone(
+            hoverPoint.x,
+            hoverPoint.y,
+            exit.x,
+            exit.y,
+            4500,
+            token
+        )
+    ){
+
+        return;
+
+    }
+
+
     hideDrone();
-    await wait(400, token);
+
+
+    await wait(
+        400,
+        token
+    );
+
 }
 
+
+/* =========================
+   START DRONE WANDER
+========================= */
 
 async function startDroneWander(){
 
-    const myToken = ++droneWanderToken;
-    const maneuvers = [scanManeuver, flybyManeuver, hoverLeaveManeuver];
+    const myToken =
+        ++droneWanderToken;
+
+    droneShotDown = false;
+
+
+    const maneuvers = [
+        scanManeuver,
+        flybyManeuver,
+        hoverLeaveManeuver
+    ];
+
+
     let lastIndex = -1;
 
-    while(myToken === droneWanderToken){
+
+    while(
+        myToken === droneWanderToken &&
+        !droneShotDown
+    ){
 
         let idx;
+
+
         do{
-            idx = Math.floor(Math.random() * maneuvers.length);
-        }while(idx === lastIndex && maneuvers.length > 1);
+
+            idx =
+                Math.floor(
+                    Math.random() *
+                    maneuvers.length
+                );
+
+        }while(
+            idx === lastIndex &&
+            maneuvers.length > 1
+        );
+
 
         lastIndex = idx;
 
-        await maneuvers[idx](myToken);
 
-        if(myToken !== droneWanderToken) return;
+        await maneuvers[idx](
+            myToken
+        );
 
-        await wait(500 + Math.random() * 900, myToken);
+
+        if(
+            myToken !== droneWanderToken ||
+            droneShotDown
+        ){
+
+            return;
+
+        }
+
+
+        await wait(
+            500 +
+            Math.random() * 900,
+            myToken
+        );
 
     }
 
 }
+
+
+/* =========================
+   STOP DRONE
+========================= */
 
 function stopDroneWander(){
 
@@ -363,9 +817,14 @@ function stopDroneWander(){
 
     droneShotDown = false;
 
-    drone.classList.remove("exploding", "falling");
+    drone.classList.remove(
+        "exploding",
+        "falling"
+    );
 
-    document.getElementById("sendDroneBtn").classList.remove("visible");
+    document
+        .getElementById("sendDroneBtn")
+        .classList.remove("visible");
 
 }
 
