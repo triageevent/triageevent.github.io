@@ -1399,6 +1399,7 @@ function onLangApplied(lang){
     }
 
     updateHordeButtonText();
+    updateGrenadeButtonText();
 
 }
 /* =========================
@@ -1644,15 +1645,18 @@ document.addEventListener("touchmove", (e) => {
 function updateGrenadeVisibility(faction){
 
     const score = document.getElementById("grenadeScore");
+    const btn = document.getElementById("stopGrenadeBtn");
 
-    if(!score || !ubcsBasket) return;
+    if(!score || !ubcsBasket || !btn) return;
 
     if(faction === "ubcs"){
         score.classList.add("visible");
         ubcsBasket.classList.add("active");
+        btn.classList.add("visible");
     }else{
         score.classList.remove("visible");
         ubcsBasket.classList.remove("active");
+        btn.classList.remove("visible");
     }
 
 }
@@ -1779,13 +1783,20 @@ function grenadeSpawnLoop(){
 }
 
 
+let grenadeStopped = false;
+
 function startGrenadeDrop(){
 
     grenadeActive = true;
+    grenadeStopped = false;
     grenadeScore = 0;
     grenadeStartTime = performance.now();
 
     updateGrenadeScore();
+    updateGrenadeButtonText();
+
+    const btn = document.getElementById("stopGrenadeBtn");
+    if(btn) btn.classList.remove("terminated");
 
     clearTimeout(grenadeSpawnTimeout);
     cancelAnimationFrame(grenadeAnimFrame);
@@ -1811,5 +1822,40 @@ function stopGrenadeDrop(clearBoard){
         if(score) score.classList.remove("visible");
         if(ubcsBasket) ubcsBasket.classList.remove("active");
     }
+
+}
+function updateGrenadeButtonText(){
+
+    const btn = document.getElementById("stopGrenadeBtn");
+    if(!btn) return;
+
+    const lang = getLang();
+
+    if(grenadeStopped){
+        btn.textContent = lang === "en" ? "GRENADE RAIN STOPPED" : "DÉŠŤ GRANÁTŮ ZASTAVEN";
+    }else{
+        btn.textContent = lang === "en" ? "STOP GRENADE RAIN" : "ZASTAVIT DÉŠŤ GRANÁTŮ";
+    }
+
+}
+
+
+function toggleGrenadeDrop(){
+
+    if(grenadeStopped) return;
+
+    grenadeStopped = true;
+    grenadeActive = false;
+
+    clearTimeout(grenadeSpawnTimeout);
+    cancelAnimationFrame(grenadeAnimFrame);
+
+    grenadeItems.forEach(item => item.el.remove());
+    grenadeItems = [];
+
+    const btn = document.getElementById("stopGrenadeBtn");
+    if(btn) btn.classList.add("terminated");
+
+    updateGrenadeButtonText();
 
 }
