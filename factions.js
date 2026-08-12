@@ -1067,7 +1067,13 @@ function changeFaction(faction){
     }else{
         stopZombieHorde(true);
     }
-    
+    updateGrenadeVisibility(faction);
+
+if(faction === "ubcs"){
+    startGrenadeDrop();
+}else{
+    stopGrenadeDrop(true);
+}
     const chooseText = document.getElementById("chooseText");
     const factionTabs = document.getElementById("factionTabs");
 
@@ -1595,5 +1601,215 @@ function toggleHorde(){
     if(btn) btn.classList.add("terminated");
 
     updateHordeButtonText();
+
+}
+/* =========================
+   UBCS GRENADE CATCH
+========================= */
+
+const grenadeLayer = document.getElementById("grenadeLayer");
+const ubcsBasket = document.getElementById("ubcsBasket");
+const grenadeScoreValue = document.getElementById("grenadeScoreValue");
+
+let grenadeActive = false;
+let grenadeItems = [];
+let grenadeStartTime = 0;
+let grenadeScore = 0;
+let grenadeSpawnTimeout = null;
+let grenadeAnimFrame = null;
+
+
+function updateBasketPosition(clientX){
+
+    const basketWidth = ubcsBasket.offsetWidth || 160;
+    let left = clientX - basketWidth / 2;
+
+    left = Math.max(0, Math.min(window.innerWidth - basketWidth, left));
+
+    ubcsBasket.style.left = left + "px";
+
+}
+
+document.addEventListener("mousemove", (e) => {
+    updateBasketPosition(e.clientX);
+});
+
+document.addEventListener("touchmove", (e) => {
+    if(e.touches.length > 0){
+        updateBasketPosition(e.touches[0].clientX);
+    }
+}, { passive:true });
+
+
+function updateGrenadeVisibility(faction){
+
+    const score = document.getElementById("grenadeScore");
+
+    if(!score || !ubcsBasket) return;
+
+    if(faction === "ubcs"){
+        score.classList.add("visible");
+        ubcsBasket.classList.add("active");
+    }else{
+        score.classList.remove("visible");
+        ubcsBasket.classList.remove("active");
+    }
+
+}
+
+function updateGrenadeScore(){
+    if(grenadeScoreValue) grenadeScoreValue.textContent = grenadeScore;
+}
+
+
+function spawnGrenade(){
+
+    const el = document.createElement("img");
+    el.className = "grenade-drop";
+    el.alt = "";
+
+    const r = Math.random();
+    let type = "grenade";
+    let src = "grenade.png";
+
+    if(r < 0.15){
+        type = "flash";
+        src = "flash.png";
+    }else if(r < 0.30){
+        type = "biohazard";
+        src = "biohazard.png";
+    }
+
+    el.src = src;
+
+    const width = 70;
+    const startX = Math.random() * (window.innerWidth - width);
+
+    el.style.left = startX + "px";
+    el.style.top = "-90px";
+
+    grenadeLayer.appendChild(el);
+
+    const baseSpeed = 2.4 + Math.random() * 1.2;
+
+    grenadeItems.push({ el, y:-90, baseSpeed, type });
+
+}
+
+
+function catchGrenade(item, index){
+
+    let points = 100;
+
+    if(item.type === "flash") points = 500;
+    if(item.type === "biohazard") points = -500;
+
+    grenadeScore += points;
+    updateGrenadeScore();
+
+    item.el.classList.add("caught");
+    setTimeout(() => item.el.remove(), 200);
+
+    grenadeItems.splice(index, 1);
+
+}
+
+
+function grenadeLoop(now){
+
+    if(!grenadeActive) return;
+
+    const elapsed = now - grenadeStartTime;
+    const speedFactor = Math.min(2.2, 1 + elapsed / 40000);
+    const basketRect = ubcsBasket.getBoundingClientRect();
+
+    for(let i = grenadeItems.length - 1; i >= 0; i--){
+
+        const item = grenadeItems[i];
+
+        item.y += item.baseSpeed * speedFactor;
+        item.el.style.top = item.y + "px";
+
+        const itemRect = item.el.getBoundingClientRect();
+
+        const verticalOverlap =
+            itemRect.bottom >= basketRect.top &&
+            itemRect.top <= basketRect.bottom;
+
+        const horizontalOverlap =
+            itemRect.right >= basketRect.left &&
+            itemRect.left <= basketRect.right;
+
+        if(verticalOverlap && horizontalOverlap){
+            catchGrenade(item, i);
+            continue;
+        }
+
+        if(item.y > window.innerHeight + 60){
+            item.el.remove();
+            grenadeItems.splice(i, 1);
+        }
+
+    }
+
+    grenadeAnimFrame = requestAnimationFrame(grenadeLoop);
+
+}
+
+
+function grenadeSpawnLoop(){
+
+    if(!grenadeActive) return;
+
+    const elapsed = performance.now() - grenadeStartTime;
+
+    const multi = elapsed > 10000 && Math.random() < 0.25;
+    const count = multi ? 2 + Math.floor(Math.random() * 2) : 1;
+
+    for(let i = 0; i < count; i++){
+        setTimeout(() => spawnGrenade(), i * 150);
+    }
+
+    const baseInterval = 900;
+    const minInterval = 350;
+    const interval = Math.max(minInterval, baseInterval - elapsed / 45);
+
+    grenadeSpawnTimeout = setTimeout(grenadeSpawnLoop, interval);
+
+}
+
+
+function startGrenadeDrop(){
+
+    grenadeActive = true;
+    grenadeScore = 0;
+    grenadeStartTime = performance.now();
+
+    updateGrenadeScore();
+
+    clearTimeout(grenadeSpawnTimeout);
+    cancelAnimationFrame(grenadeAnimFrame);
+
+    grenadeSpawnLoop();
+    grenadeAnimFrame = requestAnimationFrame(grenadeLoop);
+
+}
+
+
+function stopGrenadeDrop(clearBoard){
+
+    grenadeActive = false;
+
+    clearTimeout(grenadeSpawnTimeout);
+    cancelAnimationFrame(grenadeAnimFrame);
+
+    grenadeItems.forEach(item => item.el.remove());
+    grenadeItems = [];
+
+    if(clearBoard){
+        const score = document.getElementById("grenadeScore");
+        if(score) score.classList.remove("visible");
+        if(ubcsBasket) ubcsBasket.classList.remove("active");
+    }
 
 }
