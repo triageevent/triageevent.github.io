@@ -28,27 +28,25 @@ function typeText(text, callback){
 }
 
 
+/* =========================
+   MODE DATA (CZ / EN)
+========================= */
 
-function changeMode(mode){
+const modeData = {
 
-    transition.classList.add("active");
+    nightfall:{
 
+        image:"nightfall.png",
 
-    let image = "";
-    let text = "";
-    let loading = "";
+        loading:{
+            cz:"NAČÍTÁNÍ NIGHTFALL PROTOKOLU...",
+            en:"LOADING NIGHTFALL PROTOCOL..."
+        },
 
+        text:{
 
-    /* =========================
-       NIGHTFALL
-    ========================= */
-
-    if(mode === "nightfall"){
-
-        image = "nightfall.png";
-
-        text =
-`NIGHT OPERATION // DARKNESS ENGAGED
+cz:
+`NOČNÍ OPERACE // TEMNOTA AKTIVOVÁNA
 
 
 Když padne tma...
@@ -86,23 +84,66 @@ Padlí hráči se vracejí zpět do hry.
 A CO JE POVOLENO?
 
 Vše, co ti tvá frakce
-a svědomí dovolí. Kromě dronů...`;
+a svědomí dovolí. Kromě dronů...`,
 
-        loading = "LOADING NIGHTFALL PROTOCOL...";
+en:
+`NIGHT OPERATION // DARKNESS ENGAGED
 
-    }
+
+When darkness falls...
+
+Four teams enter the zone.
+Four bases.
+One night.
 
 
-    /* =========================
-       SUNRISE
-    ========================= */
+MAIN OBJECTIVE:
 
-    if(mode === "sunrise"){
+Capture as many buildings as possible and hold them until the operation ends.
 
-        image = "sunrise.png";
 
-        text =
-`FIRST LIGHT // SURVIVAL PHASE
+REWARD:
+
+For every captured building, the team earns 10 bracelets.
+
+These bracelets will hold value
+in the following game modes.
+
+
+BASES:
+
+A base is a safe zone during the operation.
+No shooting is allowed inside a base.
+
+
+RESPAWN:
+
+Every hour, the operation takes a breath.
+Fallen players return to the game.
+
+
+AND WHAT'S ALLOWED?
+
+Anything your faction and your conscience
+allow. Except drones...`
+
+        }
+
+    },
+
+    sunrise:{
+
+        image:"sunrise.png",
+
+        loading:{
+            cz:"NAČÍTÁNÍ SUNRISE PROTOKOLU...",
+            en:"LOADING SUNRISE PROTOCOL..."
+        },
+
+        text:{
+
+cz:
+`PRVNÍ SVĚTLO // FÁZE PŘEŽITÍ
 
 
 Noc skončila.
@@ -191,23 +232,117 @@ se odvíjí od hodnoty loot dropu.
 
 POVOLENO:
 
-Vše.`;
+Vše.`,
 
-        loading = "LOADING SUNRISE PROTOCOL...";
+en:
+`FIRST LIGHT // SURVIVAL PHASE
 
-    }
+
+The night is over.
+
+Four teams remain in the zone.
+Joined by those who only arrived with the first light.
+
+The sun brings light.
+Not safety.
 
 
-    /* =========================
-       DAWN
-    ========================= */
+COMMANDERS:
 
-    if(mode === "dawn"){
+Each team gets a commander.
 
-    image = "dawn.png";
+The commander fights alongside their team
+and is the only one who can capture a building.
 
-    text =
-`FINAL HOURS // LAST STAND
+Capturing is done using a smoke grenade.
+
+
+THREE KEY POINTS:
+
+
+POLICE STATION
+
+Capturing it gives the team 20 minutes
+of support from Nemesis and A. Wesker.
+
+They cannot be eliminated.
+A hit to the bell only disables them for 20 seconds.
+
+
+HOSPITAL
+
+Capturing it gives the team 60 minutes
+of two medics:
+Plague Doctor and Condor One.
+
+They fight alongside the team
+while also trying to revive hit players.
+
+They can be eliminated without confirmation.
+
+
+COMMUNICATIONS TOWER
+
+No time limit.
+
+It stays under a team's control
+until someone else captures it.
+
+This is where the radio is located,
+which will receive information
+about the next loot drop's location.
+
+
+RESPAWN:
+
+Every 30 minutes.
+
+
+BRACELETS:
+
+When deployed into combat, a player wears a bracelet.
+The bracelet means they're alive.
+
+After being hit, they stay in place.
+
+A teammate or an opponent can remove their bracelet.
+
+Only once it's removed is the player sent to respawn.
+
+
+LOOT DROP:
+
+Supply packages will appear in the zone
+containing items from the event's partners and sponsors.
+
+Contents can be obtained by completing tasks
+or by trading bracelets.
+
+The number of bracelets required
+depends on the value of the loot drop.
+
+
+ALLOWED:
+
+Everything.`
+
+        }
+
+    },
+
+    dawn:{
+
+        image:"dawn.png",
+
+        loading:{
+            cz:"NAČÍTÁNÍ DAWN PROTOKOLU...",
+            en:"LOADING DAWN PROTOCOL..."
+        },
+
+        text:{
+
+cz:
+`POSLEDNÍ HODINY // POSLEDNÍ VZDOR
 
 
 Siréna zazní.
@@ -292,24 +427,120 @@ OCENĚNÍ:
 
 POVOLENO:
 
-Vše.`;
+Vše.`,
 
-    loading = "LOADING DAWN PROTOCOL...";
+en:
+`FINAL HOURS // LAST STAND
+
+
+The siren sounds.
+
+And with it, the faction war ends.
+
+
+END OF FACTIONS:
+
+Factions cease to exist.
+Commanders are no longer commanders.
+
+From this moment, there are no allies or enemies.
+Only people who want to survive.
+
+Players can form their own alliances,
+cooperate, or betray.
+
+
+THE ZONE:
+
+Once the siren sounds, the game zone
+starts to gradually shrink.
+
+The less space remains,
+the fewer options are left.
+
+
+LABORATORY ZONE:
+
+A hit player goes to the Laboratory Zone.
+
+There are two ways back into the game from here.
+
+
+FIRST WAY:
+
+Fight your way back in a 2 VS 2
+pistol duel.
+
+Pistols will be available
+even to players who don't have their own.
+
+
+SECOND WAY:
+
+Pay 2 bracelets earned
+in previous game modes.
+
+And return to the zone.
+
+
+RESPAWN:
+
+The number of returns to the game is unlimited.
+
+So is the number of attempts in the 2 VS 2 duel.
+
+
+FINAL HOURS:
+
+Between returns to the game, players will be able
+to take part in additional activities
+prepared by the event's partners and guests.
+
+
+THE END:
+
+Once the zone shrinks to its minimum,
+returning to the game is no longer possible.
+
+From this moment, the last
+survivors are counted.
+
+
+AWARDS:
+
+1st LAST SURVIVOR
+2nd LAST SURVIVOR
+3rd LAST SURVIVOR
+
+
+ALLOWED:
+
+Everything.`
+
+        }
 
     }
 
+};
 
-    /* =========================
-       LOADING + CHANGE
-    ========================= */
 
-    typeText(loading, () => {
+let currentMode = null;
 
-        wallpaper.style.backgroundImage =
-            `url('${image}')`;
 
-        description.textContent = text;
+function changeMode(mode){
 
+    transition.classList.add("active");
+
+    currentMode = mode;
+
+    const data = modeData[mode];
+    const lang = getLang();
+
+    typeText(data.loading[lang], () => {
+
+        wallpaper.style.backgroundImage = `url('${data.image}')`;
+
+        description.textContent = data.text[lang];
 
         setTimeout(() => {
 
@@ -318,5 +549,18 @@ Vše.`;
         }, 500);
 
     });
+
+}
+
+
+/* =========================
+   LANGUAGE SWITCH HOOK
+========================= */
+
+function onLangApplied(lang){
+
+    if(!currentMode) return;
+
+    description.textContent = modeData[currentMode].text[lang];
 
 }
