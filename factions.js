@@ -64,7 +64,7 @@ async function loadFactionScores(){
         error
     } = await supabaseClient
         .from("faction_scores")
-        .select("*");
+        .select("faction, score");
 
     if(error){
 
