@@ -806,15 +806,16 @@ async function hoverLeaveManeuver(token){
     }
 
 
-   await wait(
-    1500 * getDroneWaitFactor(),
-    token
-)
-    ){
+   if(
+    !await wait(
+        1500 * getDroneWaitFactor(),
+        token
+    )
+){
 
-        return;
+    return;
 
-    }
+}
 
 
     if(
