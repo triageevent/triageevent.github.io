@@ -143,22 +143,32 @@ let droneShotDown = false;
 let operatorScore = 0;
 let droneSpeedLevel = 0;
 
+// Upraveno: Zrychlení pohybu drona
 function getDroneSpeedFactor(){
+    // Každé sestřelení zkrátí čas letu o 25 % (původně 12 %)
+    // Spodní limit je 10 % původní délky trvání letu
     return Math.max(
-        0.30,
-        1 - droneSpeedLevel * 0.12
+        0.10,
+        Math.pow(0.75, droneSpeedLevel)
     );
 }
+
+// Upraveno: Zkrácení doby skenování obrazovky
 function getDroneScanTime(){
+    // Doba skenování se zkracuje agresivněji (o 500 ms na level místo 400 ms)
+    // Minimální doba je 300 ms (původně 700 ms)
     return Math.max(
-        700,
-        3000 - droneSpeedLevel * 400
+        300,
+        3000 - droneSpeedLevel * 500
     );
 }
+
+// Upraveno: Zkrácení pauzy před dalším manévrem
 function getDroneWaitFactor(){
+    // Doba čekání mezi manévry klesá stejně rychle jako rychlost pohybu
     return Math.max(
-        0.30,
-        1 - droneSpeedLevel * 0.12
+        0.10,
+        Math.pow(0.75, droneSpeedLevel)
     );
 }
 
