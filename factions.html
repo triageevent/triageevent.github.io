@@ -146,6 +146,27 @@
     data-en="STOP GRENADE RAIN">
     STOP GRENADE RAIN
     </button>
+    <div class="sample-layer" id="sampleLayer"></div>
+
+<div id="sampleScore" class="drone-score">
+    <div class="score-title" data-cz="SKÓRE USS" data-en="USS SCORE">USS SCORE</div>
+    <div class="score-line">
+        <span data-cz="BODY" data-en="POINTS">POINTS</span>
+        <strong id="sampleScoreValue">0</strong>
+        <b>·</b>
+        <span data-cz="MISS" data-en="MISS">MISS</span>
+        <strong id="sampleMissValue">0</strong>/10
+    </div>
+</div>
+
+<button
+    id="stopSampleBtn"
+    class="stop-horde-btn"
+    onclick="toggleSampleCollection()"
+    data-cz="ZASTAVIT SBĚR VZORKŮ"
+    data-en="STOP SAMPLE COLLECTION">
+    STOP SAMPLE COLLECTION
+</button>
 <div id="transition"></div>
 <script src="lang.js"></script>
 <script src="audio.js"></script>
