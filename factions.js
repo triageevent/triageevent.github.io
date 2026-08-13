@@ -144,7 +144,22 @@ let operatorScore = 0;
 let droneSpeedLevel = 0;
 
 function getDroneSpeedFactor(){
-    return Math.max(0.35, 1 - droneSpeedLevel * 0.08);
+    return Math.max(
+        0.30,
+        1 - droneSpeedLevel * 0.12
+    );
+}
+function getDroneScanTime(){
+    return Math.max(
+        700,
+        3000 - droneSpeedLevel * 400
+    );
+}
+function getDroneWaitFactor(){
+    return Math.max(
+        0.30,
+        1 - droneSpeedLevel * 0.12
+    );
 }
 
 
@@ -659,7 +674,7 @@ screenScan.classList.add("active");
 
 if(
     !await wait(
-        3000 * getDroneSpeedFactor(),
+        getDroneScanTime(),
         token
     )
 ){
@@ -885,10 +900,10 @@ async function startDroneWander(){
 
 
         await wait(
-            500 +
-            Math.random() * 900,
-            myToken
-        );
+    (500 + Math.random() * 900) *
+    getDroneWaitFactor(),
+    myToken
+);
 
     }
 
