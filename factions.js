@@ -768,15 +768,15 @@ async function hoverLeaveManeuver(token){
 
 
     if(
-        !await moveDrone(
-            target.x,
-            target.y,
-            exit.x,
-            exit.y,
-            1800 * getDroneSpeedFactor(),
-            token
-        )
-    ){
+    !await moveDrone(
+        entry.x,
+        entry.y,
+        hoverPoint.x,
+        hoverPoint.y,
+        1800 * getDroneSpeedFactor(),
+        token
+    )
+){
 
         return;
 
