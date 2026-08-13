@@ -12,27 +12,21 @@ const supabaseClient =
     );
 
 
-async function addFactionScore(factionName, pointsToAdd){
+async function loadFactionScores(){
 
-    console.log(
-        "ADDING FACTION SCORE:",
-        factionName,
-        pointsToAdd
-    );
+    console.log("LOADING FACTION SCORES...");
 
-    const { data, error } =
-        await supabaseClient.rpc(
-            "add_faction_score",
-            {
-                faction_name: factionName,
-                points_to_add: pointsToAdd
-            }
-        );
+    const {
+        data,
+        error
+    } = await supabaseClient
+        .from("faction_scores")
+        .select("faction, score");
 
     if(error){
 
         console.error(
-            "SUPABASE RPC ERROR:",
+            "SUPABASE SCOREBOARD ERROR:",
             error
         );
 
@@ -41,11 +35,28 @@ async function addFactionScore(factionName, pointsToAdd){
     }
 
     console.log(
-        "FACTION SCORE ADDED:",
-        factionName,
-        pointsToAdd,
+        "FACTION SCORES:",
         data
     );
+
+    data.forEach(row => {
+
+        const faction =
+            row.faction.toLowerCase();
+
+        const element =
+            document.getElementById(
+                "score-" + faction
+            );
+
+        if(element){
+
+            element.textContent =
+                Number(row.score).toLocaleString();
+
+        }
+
+    });
 
 }
 
@@ -1206,6 +1217,7 @@ if(faction === "uss"){
 
 document.addEventListener("DOMContentLoaded", () => {
     setAtmosphere("rain");
+   loadFactionScores();
 });
 
 
@@ -2174,5 +2186,19 @@ function toggleSampleCollection(){
     if(sampleStopped) return;
 
     stopSampleCollection(false, false);
+
+}
+function toggleScoreboard(){
+
+    const toggle =
+        document.querySelector(".scoreboard-toggle");
+
+    const panel =
+        document.getElementById("scoreboardPanel");
+
+    if(!toggle || !panel) return;
+
+    toggle.classList.toggle("open");
+    panel.classList.toggle("open");
 
 }
