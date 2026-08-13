@@ -62,9 +62,53 @@
 
 <div class="faction-title">
 
-    <div class="faction-main" data-cz="FRAKCE" data-en="FACTIONS">FACTIONS</div>
+    <div class="faction-main"
+         data-cz="FRAKCE"
+         data-en="FACTIONS">
+        FACTIONS
+    </div>
 
-    <div class="faction-subtitle" data-cz="vyber si stranu" data-en="choose your side">choose your side</div>
+    <div class="faction-subtitle"
+         data-cz="vyber si stranu"
+         data-en="choose your side">
+        choose your side
+    </div>
+
+    <div class="scoreboard-toggle"
+         onclick="toggleScoreboard()">
+
+        <span data-cz="SCOREBOARD"
+              data-en="SCOREBOARD">
+            SCOREBOARD
+        </span>
+
+        <span class="scoreboard-arrow">▼</span>
+
+    </div>
+
+    <div id="scoreboardPanel" class="scoreboard-panel">
+
+        <div class="scoreboard-row">
+            <span>STARS</span>
+            <strong id="score-stars">0</strong>
+        </div>
+
+        <div class="scoreboard-row">
+            <span>USS</span>
+            <strong id="score-uss">0</strong>
+        </div>
+
+        <div class="scoreboard-row">
+            <span>UBCS</span>
+            <strong id="score-ubcs">0</strong>
+        </div>
+
+        <div class="scoreboard-row">
+            <span>SPEC OPS</span>
+            <strong id="score-specops">0</strong>
+        </div>
+
+    </div>
 
 </div>
 
