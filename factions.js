@@ -13,32 +13,20 @@ const supabaseClient = supabase.createClient(
 
 async function addFactionScore(faction, points){
 
-    try{
+    console.log("ADDING FACTION SCORE:", faction, points);
 
-        const { error } =
-            await supabaseClient.rpc(
-                "add_faction_score",
-                {
-                    faction_name: faction,
-                    points_to_add: points
-                }
-            );
-
-        if(error){
-            console.error(
-                "SUPABASE SCORE ERROR:",
-                error
-            );
+    const { data, error } = await supabase.rpc(
+        "add_faction_score",
+        {
+            faction_name: faction,
+            points_to_add: points
         }
+    );
 
-    }catch(err){
-
-        console.error(
-            "SUPABASE CONNECTION ERROR:",
-            err
-        );
-
-    }
+    console.log("SUPABASE RESPONSE:", {
+        data,
+        error
+    });
 
 }
 
