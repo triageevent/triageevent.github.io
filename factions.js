@@ -123,6 +123,7 @@ function setAtmosphere(effect){
     if(effect === "drone"){
         particles = [];
         particleCtx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
+        droneSpeedLevel = 0;
         startDroneWander();
         return;
     }
@@ -139,14 +140,15 @@ function setAtmosphere(effect){
 
 let droneWanderToken = 0;
 let droneShotDown = false;
-let droneScanScore = 0;
 let operatorScore = 0;
+let droneSpeedLevel = 0;
+
+function getDroneSpeedFactor(){
+    return Math.max(0.35, 1 - droneSpeedLevel * 0.08);
+}
 
 
 function updateDroneScore(){
-
-    document.getElementById("droneScoreValue").textContent =
-        droneScanScore;
 
     document.getElementById("operatorScoreValue").textContent =
         operatorScore;
@@ -231,8 +233,9 @@ function shootDownDrone(){
 
     droneShotDown = true;
 
-    operatorScore++;
-updateDroneScore();
+   operatorScore += 100;
+    droneSpeedLevel++;
+    updateDroneScore();
 
     /* okamžitě přeruší aktuální let */
     droneWanderToken++;
@@ -583,7 +586,7 @@ async function scanManeuver(token){
             entry.y,
             target.x,
             target.y,
-            1800,
+            1800 * getDroneSpeedFactor(),
             token
         )
     ){
@@ -656,7 +659,7 @@ screenScan.classList.add("active");
 
 if(
     !await wait(
-        3000,
+        3000 * getDroneSpeedFactor(),
         token
     )
 ){
@@ -667,18 +670,15 @@ if(
 
 
 screenScan.classList.remove("active");
-droneScanScore++;
-updateDroneScore();
-
-    
+   
 
     if(
         !await moveDrone(
+            entry.x,
+            entry.y,
             target.x,
             target.y,
-            exit.x,
-            exit.y,
-            1800,
+            1800 * getDroneSpeedFactor(),
             token
         )
     ){
@@ -724,7 +724,7 @@ async function flybyManeuver(token){
             entry.y,
             exit.x,
             exit.y,
-            3200,
+            3200 * getDroneSpeedFactor(),
             token
         )
     ){
@@ -769,11 +769,11 @@ async function hoverLeaveManeuver(token){
 
     if(
         !await moveDrone(
-            entry.x,
-            entry.y,
-            hoverPoint.x,
-            hoverPoint.y,
-            1800,
+            target.x,
+            target.y,
+            exit.x,
+            exit.y,
+            1800 * getDroneSpeedFactor(),
             token
         )
     ){
@@ -801,7 +801,7 @@ async function hoverLeaveManeuver(token){
             hoverPoint.y,
             exit.x,
             exit.y,
-            4500,
+            4500 * getDroneSpeedFactor(),
             token
         )
     ){
