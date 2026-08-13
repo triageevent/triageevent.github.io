@@ -698,19 +698,17 @@ screenScan.classList.remove("active");
    
 
     if(
-        !await moveDrone(
-            entry.x,
-            entry.y,
-            target.x,
-            target.y,
-            1800 * getDroneSpeedFactor(),
-            token
-        )
-    ){
-
-        return;
-
-    }
+    !await moveDrone(
+        target.x,
+        target.y,
+        exit.x,
+        exit.y,
+        1800 * getDroneSpeedFactor(),
+        token
+    )
+){
+    return;
+}
 
 
     hideDrone();
@@ -808,11 +806,10 @@ async function hoverLeaveManeuver(token){
     }
 
 
-    if(
-        !await wait(
-            1500,
-            token
-        )
+   await wait(
+    1500 * getDroneWaitFactor(),
+    token
+)
     ){
 
         return;
