@@ -1577,18 +1577,22 @@ function spawnZombie(isBoss){
 
     el.addEventListener("click", () => {
 
-        if(decided || hordeStopped) return;
-        decided = true;
+    if(decided || hordeStopped) return;
 
-        hordeScore += points;
-updateHordeScore();
+    decided = true;
 
-addFactionScore("stars", points);
+    hordeScore += points;
+    updateHordeScore();
 
-        el.classList.add("hit");
-        setTimeout(() => el.remove(), 220);
+    console.log("STARS ZOMBIE HIT:", points);
 
-    });
+    addFactionScore("stars", points);
+
+    el.classList.add("hit");
+
+    setTimeout(() => el.remove(), 220);
+
+});
 
 }
 
