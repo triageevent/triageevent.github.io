@@ -84,22 +84,36 @@ async function loadFactionScores(){
 
     data.forEach(row => {
 
-        const faction =
-            row.faction.toLowerCase();
+    const factionMap = {
+        "USS": "uss",
+        "UBCS": "ubcs",
+        "STARS": "stars",
+        "SPEC OPS": "specops"
+    };
 
-        const element =
-            document.getElementById(
-                "score-" + faction
-            );
+    const faction =
+        factionMap[row.faction];
 
-        if(element){
+    const element =
+        document.getElementById(
+            "score-" + faction
+        );
 
-            element.textContent =
-                Number(row.score).toLocaleString();
+    console.log(
+        "SCOREBOARD UPDATE:",
+        row.faction,
+        row.score,
+        element
+    );
 
-        }
+    if(element){
 
-    });
+        element.textContent =
+            Number(row.score).toLocaleString();
+
+    }
+
+});
 
 }
 
