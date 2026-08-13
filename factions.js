@@ -5,28 +5,47 @@
 const SUPABASE_URL = "https://ycuapssldtvfwzfbobxg.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_ZTXFjzp8JhBBlCU4YC20zw_oSEJVKuB";
 
-const supabaseClient = supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_ANON_KEY
-);
-
-
-async function addFactionScore(faction, points){
-
-    console.log("ADDING FACTION SCORE:", faction, points);
-
-    const { data, error } = await supabase.rpc(
-        "add_faction_score",
-        {
-            faction_name: faction,
-            points_to_add: points
-        }
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_ANON_KEY
     );
 
-    console.log("SUPABASE RESPONSE:", {
-        data,
-        error
-    });
+
+async function addFactionScore(factionName, pointsToAdd){
+
+    console.log(
+        "ADDING FACTION SCORE:",
+        factionName,
+        pointsToAdd
+    );
+
+    const { data, error } =
+        await supabaseClient.rpc(
+            "add_faction_score",
+            {
+                faction_name: factionName,
+                points_to_add: pointsToAdd
+            }
+        );
+
+    if(error){
+
+        console.error(
+            "SUPABASE RPC ERROR:",
+            error
+        );
+
+        return;
+
+    }
+
+    console.log(
+        "FACTION SCORE ADDED:",
+        factionName,
+        pointsToAdd,
+        data
+    );
 
 }
 
