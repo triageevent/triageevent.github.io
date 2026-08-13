@@ -367,7 +367,7 @@ function shootDownDrone(){
 droneSpeedLevel++;
 updateDroneScore();
 
-addFactionScore("specops", 100);
+addFactionScore("SPEC OPS", 100);
 
     /* okamžitě přeruší aktuální let */
     droneWanderToken++;
