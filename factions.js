@@ -1,3 +1,44 @@
+/* =========================
+   SUPABASE
+========================= */
+
+const SUPABASE_URL = "https://ycuapssldtvfwzfbobxg.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_ZTXFjzp8JhBBlCU4YC20zw_oSEJVKuB";
+
+const supabaseClient = supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_ANON_KEY
+);
+
+async function addFactionScore(faction, points){
+
+    try{
+
+        const { error } =
+            await supabaseClient.rpc(
+                "add_faction_score",
+                {
+                    faction_name: faction,
+                    points_to_add: points
+                }
+            );
+
+        if(error){
+            console.error("SUPABASE SCORE ERROR:", error);
+        }
+
+    }catch(err){
+
+        console.error("SUPABASE CONNECTION ERROR:", err);
+
+    }
+
+}
+
+
+const particleCanvas =
+    document.getElementById("factionParticles");
+
 const particleCanvas =
     document.getElementById("factionParticles");
 
