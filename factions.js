@@ -11,7 +11,50 @@ const supabaseClient =
         SUPABASE_ANON_KEY
     );
 
+/* =========================
+   SUPABASE FACTION SCORE
+========================= */
 
+async function addFactionScore(factionName, pointsToAdd){
+
+    console.log(
+        "ADDING FACTION SCORE:",
+        factionName,
+        pointsToAdd
+    );
+
+    const { data, error } =
+        await supabaseClient.rpc(
+            "add_faction_score",
+            {
+                faction_name: factionName,
+                points_to_add: pointsToAdd
+            }
+        );
+
+    if(error){
+
+        console.error(
+            "SUPABASE RPC ERROR:",
+            error
+        );
+
+        return false;
+
+    }
+
+    console.log(
+        "FACTION SCORE ADDED:",
+        factionName,
+        pointsToAdd,
+        data
+    );
+
+    // okamžitě znovu načteme scoreboard
+    await loadFactionScores();
+
+    return true;
+}
 async function loadFactionScores(){
 
     console.log("LOADING FACTION SCORES...");
