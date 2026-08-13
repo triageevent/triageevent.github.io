@@ -1074,6 +1074,13 @@ if(faction === "ubcs"){
 }else{
     stopGrenadeDrop(true);
 }
+    updateSampleVisibility(faction);
+
+if(faction === "uss"){
+    startSampleCollection();
+}else{
+    stopSampleCollection(true, false);
+}
     const chooseText = document.getElementById("chooseText");
     const factionTabs = document.getElementById("factionTabs");
 
@@ -1400,6 +1407,7 @@ function onLangApplied(lang){
 
     updateHordeButtonText();
     updateGrenadeButtonText();
+    updateSampleButtonText();
 
 }
 /* =========================
@@ -1857,5 +1865,199 @@ function toggleGrenadeDrop(){
     if(btn) btn.classList.add("terminated");
 
     updateGrenadeButtonText();
+
+}
+/* =========================
+   USS SAMPLE COLLECTION
+========================= */
+
+const sampleLayer = document.getElementById("sampleLayer");
+const sampleScoreValue = document.getElementById("sampleScoreValue");
+const sampleMissValue = document.getElementById("sampleMissValue");
+
+let sampleActive = false;
+let sampleStopped = false;
+let sampleSpawnTimeout = null;
+let sampleStartTime = 0;
+let sampleScore = 0;
+let sampleMisses = 0;
+
+const MAX_SAMPLE_MISSES = 10;
+
+
+function updateSampleVisibility(faction){
+
+    const score = document.getElementById("sampleScore");
+    const btn = document.getElementById("stopSampleBtn");
+
+    if(!score || !btn) return;
+
+    if(faction === "uss"){
+        score.classList.add("visible");
+        btn.classList.add("visible");
+    }else{
+        score.classList.remove("visible");
+        btn.classList.remove("visible");
+    }
+
+}
+
+function updateSampleScore(){
+    if(sampleScoreValue) sampleScoreValue.textContent = sampleScore;
+    if(sampleMissValue) sampleMissValue.textContent = sampleMisses;
+}
+
+function updateSampleButtonText(){
+
+    const btn = document.getElementById("stopSampleBtn");
+    if(!btn) return;
+
+    const lang = getLang();
+
+    if(sampleStopped){
+        btn.textContent = lang === "en" ? "COLLECTION STOPPED" : "SBĚR ZASTAVEN";
+    }else{
+        btn.textContent = lang === "en" ? "STOP SAMPLE COLLECTION" : "ZASTAVIT SBĚR VZORKŮ";
+    }
+
+}
+
+
+function spawnSample(){
+
+    const el = document.createElement("img");
+    el.className = "sample-item";
+    el.alt = "";
+
+    const isVaccine = Math.random() < 0.5;
+    el.src = isVaccine ? "vaccine.png" : "tvirus.png";
+
+    const points = isVaccine ? 50 : 100;
+
+    const width = 120;
+    const padding = 40;
+
+    const maxX = window.innerWidth - width - padding;
+    const maxY = window.innerHeight * 0.7 - padding;
+
+    const x = padding + Math.random() * Math.max(0, maxX - padding);
+    const y = padding + Math.random() * Math.max(0, maxY - padding);
+
+    el.style.left = x + "px";
+    el.style.top = y + "px";
+
+    sampleLayer.appendChild(el);
+
+    requestAnimationFrame(() => {
+        el.classList.add("visible");
+    });
+
+    const elapsed = performance.now() - sampleStartTime;
+    const baseDuration = 2200;
+    const minDuration = 900;
+    const visibleDuration = Math.max(minDuration, baseDuration - elapsed / 30);
+
+    let resolved = false;
+
+    const missTimeout = setTimeout(() => {
+
+        if(resolved) return;
+        resolved = true;
+
+        el.classList.remove("visible");
+
+        setTimeout(() => el.remove(), 400);
+
+        sampleMisses++;
+        updateSampleScore();
+
+        if(sampleMisses >= MAX_SAMPLE_MISSES){
+            stopSampleCollection(false, true);
+        }
+
+    }, visibleDuration);
+
+    el.addEventListener("click", () => {
+
+        if(resolved) return;
+        resolved = true;
+
+        clearTimeout(missTimeout);
+
+        sampleScore += points;
+        updateSampleScore();
+
+        el.classList.add("caught");
+        setTimeout(() => el.remove(), 220);
+
+    });
+
+}
+
+
+function sampleSpawnLoop(){
+
+    if(!sampleActive || sampleStopped) return;
+
+    spawnSample();
+
+    const elapsed = performance.now() - sampleStartTime;
+    const baseInterval = 1300;
+    const minInterval = 500;
+    const interval = Math.max(minInterval, baseInterval - elapsed / 35);
+
+    sampleSpawnTimeout = setTimeout(sampleSpawnLoop, interval);
+
+}
+
+
+function startSampleCollection(){
+
+    sampleActive = true;
+    sampleStopped = false;
+    sampleScore = 0;
+    sampleMisses = 0;
+    sampleStartTime = performance.now();
+
+    updateSampleScore();
+    updateSampleButtonText();
+
+    const btn = document.getElementById("stopSampleBtn");
+    if(btn) btn.classList.remove("terminated");
+
+    clearTimeout(sampleSpawnTimeout);
+    sampleSpawnLoop();
+
+}
+
+
+function stopSampleCollection(clearBoard, autoStopped){
+
+    sampleActive = false;
+    sampleStopped = true;
+
+    clearTimeout(sampleSpawnTimeout);
+
+    sampleLayer.querySelectorAll(".sample-item").forEach(el => el.remove());
+
+    const btn = document.getElementById("stopSampleBtn");
+    if(btn) btn.classList.add("terminated");
+
+    updateSampleButtonText();
+
+    if(clearBoard){
+        const score = document.getElementById("sampleScore");
+        if(score) score.classList.remove("visible");
+        if(btn) btn.classList.remove("visible");
+    }
+
+}
+
+
+function toggleSampleCollection(){
+
+    if(sampleStopped) return;
+
+    stopSampleCollection(false, false);
 
 }
