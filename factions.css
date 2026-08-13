@@ -2056,3 +2056,150 @@ function toggleHorde(){
 @media(max-width:600px){
     .sample-item{ width:75px; }
 }
+/* =========================
+   FACTION SCOREBOARD
+========================= */
+
+.faction-scoreboard{
+    width: min(520px, 90vw);
+    margin: 18px auto 0;
+    position: relative;
+    z-index: 20;
+}
+
+.scoreboard-toggle{
+
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 11px 16px;
+
+    background: rgba(0,0,0,.55);
+
+    border: 1px solid rgba(255,255,255,.18);
+
+    color: rgba(255,255,255,.85);
+
+    font-family: inherit;
+    font-size: 11px;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        border-color .2s ease;
+}
+
+.scoreboard-toggle:hover{
+
+    background: rgba(255,255,255,.08);
+
+    border-color:
+        rgba(255,255,255,.4);
+
+}
+
+#scoreboardArrow{
+
+    transition:
+        transform .25s ease;
+
+}
+
+.scoreboard-toggle.open #scoreboardArrow{
+
+    transform:
+        rotate(180deg);
+
+}
+
+
+.scoreboard-panel{
+
+    max-height: 0;
+    overflow: hidden;
+
+    opacity: 0;
+
+    background:
+        rgba(0,0,0,.72);
+
+    border-left:
+        1px solid rgba(255,255,255,.12);
+
+    border-right:
+        1px solid rgba(255,255,255,.12);
+
+    transition:
+        max-height .35s ease,
+        opacity .25s ease;
+}
+
+.scoreboard-panel.open{
+
+    max-height: 300px;
+
+    opacity: 1;
+
+}
+
+
+.scoreboard-row{
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 12px 18px;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.08);
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+}
+
+.scoreboard-row:last-child{
+
+    border-bottom: none;
+
+}
+
+.scoreboard-row span{
+
+    color: rgba(255,255,255,.75);
+
+}
+
+.scoreboard-row strong{
+
+    font-size: 15px;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* FACTION COLORS */
+
+.scoreboard-row.stars strong{
+    color: #6870c9;
+}
+
+.scoreboard-row.uss strong{
+    color: #b42d38;
+}
+
+.scoreboard-row.ubcs strong{
+    color: #a2a866;
+}
+
+.scoreboard-row.specops strong{
+    color: #c3a34a;
+}
