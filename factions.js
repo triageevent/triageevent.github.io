@@ -1422,6 +1422,8 @@ let hordeStopped = false;
 let hordeSpawnTimeout = null;
 let hordeStartTime = 0;
 let hordeScore = 0;
+let hordeMisses = 0;
+const MAX_HORDE_MISSES = 10;
 
 const zombieSprites = ["zombie1.png","zombie2.png","zombie3.png"];
 
@@ -1445,6 +1447,8 @@ function updateHordeVisibility(faction){
 
 function updateHordeScore(){
     if(hordeScoreValue) hordeScoreValue.textContent = hordeScore;
+    const missEl = document.getElementById("hordeMissValue");
+    if(missEl) missEl.textContent = hordeMisses;
 }
 
 function updateHordeButtonText(){
@@ -1495,29 +1499,35 @@ function spawnZombie(isBoss){
         el.style.transform = `translateY(-${window.innerHeight + 250}px)`;
     });
 
-    let removed = false;
-
-    const removeZombie = () => {
-        if(removed) return;
-        removed = true;
-        el.remove();
-    };
+    let decided = false;
 
     el.addEventListener("transitionend", (e) => {
-        if(e.propertyName === "transform"){
-            removeZombie();
+
+        if(e.propertyName !== "transform") return;
+        if(decided) return;
+
+        decided = true;
+        el.remove();
+
+        hordeMisses++;
+        updateHordeScore();
+
+        if(hordeMisses >= MAX_HORDE_MISSES){
+            toggleHorde();
         }
+
     });
 
     el.addEventListener("click", () => {
 
-        if(removed || hordeStopped) return;
+        if(decided || hordeStopped) return;
+        decided = true;
 
         hordeScore += points;
         updateHordeScore();
 
         el.classList.add("hit");
-        setTimeout(removeZombie, 220);
+        setTimeout(() => el.remove(), 220);
 
     });
 
@@ -1561,6 +1571,7 @@ function startZombieHorde(){
     hordeActive = true;
     hordeStopped = false;
     hordeScore = 0;
+    hordeMisses = 0;
     hordeStartTime = performance.now();
 
     updateHordeScore();
@@ -1671,6 +1682,8 @@ function updateGrenadeVisibility(faction){
 
 function updateGrenadeScore(){
     if(grenadeScoreValue) grenadeScoreValue.textContent = grenadeScore;
+    const missEl = document.getElementById("grenadeMissValue");
+    if(missEl) missEl.textContent = grenadeMisses;
 }
 
 
@@ -1758,8 +1771,21 @@ function grenadeLoop(now){
         }
 
         if(item.y > window.innerHeight + 60){
+
             item.el.remove();
             grenadeItems.splice(i, 1);
+
+            if(item.type !== "biohazard"){
+
+                grenadeMisses++;
+                updateGrenadeScore();
+
+                if(grenadeMisses >= MAX_GRENADE_MISSES){
+                    toggleGrenadeDrop();
+                }
+
+            }
+
         }
 
     }
@@ -1792,12 +1818,15 @@ function grenadeSpawnLoop(){
 
 
 let grenadeStopped = false;
+let grenadeMisses = 0;
+const MAX_GRENADE_MISSES = 10;
 
 function startGrenadeDrop(){
 
     grenadeActive = true;
     grenadeStopped = false;
     grenadeScore = 0;
+    grenadeMisses = 0;
     grenadeStartTime = performance.now();
 
     updateGrenadeScore();
