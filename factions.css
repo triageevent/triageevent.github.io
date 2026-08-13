@@ -2018,3 +2018,41 @@ function toggleHorde(){
     .grenade-drop{ width:48px; }
     .ubcs-basket{ width:110px; bottom:15px; }
 }
+/* =========================
+   USS SAMPLE COLLECTION
+========================= */
+
+.sample-layer{
+    position:fixed;
+    inset:0;
+    z-index:35;
+    pointer-events:none;
+    overflow:hidden;
+}
+
+.sample-item{
+    position:fixed;
+    width:120px;
+    height:auto;
+    pointer-events:auto;
+    cursor:crosshair;
+    opacity:0;
+    transition:opacity .4s ease, transform .2s ease;
+    filter:drop-shadow(0 0 12px rgba(0,0,0,.7));
+    user-select:none;
+    -webkit-user-drag:none;
+}
+
+.sample-item.visible{
+    opacity:1;
+}
+
+.sample-item.caught{
+    transition:transform .2s ease, opacity .2s ease !important;
+    transform:scale(1.4) !important;
+    opacity:0 !important;
+}
+
+@media(max-width:600px){
+    .sample-item{ width:75px; }
+}
