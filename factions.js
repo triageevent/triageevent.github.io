@@ -1,9 +1,6 @@
 const particleCanvas =
     document.getElementById("factionParticles");
 
-const particleCanvas =
-    document.getElementById("factionParticles");
-
 const particleCtx =
     particleCanvas.getContext("2d");
 
