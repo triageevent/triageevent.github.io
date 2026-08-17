@@ -240,12 +240,11 @@ function setAtmosphere(effect){
     }
 
     if(effect === "drone"){
-        particles = [];
-        particleCtx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
-        droneSpeedLevel = 0;
-        startDroneWander();
-        return;
-    }
+    particles = [];
+    particleCtx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
+    droneSpeedLevel = 0;
+    return;
+}
 
     createParticles(effect);
     drawParticles();
@@ -1204,27 +1203,7 @@ const uiText = {
 function changeFaction(faction){
 
     updateDroneScoreVisibility(faction);
-    updateHordeVisibility(faction);
-
-    if(faction === "stars"){
-        startZombieHorde();
-    }else{
-        stopZombieHorde(true);
-    }
-    updateGrenadeVisibility(faction);
-
-if(faction === "ubcs"){
-    startGrenadeDrop();
-}else{
-    stopGrenadeDrop(true);
-}
-    updateSampleVisibility(faction);
-
-if(faction === "uss"){
-    startSampleCollection();
-}else{
-    stopSampleCollection(true, false);
-}
+    stopAllMinigames();
     const chooseText = document.getElementById("chooseText");
     const factionTabs = document.getElementById("factionTabs");
 
@@ -1473,11 +1452,23 @@ function showFactionSection(section, btn){
     if(btn) btn.classList.add("active-tab");
 
     if(section === "intro"){
+        lastNonMinigameSection = "intro";
+        document.body.classList.remove("minigame-mode");
+        minigameOpen = false;
+        stopAllMinigames();
         renderIntro(factionIntroData, false);
     }
 
     if(section === "armory"){
+        lastNonMinigameSection = "armory";
+        document.body.classList.remove("minigame-mode");
+        minigameOpen = false;
+        stopAllMinigames();
         renderArmory(currentFaction);
+    }
+
+    if(section === "minigame"){
+        openMinigame(currentFaction);
     }
 
 }
@@ -1773,6 +1764,8 @@ function toggleHorde(){
 
     updateHordeButtonText();
 
+   triggerGameOver("stars");
+
 }
 /* =========================
    UBCS GRENADE CATCH
@@ -2048,6 +2041,8 @@ function toggleGrenadeDrop(){
 
     updateGrenadeButtonText();
 
+    triggerGameOver("ubcs");
+
 }
 /* =========================
    USS SAMPLE COLLECTION
@@ -2235,6 +2230,10 @@ function stopSampleCollection(clearBoard, autoStopped){
         if(btn) btn.classList.remove("visible");
     }
 
+    if(autoStopped){
+        triggerGameOver("uss");
+    }
+
 }
 
 
@@ -2257,5 +2256,84 @@ function toggleScoreboard(){
 
     toggle.classList.toggle("open");
     panel.classList.toggle("open");
+
+}
+/* =========================
+   MINIGAME MODE CONTROL
+========================= */
+
+let minigameOpen = false;
+let lastNonMinigameSection = "intro";
+
+const gameOverMessages = {
+    stars:   { cz:"SEŽRALI TĚ", en:"YOU GOT EATEN" },
+    ubcs:    { cz:"ZASÁHLO TĚ", en:"YOU MISSED TOO MANY" },
+    uss:     { cz:"KONTAMINACE", en:"CONTAMINATED" }
+};
+
+
+function openMinigame(faction){
+
+    minigameOpen = true;
+    document.body.classList.add("minigame-mode");
+
+    document.getElementById("minigameGameOver").classList.remove("active");
+
+    stopAllMinigames();
+
+    if(faction === "stars")   startZombieHorde();
+    if(faction === "ubcs")    startGrenadeDrop();
+    if(faction === "uss")     startSampleCollection();
+    if(faction === "specops") startDroneWander();
+
+}
+
+
+function closeMinigame(){
+
+    minigameOpen = false;
+    document.body.classList.remove("minigame-mode");
+
+    document.getElementById("minigameGameOver").classList.remove("active");
+
+    stopAllMinigames();
+
+    const tabBtn = document.querySelector(
+        `#factionTabs button[data-section="${lastNonMinigameSection}"]`
+    );
+
+    showFactionSection(lastNonMinigameSection, tabBtn);
+
+}
+
+
+function stopAllMinigames(){
+
+    stopZombieHorde(true);
+    stopGrenadeDrop(true);
+    stopSampleCollection(true, false);
+    stopDroneWander();
+
+}
+
+
+function triggerGameOver(faction){
+
+    const lang = getLang();
+    const msg = gameOverMessages[faction];
+
+    document.getElementById("gameOverText").textContent =
+        msg ? msg[lang] : (lang === "en" ? "GAME OVER" : "KONEC HRY");
+
+    document.getElementById("minigameGameOver").classList.add("active");
+
+}
+
+
+function replayCurrentMinigame(){
+
+    document.getElementById("minigameGameOver").classList.remove("active");
+
+    openMinigame(currentFaction);
 
 }
