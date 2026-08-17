@@ -2211,7 +2211,8 @@ body.minigame-mode .faction-title,
 body.minigame-mode .faction-options,
 body.minigame-mode .faction-tabs,
 body.minigame-mode .faction-content,
-body.minigame-mode .choose-text{
+body.minigame-mode .choose-text,
+body.minigame-mode .back-button{
     display:none !important;
 }
 
