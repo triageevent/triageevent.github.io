@@ -139,6 +139,10 @@
         ARMORY
     </button>
 
+    <button data-section="minigame" onclick="showFactionSection('minigame', this)" data-cz="MINIHRA" data-en="MINIGAME">
+        MINIGAME
+    </button>
+
 </div>
 
 
@@ -212,6 +216,14 @@
     data-en="STOP SAMPLE COLLECTION">
     STOP SAMPLE COLLECTION
 </button>
+    <button id="minigameCloseBtn" class="minigame-close" onclick="closeMinigame()">✕</button>
+
+<div id="minigameGameOver" class="minigame-gameover">
+    <div class="gameover-text" id="gameOverText">GAME OVER</div>
+    <button class="gameover-replay" onclick="replayCurrentMinigame()" data-cz="ZNOVU" data-en="PLAY AGAIN">
+        PLAY AGAIN
+    </button>
+</div>
 <div id="transition"></div>
 
 
