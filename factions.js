@@ -1308,7 +1308,7 @@ const armoryData = {
         { icon:"icons/grenade.png",  label:{cz:"GRANÁT",en:"GRENADE"}, note:{cz:"Pyrosoft\nTaggin\npružinové\nplynové",en:"Pyrosoft\nTaggin\nspring\ngas"}, joule:null, zone:"OS", mode:{cz:null,en:null} },
         { icon:"icons/lmg.png",      label:{cz:"KULOMET",en:"LMG"}, note:{cz:"20RPS max",en:"20RPS max"}, joule:"1,5J", zone:"OS", mode:{cz:"full auto",en:"full auto"} },
         { icon:"icons/launcher.png", label:{cz:"GRANÁTOMET",en:"GRENADE LAUNCHER"}, note:{cz:"Granátomet",en:"Grenade launcher"}, joule:null, zone:"CQB/OS", mode:{cz:"Greengas",en:"Greengas"} },
-        { icon:"icons/dmr.png",      label:{cz:"DMR",en:"DMR"}, tooltipDesc:{cz:"Designated Marksman Rifle — reálná předloha, optika, dvojnožka, lowcap zásobník",en:"Designated Marksman Rifle — real-world replica, optics, bipod, low-cap magazine"}, tooltipLink:"https://en.wikipedia.org/wiki/Category:Designated_marksman_rifles", note:{cz:"pouze nad 20m\nReálná předloha\nPouze se záložní pistolí",en:"20m+ only\nReal-world replica\nOnly with secondary pistol"}, joule:"2,5J", zone:"OS", mode:{cz:"semi",en:"semi"} }
+        { icon:"icons/dmr.png",      label:{cz:"DMR",en:"DMR"}, tooltipDesc:{cz:"Designated Marksman Rifle — reálná předloha, optika, lowcap zásobník",en:"Designated Marksman Rifle — real-world replica, optics, low-cap magazine"}, tooltipLink:"https://en.wikipedia.org/wiki/Category:Designated_marksman_rifles", note:{cz:"pouze nad 20m\nReálná předloha\nPouze se záložní pistolí",en:"20m+ only\nReal-world replica\nOnly with secondary pistol"}, joule:"2,5J", zone:"OS", mode:{cz:"semi",en:"semi"} }
     ],
 
     specops:[
