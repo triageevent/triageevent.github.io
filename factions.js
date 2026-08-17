@@ -1202,7 +1202,6 @@ const uiText = {
 
 function changeFaction(faction){
 
-    updateDroneScoreVisibility(faction);
     stopAllMinigames();
     const chooseText = document.getElementById("chooseText");
     const factionTabs = document.getElementById("factionTabs");
@@ -2286,6 +2285,8 @@ function openMinigame(faction){
     if(faction === "uss")     startSampleCollection();
     if(faction === "specops") startDroneWander();
 
+    updateMinigameScoreVisibility();
+
 }
 
 
@@ -2297,6 +2298,7 @@ function closeMinigame(){
     document.getElementById("minigameGameOver").classList.remove("active");
 
     stopAllMinigames();
+    updateMinigameScoreVisibility();
 
     const tabBtn = document.querySelector(
         `#factionTabs button[data-section="${lastNonMinigameSection}"]`
@@ -2335,5 +2337,43 @@ function replayCurrentMinigame(){
     document.getElementById("minigameGameOver").classList.remove("active");
 
     openMinigame(currentFaction);
+
+}
+function updateMinigameScoreVisibility(){
+
+    const specopsScore = document.getElementById("droneScore");
+    const starsScore = document.getElementById("hordeScore");
+    const starsBtn = document.getElementById("stopHordeBtn");
+    const ubcsScore = document.getElementById("grenadeScore");
+    const ubcsBtn = document.getElementById("stopGrenadeBtn");
+    const ussScore = document.getElementById("sampleScore");
+    const ussBtn = document.getElementById("stopSampleBtn");
+
+    [specopsScore, starsScore, starsBtn, ubcsScore, ubcsBtn, ussScore, ussBtn]
+        .forEach(el => { if(el) el.classList.remove("visible"); });
+
+    if(ubcsBasket) ubcsBasket.classList.remove("active");
+
+    if(!minigameOpen) return;
+
+    if(currentFaction === "specops" && specopsScore){
+        specopsScore.classList.add("visible");
+    }
+
+    if(currentFaction === "stars"){
+        if(starsScore) starsScore.classList.add("visible");
+        if(starsBtn) starsBtn.classList.add("visible");
+    }
+
+    if(currentFaction === "ubcs"){
+        if(ubcsScore) ubcsScore.classList.add("visible");
+        if(ubcsBasket) ubcsBasket.classList.add("active");
+        if(ubcsBtn) ubcsBtn.classList.add("visible");
+    }
+
+    if(currentFaction === "uss"){
+        if(ussScore) ussScore.classList.add("visible");
+        if(ussBtn) ussBtn.classList.add("visible");
+    }
 
 }
