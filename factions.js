@@ -1267,7 +1267,7 @@ const armoryData = {
         { icon:"icons/rifle.png",   label:{cz:"ÚTOČNÁ PUŠKA",en:"ASSAULT RIFLE"}, note:{cz:"20RPS max",en:"20RPS max"}, joule:"1,8J", zone:"OS", mode:{cz:"semi / full auto",en:"semi / full auto"} },
         { icon:"icons/grenade.png", label:{cz:"GRANÁT",en:"GRENADE"}, note:{cz:"Pyrosoft\nTaggin\npružinové\nplynové",en:"Pyrosoft\nTaggin\nspring\ngas"}, joule:null, zone:"OS", mode:{cz:null,en:null} },
         { icon:"icons/lmg.png",     label:{cz:"KULOMET",en:"LMG"}, note:{cz:"20RPS max",en:"20RPS max"}, joule:"1,5J", zone:"OS", mode:{cz:"full auto",en:"full auto"} },
-        { icon:"icons/shotgun.png", label:{cz:"BROKOVNICE",en:"SHOTGUN"}, note:{cz:null,en:null}, joule:"1,3J", zone:"CQB/OS", mode:{cz:null,en:null} },
+        { icon:"icons/shotgun.png", label:{cz:"BROKOVNICE",en:"SHOTGUN"}, note:{cz:"1/3/6ran",en:"1/3/6shots"}, joule:"1,3J", zone:"CQB/OS", mode:{cz:"semi",en:"semi"} },
         { icon:"icons/shield.png",  label:{cz:"ŠTÍT (S HLEDÍM)",en:"SHIELD (WITH VISOR)"}, note:{cz:"Pouze se záložní pistolí",en:"Only with a secondary pistol"}, joule:null, zone:"CQB/OS", mode:{cz:"semi",en:"semi"} }
     ],
 
@@ -1285,7 +1285,7 @@ const armoryData = {
         { icon:"icons/rifle.png",    label:{cz:"ÚTOČNÁ PUŠKA",en:"ASSAULT RIFLE"}, note:{cz:"20RPS max",en:"20RPS max"}, joule:"1,8J", zone:"OS", mode:{cz:"semi / full auto",en:"semi / full auto"} },
         { icon:"icons/grenade.png",  label:{cz:"GRANÁT",en:"GRENADE"}, note:{cz:"Pyrosoft\nTaggin\npružinové\nplynové",en:"Pyrosoft\nTaggin\nspring\ngas"}, joule:null, zone:"OS", mode:{cz:null,en:null} },
         { icon:"icons/lmg.png",      label:{cz:"KULOMET",en:"LMG"}, note:{cz:"20RPS max",en:"20RPS max"}, joule:"1,5J", zone:"OS", mode:{cz:"full auto",en:"full auto"} },
-        { icon:"icons/launcher.png", label:{cz:"GRANÁTOMET",en:"GRENADE LAUNCHER"}, note:{cz:"Granátomet",en:"Grenade launcher"}, joule:null, zone:"CQB/OS", mode:{cz:"Greengas",en:"Greengas"} },
+        { icon:"icons/launcher.png", label:{cz:"GRANÁTOMET",en:"GRENADE LAUNCHER"}, note:{cz:"v budovách pouze greengas patrony",en:"	in buildings only greengas shells"}, joule:null, zone:"CQB/OS", mode:{cz:"Greengas/Taggin/Pyrosoft",en:"Greengas/Taggin/Pyrosoft"} },
         { icon:"icons/dmr.png",      label:{cz:"DMR",en:"DMR"}, tooltipDesc:{cz:"Designated Marksman Rifle — reálná předloha, optika, lowcap zásobník",en:"Designated Marksman Rifle — real-world replica, optics, low-cap magazine"}, tooltipLink:"https://en.wikipedia.org/wiki/Category:Designated_marksman_rifles", note:{cz:"pouze nad 20m\nReálná předloha\nPouze se záložní pistolí",en:"20m+ only\nReal-world replica\nOnly with secondary pistol"}, joule:"2,5J", zone:"OS", mode:{cz:"semi",en:"semi"} }
     ],
 
